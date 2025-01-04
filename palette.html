@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Color Palette Preview</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* S'assure que le body occupe toute la hauteur de la page */
+        padding-top: 20px;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 90%;
+        max-width: 1400px; /* Largeur du container optimisée pour des écrans plus grands */
+        text-align: center;
+      }
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste la grille pour des écrans plus grands */
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .color-box {
+        padding: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+        text-align: center;
+      }
+      .color-box:hover {
+        transform: scale(1.05);
+      }
+      .color-box label {
+        font-size: 16px;
+        color: #fff;
+        margin-top: 10px;
+      }
+      .color-box span {
+        font-size: 14px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tailwind Color Palette Preview</h1>
+
+      <!-- Beige -->
+      <div class="section-title">Beige</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #faf7f0" onclick="copyColor('#FAF7F0')">
+          <label>Beige - 100</label><span>#FAF7F0</span>
+        </div>
+        <div class="color-box" style="background-color: #f3e8d4" onclick="copyColor('#F3E8D4')">
+          <label>Beige - 200</label><span>#F3E8D4</span>
+        </div>
+        <div class="color-box" style="background-color: #e8d7b5" onclick="copyColor('#E8D7B5')">
+          <label>Beige - 300</label><span>#E8D7B5</span>
+        </div>
+        <div class="color-box" style="background-color: #e0c6a4" onclick="copyColor('#E0C6A4')">
+          <label>Beige - 400</label><span>#E0C6A4</span>
+        </div>
+        <div class="color-box" style="background-color: #d8b98f" onclick="copyColor('#D8B98F')">
+          <label>Beige - 500</label><span>#D8B98F</span>
+        </div>
+        <div class="color-box" style="background-color: #c8a87d" onclick="copyColor('#C8A87D')">
+          <label>Beige - 600</label><span>#C8A87D</span>
+        </div>
+        <div class="color-box" style="background-color: #b78e69" onclick="copyColor('#B78E69')">
+          <label>Beige - 700</label><span>#B78E69</span>
+        </div>
+        <div class="color-box" style="background-color: #a67553" onclick="copyColor('#A67553')">
+          <label>Beige - 800</label><span>#A67553</span>
+        </div>
+        <div class="color-box" style="background-color: #9c6243" onclick="copyColor('#9C6243')">
+          <label>Beige - 900</label><span>#9C6243</span>
+        </div>
+      </div>
+      
+
+      <!-- Marron -->
+      <div class="section-title">Marron</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #e7dfdc" onclick="copyColor('#E7DFDC')">
+          <label>Marron - 100</label><span>#E7DFDC</span>
+        </div>
+        <div class="color-box" style="background-color: #cfc1b9" onclick="copyColor('#CFC1B9')">
+          <label>Marron - 200</label><span>#CFC1B9</span>
+        </div>
+        <div class="color-box" style="background-color: #b7a299" onclick="copyColor('#B7A299')">
+          <label>Marron - 300</label><span>#B7A299</span>
+        </div>
+        <div class="color-box" style="background-color: #9f8476" onclick="copyColor('#9F8476')">
+          <label>Marron - 400</label><span>#9F8476</span>
+        </div>
+        <div class="color-box" style="background-color: #876755" onclick="copyColor('#876755')">
+          <label>Marron - 500</label><span>#876755</span>
+        </div>
+        <div class="color-box" style="background-color: #6f4f40" onclick="copyColor('#6F4F40')">
+          <label>Marron - 600</label><span>#6F4F40</span>
+        </div>
+        <div class="color-box" style="background-color: #573c30" onclick="copyColor('#573C30')">
+          <label>Marron - 700</label><span>#573C30</span>
+        </div>
+        <div class="color-box" style="background-color: #281b16" onclick="copyColor('#281B16')">
+          <label>Marron - 800</label><span>#281B16</span>
+        </div>
+        <div class="color-box" style="background-color: #150d0b" onclick="copyColor('#150D0B')">
+          <label>Marron - 900</label><span>#150D0B</span>
+        </div>
+      </div>        
+
+      <!-- Gris -->
+      <div class="section-title">Gris</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #f8fafc" onclick="copyColor('#F8FAFC')">
+          <label>Gris - 100</label><span>#F8FAFC</span>
+        </div>
+        <div class="color-box" style="background-color: #edeff3" onclick="copyColor('#EDEFF3')">
+          <label>Gris - 200</label><span>#EDEFF3</span>
+        </div>
+        <div class="color-box" style="background-color: #e2e5eb" onclick="copyColor('#E2E5EB')">
+          <label>Gris - 300</label><span>#E2E5EB</span>
+        </div>
+        <div class="color-box" style="background-color: #d7dbe2" onclick="copyColor('#D7DBE2')">
+          <label>Gris - 400</label><span>#D7DBE2</span>
+        </div>
+        <div class="color-box" style="background-color: #d1d5db" onclick="copyColor('#D1D5DB')">
+          <label>Gris - 500</label><span>#D1D5DB</span>
+        </div>
+        <div class="color-box" style="background-color: #bcc0c7" onclick="copyColor('#BCC0C7')">
+          <label>Gris - 600</label><span>#BCC0C7</span>
+        </div>
+        <div class="color-box" style="background-color: #a8acb4" onclick="copyColor('#A8ACB4')">
+          <label>Gris - 700</label><span>#A8ACB4</span>
+        </div>
+        <div class="color-box" style="background-color: #9397a1" onclick="copyColor('#9397A1')">
+          <label>Gris - 800</label><span>#9397A1</span>
+        </div>
+        <div class="color-box" style="background-color: #7f838e" onclick="copyColor('#7F838E')">
+          <label>Gris - 900</label><span>#7F838E</span>
+        </div>
+      </div>
+
+      <!-- Terracotta -->
+      <div class="section-title">Terracotta</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #f9d0c4" onclick="copyColor('#F9D0C4')">
+          <label>Terracotta - 100</label><span>#F9D0C4</span>
+        </div>
+        <div class="color-box" style="background-color: #f5b1a1" onclick="copyColor('#F5B1A1')">
+          <label>Terracotta - 200</label><span>#F5B1A1</span>
+        </div>
+        <div class="color-box" style="background-color: #f0977f" onclick="copyColor('#F0977F')">
+          <label>Terracotta - 300</label><span>#F0977F</span>
+        </div>
+        <div class="color-box" style="background-color: #e77f5d" onclick="copyColor('#E77F5D')">
+          <label>Terracotta - 400</label><span>#E77F5D</span>
+        </div>
+        <div class="color-box" style="background-color: #e1643a" onclick="copyColor('#E1643A')">
+          <label>Terracotta - 500</label><span>#E1643A</span>
+        </div>
+        <div class="color-box" style="background-color: #d24a2d" onclick="copyColor('#D24A2D')">
+          <label>Terracotta - 600</label><span>#D24A2D</span>
+        </div>
+        <div class="color-box" style="background-color: #c0331e" onclick="copyColor('#C0331E')">
+          <label>Terracotta - 700</label><span>#C0331E</span>
+        </div>
+        <div class="color-box" style="background-color: #a92a16" onclick="copyColor('#A92A16')">
+          <label>Terracotta - 800</label><span>#A92A16</span>
+        </div>
+        <div class="color-box" style="background-color: #8f1f10" onclick="copyColor('#8F1F10')">
+          <label>Terracotta - 900</label><span>#8F1F10</span>
+        </div>
+      </div>
+      
+
+      <!-- Olive -->
+      <div class="section-title">Olive</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #d1d78b" onclick="copyColor('#D1D78B')">
+          <label>Olive - 100</label><span>#D1D78B</span>
+        </div>
+        <div class="color-box" style="background-color: #a4b25d" onclick="copyColor('#A4B25D')">
+          <label>Olive - 200</label><span>#A4B25D</span>
+        </div>
+        <div class="color-box" style="background-color: #7f9f30" onclick="copyColor('#7F9F30')">
+          <label>Olive - 300</label><span>#7F9F30</span>
+        </div>
+        <div class="color-box" style="background-color: #5d7f1d" onclick="copyColor('#5D7F1D')">
+          <label>Olive - 400</label><span>#5D7F1D</span>
+        </div>
+        <div class="color-box" style="background-color: #3b5f10" onclick="copyColor('#3B5F10')">
+          <label>Olive - 500</label><span>#3B5F10</span>
+        </div>
+        <div class="color-box" style="background-color: #2d4b0c" onclick="copyColor('#2D4B0C')">
+          <label>Olive - 600</label><span>#2D4B0C</span>
+        </div>
+        <div class="color-box" style="background-color: #1e3809" onclick="copyColor('#1E3809')">
+          <label>Olive - 700</label><span>#1E3809</span>
+        </div>
+        <div class="color-box" style="background-color: #132705" onclick="copyColor('#132705')">
+          <label>Olive - 800</label><span>#132705</span>
+        </div>
+        <div class="color-box" style="background-color: #0c1c02" onclick="copyColor('#0C1C02')">
+          <label>Olive - 900</label><span>#0C1C02</span>
+        </div>
+      </div>
+
+      <!-- Purple -->
+      <div class="section-title">Purple</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #f3e8ff" onclick="copyColor('#F3E8FF')">
+          <label>Purple - 100</label><span>#F3E8FF</span>
+        </div>
+        <div class="color-box" style="background-color: #d1bbff" onclick="copyColor('#D1BBFF')">
+          <label>Purple - 200</label><span>#D1BBFF</span>
+        </div>
+        <div class="color-box" style="background-color: #b28fff" onclick="copyColor('#B28FFF')">
+          <label>Purple - 300</label><span>#B28FFF</span>
+        </div>
+        <div class="color-box" style="background-color: #9c6bff" onclick="copyColor('#9C6BFF')">
+          <label>Purple - 400</label><span>#9C6BFF</span>
+        </div>
+        <div class="color-box" style="background-color: #7e3ff3" onclick="copyColor('#7E3FF3')">
+          <label>Purple - 500</label><span>#7E3FF3</span>
+        </div>
+        <div class="color-box" style="background-color: #6a29d6" onclick="copyColor('#6A29D6')">
+          <label>Purple - 600</label><span>#6A29D6</span>
+        </div>
+        <div class="color-box" style="background-color: #5b1aab" onclick="copyColor('#5B1AAB')">
+          <label>Purple - 700</label><span>#5B1AAB</span>
+        </div>
+        <div class="color-box" style="background-color: #4e1490" onclick="copyColor('#4E1490')">
+          <label>Purple - 800</label><span>#4E1490</span>
+        </div>
+        <div class="color-box" style="background-color: #400b77" onclick="copyColor('#400B77')">
+          <label>Purple - 900</label><span>#400B77</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function copyColor(color) {
+        const el = document.createElement('textarea')
+        el.value = color
+        document.body.appendChild(el)
+        el.select()
+        document.execCommand('copy')
+        document.body.removeChild(el)
+        alert('Color copied: ' + color)
+      }
+    </script>
+  </body>
+</html>
