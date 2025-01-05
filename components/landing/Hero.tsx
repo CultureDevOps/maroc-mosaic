@@ -16,11 +16,10 @@ export default async function Hero({ params: { locale } }: Props) {
       <Image
         src={heroBackgroundImg}
         alt="Hero background"
-        layout="fill"
-        objectFit="cover"
+        fill
         quality={90}
         priority
-        className="z-[-1] pointer-events-none" // Masque pour simuler un fond
+        className="object-cover pointer-events-none z-[-1]" // Masque pour simuler un fond
       />
     </div>
   )
