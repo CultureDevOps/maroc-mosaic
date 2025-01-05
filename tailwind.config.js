@@ -121,7 +121,7 @@ module.exports = {
             'h1,h2,h3,h4,h5,h6': {
               fontFamily: theme('fontFamily.headings'), 
               textShadow: '2px 2px 4px rgba(156, 163, 175, 0.8)',
-              color: theme('colors.primary.900'),
+              color: theme('colors.primary.700'),
             },
             strong: {
               textShadow: '1px 1px 1px rgba(156, 163, 175, 0.8)',
