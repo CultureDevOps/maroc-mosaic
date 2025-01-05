@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/assets/logo.png',
   socialBanner: '/static/images/pages/fontaine-02-enhanced.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'culturedevops@gmail.com',
+  email: 'contact@marocmosaic.com',
   github: 'https://github.com',
   x: 'https://x.com',
   // twitter: 'https://twitter.com/Twitter',
