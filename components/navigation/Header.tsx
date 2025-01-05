@@ -61,7 +61,7 @@ const Header = () => {
     <header>
       <div className="backdrop-blur-sm 
                       bg-primary-800
-                      border-b border-white/40 dark:border-gray-700/40
+                      border-b border-primary-900
                       shadow-xl shadow-gray-950 transition-shadow duration-300">
         <SectionContainer>
           <div className="flex justify-between items-center py-2">
