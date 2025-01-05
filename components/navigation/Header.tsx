@@ -85,7 +85,7 @@ const Header = () => {
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="text-xl lg:text-2xl md:text-md font-logo antialiased whitespace-nowrap 
                                   hidden md:block max-w-xs lg:max-w-sm text-white
-                                  text-shadow text-shadow-black">
+                                  text-shadow text-shadow-black pb-3">
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
