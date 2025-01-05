@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://denis.culturedevops.com',
   siteRepo: 'https://github.com/',
   siteLogo: '/static/images/assets/logo.png',
-  socialBanner: '/static/images/assets/x-card-04.png',
+  socialBanner: '/static/images/pages/fontaine-02-enhanced.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'culturedevops@gmail.com',
   github: 'https://github.com',
