@@ -157,7 +157,7 @@ const Header = () => {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
-                  fill="currentColor"
+                  fill="white"
                   className="h-8 w-8"
                 >
                   <path
