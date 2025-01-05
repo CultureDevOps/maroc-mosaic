@@ -10,11 +10,16 @@ interface ImageWithFancyboxProps extends ImageProps {
 const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) => {
   const isExternal = src.startsWith('http'); // Vérifie si l'URL est externe
 
-  // const cloudFrontUrl = process.env.CLOUD_FRONT_URL;
-  // let href = isExternal ? src : `${cloudFrontUrl}${src}`;
-  // if (!isExternal && !href.includes('?format=')) {
-  //   href += '?format=auto';
-  // }
+  // Génère une URL optimisée pour les images internes
+  const generateOptimizedSrc = (src: string): string => {
+    if (isExternal) return src; // Pas d'optimisation pour les images externes
+
+    const basePath = process.env.NEXT_PUBLIC_NEXT_IMAGE_OPTIMIZATION_BASE || '';
+    return `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75`;
+  };
+
+  // Génère la source optimisée pour FancyBox
+  const optimizedSrc = generateOptimizedSrc(src);
 
   const shadow = noShadow ? "" : "shadow-xl shadow-gray-400 dark:shadow-gray-950"
 
@@ -41,7 +46,7 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
     <div 
       className="fancybox-wrapper" 
       data-fancybox="gallery" 
-      data-src={src} 
+      data-src={optimizedSrc} 
       aria-label={alt}
       role="button" // Indique qu'il s'agit d'un bouton pour l'accessibilité
       tabIndex={0}  // Rend focusable
