@@ -149,9 +149,22 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => {
         const imageList = typeof doc.images === 'string' ? [doc.images] : doc.images;
-        const imageUrl = imageList?.[0]
-          ? `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${imageList[0]}`
-          : `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${siteMetadata.socialBanner}`;
+        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl; // URL du site
+        interface OptimizedUrlOptions {
+          width?: number;
+          format?: string;
+        }
+        // Fonction utilitaire pour générer une URL optimisée
+        const generateOptimizedUrl = (imagePath, options: OptimizedUrlOptions = {}) => {
+          const { width = 800, format = 'webp' } = options;
+          const params = new URLSearchParams({
+            w: width.toString(),
+            fmt: format,
+          }).toString();
+          return `${baseUrl}${imagePath}?${params}`;
+        };
+        const imagePath = imageList?.[0] ?? siteMetadata.socialBanner;
+        const imageUrl = generateOptimizedUrl(imagePath, { width: 1200, format: 'webp' });
         return {
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',
