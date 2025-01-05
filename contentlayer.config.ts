@@ -149,15 +149,10 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => {
         const imageList = typeof doc.images === 'string' ? [doc.images] : doc.images;
-        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl; // URL du site
-        interface OptimizedUrlOptions {
-          width?: number;
-          format?: string;
-        }
         // Fonction utilitaire pour générer une URL optimisée
         const generateOptimizedUrl = (src: string): string => {     
           const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
-          return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
+          return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=800&q=75`
         };
         const imagePath = imageList?.[0] ?? siteMetadata.socialBanner;
         const imageUrl = generateOptimizedUrl(imagePath);
