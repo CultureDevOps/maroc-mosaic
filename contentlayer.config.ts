@@ -155,16 +155,12 @@ export const Blog = defineDocumentType(() => ({
           format?: string;
         }
         // Fonction utilitaire pour générer une URL optimisée
-        const generateOptimizedUrl = (imagePath, options: OptimizedUrlOptions = {}) => {
-          const { width = 800, format = 'webp' } = options;
-          const params = new URLSearchParams({
-            w: width.toString(),
-            fmt: format,
-          }).toString();
-          return `${baseUrl}${imagePath}?${params}`;
+        const generateOptimizedUrl = (src: string): string => {     
+          const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
+          return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
         };
         const imagePath = imageList?.[0] ?? siteMetadata.socialBanner;
-        const imageUrl = generateOptimizedUrl(imagePath, { width: 1200, format: 'webp' });
+        const imageUrl = generateOptimizedUrl(imagePath);
         return {
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',

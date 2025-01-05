@@ -1,5 +1,6 @@
 'use client'
 import NextImage, { ImageProps } from "next/image";
+import siteMetadata from '@/data/siteMetadata'
 
 interface ImageWithFancyboxProps extends ImageProps {
   src: string; // Source obligatoire
@@ -14,7 +15,7 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
   const generateOptimizedSrc = (src: string): string => {
     if (isExternal) return src; // Pas d'optimisation pour les images externes
 
-    const basePath = process.env.NEXT_PUBLIC_NEXT_IMAGE_OPTIMIZATION_BASE || '';
+    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
     return `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75`;
   };
 

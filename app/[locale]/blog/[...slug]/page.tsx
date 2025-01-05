@@ -78,8 +78,9 @@ export async function generateMetadata({
     imageList = typeof post.images === 'string' ? [post.images] : post.images
   }
   const ogImages = imageList.map((img) => {
+    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;
     return {
-      url: img.includes('http') ? img : process.env.CLOUD_FRONT_URL + img + '?format=auto&width=1200',
+      url: img.includes('http') ? img : `${basePath}/_next/image?url=${encodeURIComponent(img)}&w=800&q=75`,
     }
   })
 
