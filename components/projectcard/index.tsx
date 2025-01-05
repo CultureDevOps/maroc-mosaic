@@ -60,7 +60,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
             />
           ))}
         <div className="p-6">
-          <h2 className="mb-3 text-2xl text-heading font-bold leading-8 tracking-tight
+          <h2 className="mb-3 text-2xl text-heading font-headings font-bold leading-8 tracking-tight
                         hover:text-secondary-600 dark:hover:text-secondary-400">
             {href ? (
               <Link
@@ -73,7 +73,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
               title
             )}
           </h2>
-          <p className="prose mb-3 max-w-none text-gray-600 dark:text-gray-400">{description}</p>
+          <p className="prose mb-3 max-w-none text-gray-700 dark:text-gray-400">{description}</p>
           {href && (
             <Link
               href={href.startsWith('http') ? href : `/${locale}${href}`}

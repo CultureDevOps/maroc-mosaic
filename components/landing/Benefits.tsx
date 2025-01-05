@@ -22,11 +22,11 @@ function Benefits ({params: { locale } }: Props) {
       <div className="divide-y">        
         <Container className="mx-auto px-4 py-12">
           <div className="mb-10 mx-auto">
-            <h1 className="text-3xl lg:text-4xl font-bold text-heading font-headings text-center dark:text-white
+            <h1 className="text-3xl lg:text-4xl font-bold text-heading font-logo text-center dark:text-white
                           text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
               {t('title')}
             </h1>
-            <p className="mt-4 text-lg lg:text-xl text-primary-800 dark:text-primary-100">
+            <p className="mt-4 text-lg lg:text-xl font-medium text-gray-700 dark:text-primary-100">
               {t('title_description')}
             </p>
           </div>      
