@@ -197,6 +197,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             <div
                               className="relative w-full h-auto overflow-hidden rounded-lg 
                                   border border-gray-200 dark:border-gray-700"
+                              style={{ aspectRatio: "2 / 1" }}
                             >
                               {/* Version desktop par défaut */}
                               <Image
@@ -223,8 +224,8 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                           <div className="space-y-3">
                             <h2
                               className="text-2xl font-bold leading-8 tracking-tight font-headings antialiased
-                                            text-gray-900 dark:text-gray-100 group-hover:text-primary-600 
-                                            dark:group-hover:text-primary-400 text-shadow text-shadow-gray-400/80 dark:text-shadow-black"
+                                            text-primary-700 dark:text-primary-300 group-hover:text-secondary-600 
+                                            dark:group-hover:text-secondary-400 text-shadow text-shadow-gray-400/80 dark:text-shadow-black"
                             >
                               {title}
                             </h2>
