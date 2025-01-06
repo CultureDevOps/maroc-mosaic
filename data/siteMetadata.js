@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://maroc-mosaic.vercel.app',
   siteRepo: 'https://github.com/',
   siteLogo: '/static/images/assets/logo.png',
-  socialBanner: '/static/images/pages/fontaine-02-enhanced.png',
+  socialBanner: '/static/images/assets/fontaine-02-enhanced.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'contact@marocmosaic.com',
   github: 'https://github.com',

@@ -43,11 +43,12 @@ const amiriQuran = Amiri_Quran({
 })
 
 export async function generateMetadata({ params: { locale } }): Promise<Metadata> {
-  const generateOptimizedUrl = (src: string): string => {     
-    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
-    return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
-  };
-  const imageUrl = generateOptimizedUrl(siteMetadata.socialBanner);
+  // const generateOptimizedUrl = (src: string): string => {     
+  //   const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
+  //   return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
+  // };
+  // const imageUrl = generateOptimizedUrl(siteMetadata.socialBanner);
+  const imageUrl = `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${siteMetadata.socialBanner}?format=auto&width=1200`;
   return {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {

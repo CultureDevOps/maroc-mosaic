@@ -149,13 +149,16 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => {
         const imageList = typeof doc.images === 'string' ? [doc.images] : doc.images;
-        // Fonction utilitaire pour générer une URL optimisée
-        const generateOptimizedUrl = (src: string): string => {     
-          const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
-          return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
-        };
-        const imagePath = imageList?.[0] ?? siteMetadata.socialBanner;
-        const imageUrl = generateOptimizedUrl(imagePath);
+        // // Fonction utilitaire pour générer une URL optimisée
+        // const generateOptimizedUrl = (src: string): string => {     
+        //   const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
+        //   return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
+        // };
+        // const imagePath = imageList?.[0] ?? siteMetadata.socialBanner;
+        // const imageUrl = generateOptimizedUrl(imagePath);
+        const imageUrl = imageList?.[0]
+        ? `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${imageList[0]}?format=auto&width=1200`
+        : `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${siteMetadata.socialBanner}?format=auto&width=1200`;
         return {
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',

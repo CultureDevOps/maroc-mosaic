@@ -11,16 +11,22 @@ interface ImageWithFancyboxProps extends ImageProps {
 const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) => {
   const isExternal = src.startsWith('http'); // Vérifie si l'URL est externe
 
-  // Génère une URL optimisée pour les images internes
-  const generateOptimizedSrc = (src: string): string => {
-    if (isExternal) return src; // Pas d'optimisation pour les images externes
+  // // Génère une URL optimisée pour les images internes
+  // const generateOptimizedSrc = (src: string): string => {
+  //   if (isExternal) return src; // Pas d'optimisation pour les images externes
 
-    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
-    return `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75`;
-  };
+  //   const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
+  //   return `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75`;
+  // };
 
-  // Génère la source optimisée pour FancyBox
-  const optimizedSrc = generateOptimizedSrc(src);
+  // // Génère la source optimisée pour FancyBox
+  // const optimizedSrc = generateOptimizedSrc(src);
+
+  const cloudFrontUrl = process.env.CLOUD_FRONT_URL;
+  let optimizedSrc = isExternal ? src : `${cloudFrontUrl}${src}`;
+  if (!isExternal && !optimizedSrc.includes('?format=')) {
+    optimizedSrc += '?format=auto';
+  }
 
   const shadow = noShadow ? "" : "shadow-xl shadow-gray-400 dark:shadow-gray-950"
 

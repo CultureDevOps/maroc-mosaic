@@ -46,6 +46,9 @@ const securityHeaders = [
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  env: {
+    CLOUD_FRONT_URL: process.env.NODE_ENV==="development" ? '' : process.env.NEXT_PUBLIC_CLOUD_FRONT_URL,
+  },  
   compress: true,  
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -53,6 +56,15 @@ const nextConfig = {
     dirs: ['app', 'components', 'layouts', 'scripts'],
   },
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'd1k9857a1f7wuk.cloudfront.net',
+        pathname: '**',
+      },
+    ],
+    loader: process.env.NODE_ENV==="development" ? 'default' : 'custom',
+    loaderFile: process.env.NODE_ENV==="development" ? '' : './components/loader/cloudfrontLoader.ts',
     formats: ['image/avif', 'image/webp'],
   },
   async headers() {
