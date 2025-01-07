@@ -201,8 +201,8 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             >
                               {/* Version desktop par défaut */}
                               <Image
-                                width={1600}
-                                height={400}
+                                width={2912}
+                                height={1632}
                                 src={post.banner}
                                 alt={`${post.title} banner`}
                                 sizes="100vw"
