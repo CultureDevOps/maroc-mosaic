@@ -27,6 +27,9 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
   if (!isExternal && !optimizedSrc.includes('?format=')) {
     optimizedSrc += '?format=auto';
   }
+  if (!isExternal && !optimizedSrc.includes('width=')) {
+    optimizedSrc += '?width=1920';
+  }  
 
   const shadow = noShadow ? "" : "shadow-xl shadow-gray-400 dark:shadow-gray-950"
 
