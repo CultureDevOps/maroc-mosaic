@@ -139,7 +139,6 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
 
   return (
     <>
-      <div>
         <div className="flex space-x-6 lg:space-x-8">
           <div
             className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-2xl
@@ -263,17 +262,18 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
               }
             })}
           </ul>
-          {/* </motion.ul> */}
-          {totalPages > 1 && (
-            <Pagination
-              totalPages={totalPages}
-              currentPage={currentPage}
-              onPageChange={onPageChange}
-              params={{ locale: locale }}
-            />
-          )}
         </div>
-      </div>
+        {/* </motion.ul> */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-4">
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={onPageChange}
+            params={{ locale: locale }}
+          />
+          </div>
+        )}  
     </>
   )
 }

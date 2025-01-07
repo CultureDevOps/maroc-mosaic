@@ -31,14 +31,14 @@ export default function Pagination({
 
   return (
     <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-      <nav className="flex justify-between">
+      <nav className="flex justify-between space-x-4">
         {!prevPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
             {t('prevp')}
           </button>
         )}
         {prevPage && <button onClick={handlePrevPage}> {t('prevp')}</button>}
-        <span>
+        <span className="mx-4">
           {currentPage} of {totalPages}
         </span>
         {!nextPage && (
