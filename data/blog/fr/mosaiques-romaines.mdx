@@ -1,0 +1,51 @@
+---
+title: Les mosaïques romaines
+date: '2025-01-07'
+language: fr
+tags: ['mosaic', 'rome']
+authors: ['default']
+draft: false
+summary: C'est une mosaïque de petits cubes (tesselles) de marbre...
+featured: true
+banner: '/static/images/pages/mosaiques-romaines/mosaique-04.png'
+images: '/static/images/pages/mosaiques-romaines/mosaique-04.png'
+---
+C'est une mosaïque de petits cubes (tesselles) de marbre, de pierre ou travertin de sections différentes 
+(5 mm à 20 mm). Elle peut décorer les sols, les murs et les coupoles. Les mosaïstes de l'empire Romain en ont posé des 
+surfaces impressionnantes tout autour de la méditerranée dans les bains, les atriums et les pièces prestigieuses des 
+villas Patriciennes. On en retrouve de très belles dans l'ancienne citée de Volubilis au Maroc.
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+  {[
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-01.png", alt: "mosaique-01" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-02.png", alt: "mosaique-02" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-03.png", alt: "mosaique-03" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-04.png", alt: "mosaique-04" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-05.png", alt: "mosaique-05" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-06.png", alt: "mosaique-06" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-07.png", alt: "mosaique-07" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-08.png", alt: "mosaique-08" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-09.png", alt: "mosaique-09" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-10.png", alt: "mosaique-10" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-11.png", alt: "mosaique-11" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-12.png", alt: "mosaique-12" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-13.png", alt: "mosaique-13" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-14.png", alt: "mosaique-14" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-15.png", alt: "mosaique-15" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-16.png", alt: "mosaique-16" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-17.png", alt: "mosaique-17" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-18.png", alt: "mosaique-18" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-19.png", alt: "mosaique-19" },
+    { src: "/static/images/pages/mosaiques-romaines/mosaique-20.png", alt: "mosaique-20" },
+  ].map((image, index) => (
+    <div key={index} className="rounded-lg">
+      <FancyBoxImage
+        src={image.src}
+        alt={image.alt}
+        width={2912}
+        height={1632}
+        className="w-full h-full object-cover"
+      />
+    </div>
+  ))}
+</div>
