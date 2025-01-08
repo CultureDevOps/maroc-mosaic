@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Maroc Mosaic',
-  author: 'Denis Gabriel',
+  author: 'Maroc Mosaic',
   headerTitle: 'Maroc Mosaic',
   description: 'A blog created with Next.js, i18n and Tailwind.css',
   language: 'fr',
