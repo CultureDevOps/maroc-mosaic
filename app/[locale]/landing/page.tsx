@@ -13,7 +13,7 @@ interface LandingProps {
 }
 
 export async function generateMetadata({ params: { locale } }: LandingProps): Promise<Metadata> {
-  const { t } = await createTranslation(locale, 'home')
+  const { t } = await createTranslation(locale, 'hero')
   return genPageMetadata({
     title: t('title'),
     params: { locale: locale },
