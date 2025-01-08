@@ -83,32 +83,32 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
               </i>
             ),
           },
-          {
-            id: 'blog',
-            name: locale === fallbackLng ? 'Blog' : 'Blog',
-            keywords: '',
-            shortcut: ['b'],
-            section: navigationSection,
-            perform: () => router.push(`/${locale}/blog`),
-            icon: (
-              <i>
-                <BlogIcon />
-              </i>
-            ),
-          },
-          {
-            id: 'tags',
-            name: locale === fallbackLng ? 'Tags' : 'Tags',
-            keywords: '',
-            shortcut: ['t'],
-            section: navigationSection,
-            perform: () => router.push(`/${locale}/tags`),
-            icon: (
-              <i>
-                <TagsIcon />
-              </i>
-            ),
-          },
+          // {
+          //   id: 'blog',
+          //   name: locale === fallbackLng ? 'Blog' : 'Blog',
+          //   keywords: '',
+          //   shortcut: ['b'],
+          //   section: navigationSection,
+          //   perform: () => router.push(`/${locale}/blog`),
+          //   icon: (
+          //     <i>
+          //       <BlogIcon />
+          //     </i>
+          //   ),
+          // },
+          // {
+          //   id: 'tags',
+          //   name: locale === fallbackLng ? 'Tags' : 'Tags',
+          //   keywords: '',
+          //   shortcut: ['t'],
+          //   section: navigationSection,
+          //   perform: () => router.push(`/${locale}/tags`),
+          //   icon: (
+          //     <i>
+          //       <TagsIcon />
+          //     </i>
+          //   ),
+          // },
           // {
           //   id: 'projects',
           //   name: locale === fallbackLng ? 'Projects' : 'Projets',

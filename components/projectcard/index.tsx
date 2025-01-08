@@ -44,7 +44,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
                 alt={title}
                 title={title}
                 src={imgSrc}
-                className="object-cover"
+                className="object-cover rounded-lg"
                 width={544}
                 height={306}
               />
@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
               alt={title}
               title={title}
               src={imgSrc}
-              className="object-cover"
+              className="object-cover rounded-lg"
               width={544}
               height={306}
             />
