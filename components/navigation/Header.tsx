@@ -14,6 +14,7 @@ import type { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import SectionContainer from '../SectionContainer'
+import PostsMenu from './PostsMenu'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
@@ -59,40 +60,39 @@ const Header = () => {
 
   return (
     <header>
-      <div className="backdrop-blur-sm 
-                      bg-primary-800
+      <div className="bg-primary-800
                       border-b border-primary-900
                       shadow-xl shadow-gray-950 transition-shadow duration-300">
         <SectionContainer>
           <div className="flex justify-between items-center py-2">
-              <Link 
-                href={`/${locale}/`} 
-                aria-label={siteMetadata.headerTitle} 
-                className="flex items-center w-full space-x-3 flex-grow mr-4"
-              >
-                <div className="block sm:hidden xl:block flex-shrink-0">
-                    <Image 
-                      alt="logo" 
-                      src={siteMetadata.siteLogo ?? ''} 
-                      width={40} 
-                      height={40} 
-                      priority={true}
-                      sizes="(min-width: 768px) 60px, 40px" 
-                      className="object-contain"                                
-                      quality={80}                  
-                    />
-                  </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="text-xl lg:text-2xl md:text-md font-logo antialiased whitespace-nowrap 
+            <Link
+              href={`/${locale}/`}
+              aria-label={siteMetadata.headerTitle}
+              className="flex items-center w-full space-x-3 flex-grow mr-4"
+            >
+              <div className="block sm:hidden xl:block flex-shrink-0">
+                <Image
+                  alt="logo"
+                  src={siteMetadata.siteLogo ?? ''}
+                  width={40}
+                  height={40}
+                  priority={true}
+                  sizes="(min-width: 768px) 60px, 40px"
+                  className="object-contain"
+                  quality={80}
+                />
+              </div>
+              {typeof siteMetadata.headerTitle === 'string' ? (
+                <div className="text-xl lg:text-2xl md:text-md font-logo antialiased whitespace-nowrap 
                                   hidden md:block max-w-xs lg:max-w-sm text-white
                                   text-shadow text-shadow-black pb-3">
-                    {siteMetadata.headerTitle}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle
-                )}
+                  {siteMetadata.headerTitle}
+                </div>
+              ) : (
+                siteMetadata.headerTitle
+              )}
 
-              </Link>
+            </Link>
             <div className="flex items-center space-x-4 leading-5 sm:space-x-6 font-headings antialiased">
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
@@ -112,8 +112,8 @@ const Header = () => {
                     >
                       <div
                         className={`hidden font-medium ${isSelected
-                            ? 'text-secondary-500'
-                            : 'text-white hover:text-secondary-500'
+                          ? 'text-secondary-500'
+                          : 'text-white hover:text-secondary-500'
                           } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
                       >
                         <span className="relative z-10 font-bold text-shadow text-shadow-black">
@@ -137,6 +137,7 @@ const Header = () => {
 
                   )
                 })}
+              <PostsMenu /> {/* Intégration du menu déroulant */}
               {/* <AuthorsMenu className="hidden sm:block" /> */}
               {/* <div className="hidden md:flex items-center space-x-4"> */}
               <SearchButton />
