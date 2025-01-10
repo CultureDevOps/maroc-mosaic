@@ -62,7 +62,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               focus
                   ? 'bg-primary-400/50 dark:bg-primary-500/50'
                   : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/50'
-              } group flex w-full items-start gap-1 p-1 rounded-md 
+              } group flex w-full items-start gap-1 p-4 rounded-md 
               hover:backdrop-blur-sm group      
               `}
             >
