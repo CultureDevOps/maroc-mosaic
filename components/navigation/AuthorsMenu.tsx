@@ -67,9 +67,8 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
         <MenuItem>
           {({ focus }) => (
             <div
-              className={`${
-                focus ? 'bg-gray-100 dark:bg-gray-600' : 'hover:bg-gray-100 dark:hover:bg-gray-600'
-              } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
+              className={`${focus ? 'bg-gray-100 dark:bg-gray-600' : 'hover:bg-gray-100 dark:hover:bg-gray-600'
+                } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
             >
               <div className="mr-2">
                 <Image
@@ -102,11 +101,10 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
                 onClick={toggleMenu}
               >
                 <div
-                  className={`hidden font-medium ${
-                    isSelected
+                  className={`hidden font-medium ${isSelected
                       ? 'text-heading-500'
                       : 'text-gray-600 hover:text-gray-900 dark:hover:text-gray-100'
-                  } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
+                    } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                 >
                   <span className="relative z-10">{t('about')}</span>
                   {isSelected && (
@@ -145,31 +143,47 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
           </Menu>
         </div>
       ) : (
-        <div className={className}>
-          {mainAuthor.map((author) => {
-            const { name, slug } = author
-            return (
-              <Link
-                href={`/${locale}/about/${slug}`}
-                key={name}
-                className={`${
-                  isSelected
-                    ? 'text-white'
-                    : 'text-gray-600 hover:text-gray-900 dark:hover:text-gray-100'
-                } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
-              >
-                <span className="relative z-10">{t('about')}</span>
-                {isSelected && (
-                  <motion.span
-                    layoutId="tab"
-                    transition={{ type: 'spring', duration: 0.4 }}
-                    className="absolute inset-0 z-0 rounded-md bg-heading-500"
-                  ></motion.span>
-                )}
-              </Link>
-            )
-          })}
+<div className={className}>
+  {mainAuthor.map((author) => {
+    const { name, slug } = author
+
+    return (
+      <Link
+        href={`/${locale}/about/${slug}`}
+        key={name}
+        className="flex transform-gpu items-center 
+                   space-x-1 transition-transform duration-300
+                   whitespace-nowrap text-md font-medium"
+        aria-label={name}
+      >
+        <div
+          className={`hidden font-medium ${isSelected
+            ? 'text-secondary-500'
+            : 'text-white hover:text-secondary-500'
+            } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+        >
+          <span className="relative z-10 font-bold text-shadow text-shadow-black">
+            {t('about')}
+          </span>
+          {isSelected && (
+            <motion.div
+              layoutId="tab"
+              transition={{
+                type: 'spring',
+                duration: 0.4,
+                damping: 25,
+                stiffness: 300,
+              }}
+              className="absolute inset-0 z-0 rounded-md shadow-md border border-white/10
+                        shadow-lg shadow-gray-950"
+            ></motion.div>
+          )}
         </div>
+      </Link>
+    )
+  })}
+</div>
+
       )}
     </>
   )

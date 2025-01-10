@@ -15,6 +15,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import SectionContainer from '../SectionContainer'
 import PostsMenu from './PostsMenu'
+import AuthorsMenu from './AuthorsMenu'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
@@ -138,7 +139,7 @@ const Header = () => {
                   )
                 })}
               <PostsMenu /> {/* Intégration du menu déroulant */}
-              {/* <AuthorsMenu className="hidden sm:block" /> */}
+              <AuthorsMenu className="hidden sm:block" />
               {/* <div className="hidden md:flex items-center space-x-4"> */}
               <SearchButton />
               {/* Espace réservé si React n'est pas encore monté */}

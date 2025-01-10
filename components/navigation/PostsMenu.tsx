@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import siteMetadata from '@/data/siteMetadata'
 import { Blog, allBlogs } from 'contentlayer/generated'
 import { Fragment, useRef, useState, useMemo } from 'react'
 import {
@@ -21,10 +20,6 @@ import { useTranslation } from 'app/[locale]/i18n/client'
 import { motion } from 'framer-motion'
 import { sortByDate } from '@/components/util/sortByDate'
 
-// type BlogMenuProps = {
-//   className: string
-// }
-
 const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'common')
@@ -38,11 +33,6 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
     const sortedPosts = sortByDate(filteredPosts);
     return sortedPosts;
   }, [locale]) as Blog[];
-
-  const mainBlog = useMemo(
-    () => allBlogs.filter((a) => a.language === locale),
-    [locale]
-  ) as Blog[]
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -60,26 +50,25 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const isSelected = posts.some((post) => post.slug.includes(lastSection)) && filterSections
 
   const renderBlogLink = (post: Blog) => {
-    const { slug, date, title, banner, tags, language } = post;
+    const { slug, title } = post;
     return (
       <Radio key={slug} value={slug}>
         <MenuItem>
           {({ focus }) => (
-            <div
-            className={`${
+            <Link
+              href={`/${locale}/blog/${slug}`}
+              onClick={closeMenu}
+              className={`${
               focus
                   ? 'bg-primary-400/50 dark:bg-primary-500/50'
                   : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/50'
-              } group flex w-full items-start gap-4 p-1 rounded-md text-sm 
-              hover:backdrop-blur-sm
-              text-white hover:text-secondary-500
-              text-shadow text-shadow-black
-              font-headings antialiased
+              } group flex w-full items-start gap-4 p-1 rounded-md 
+              hover:backdrop-blur-sm group      
               `}
             >
-              <div className="">
+              <div>
                 <Image
-                  src={post.banner || ""} // Ajoutez une propriété "image" dans vos données "post"
+                  src={post.banner || ""}
                   alt={title}
                   width={100}
                   height={83}
@@ -88,10 +77,14 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
                   className="rounded-md"
                 />    
               </div>          
-              <Link href={`/${locale}/blog/${slug}`} onClick={closeMenu} className="break-words text-md font-medium">
+              <div
+                  className="break-words text-md font-bold text-primary-700 group-hover:text-secondary-500 dark:text-white
+                            text-shadow text-shadow-gray-400/80 dark:text-shadow-black
+                            font-headings antialiased"
+              >
                 {title}
-              </Link>
-            </div>
+              </div>
+            </Link>
           )}
         </MenuItem>
       </Radio>
@@ -139,7 +132,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             <MenuItems
               className="absolute right-0 z-50 mt-2 origin-top-right divide-y divide-gray-100 rounded-md 
                         shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none backdrop-blur-sm
-                        flex flex-col gap-1 p-2"
+                        flex flex-col gap-1"
               as="div"
             >
               <RadioGroup>
@@ -147,8 +140,8 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
                               grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1
                               w-full min-w-[300px] sm:max-w-[300px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px]
                               overflow-auto
-                              bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95
-                              dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95                                
+                              bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80
+                              dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80 dark:to-gray-900/80                               
                               shadow-xl shadow-gray-400 dark:shadow-gray-950">
                   {posts.map(
                     (post) => post.language === locale && renderBlogLink(post)
