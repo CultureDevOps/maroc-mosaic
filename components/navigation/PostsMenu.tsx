@@ -28,8 +28,8 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const lastSection = sections[sections.length - 1]
   const filterSections = pathname !== `/${locale}` && pathname !== '/'
 
-  const posts = useMemo(() => {
-    const filteredPosts = allBlogs.filter((a) => a.language === locale);
+  const posts = useMemo(() => {    
+    const filteredPosts = allBlogs.filter((a) => a.language === locale && a.featured);
     const sortedPosts = sortByDate(filteredPosts);
     return sortedPosts;
   }, [locale]) as Blog[];
