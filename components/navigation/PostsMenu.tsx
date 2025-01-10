@@ -62,16 +62,16 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               focus
                   ? 'bg-primary-400/50 dark:bg-primary-500/50'
                   : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/50'
-              } group flex w-full items-start gap-4 p-1 rounded-md 
+              } group flex w-full items-start gap-1 p-1 rounded-md 
               hover:backdrop-blur-sm group      
               `}
             >
-              <div>
+              <div className="min-w-[100px] h-[56px]">
                 <Image
                   src={post.banner || ""}
                   alt={title}
                   width={100}
-                  height={83}
+                  height={56}
                   priority={true}
                   loading="eager"
                   className="rounded-md"
@@ -130,15 +130,15 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             leaveTo="opacity-0 scale-95 translate-y-[10px]"
           >
             <MenuItems
-              className="absolute right-0 z-50 mt-2 origin-top-right divide-y divide-gray-100 rounded-md 
+              className="absolute left-1/2 transform -translate-x-1/2 z-50 mt-2 origin-top-right divide-y divide-gray-100 rounded-md 
                         shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none backdrop-blur-sm
-                        flex flex-col gap-1"
+                        flex flex-col gap-1 max-w-screen-md"
               as="div"
             >
               <RadioGroup>
                 <div className="p-1 rounded-md 
                               grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1
-                              w-full min-w-[300px] sm:max-w-[300px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px]
+                              w-full min-w-[300px] sm:max-w-[300px] md:max-w-[900px] lg:max-w-[900px] xl:max-w-[1200px]
                               overflow-auto
                               bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80
                               dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80 dark:to-gray-900/80                               
