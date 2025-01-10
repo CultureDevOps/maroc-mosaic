@@ -13,6 +13,7 @@ import { Blog } from 'contentlayer/generated'
 import { POSTS_PER_PAGE } from '@/data/postsPerPage'
 import { sortByDate } from '../util/sortByDate'
 import Pagination from '@/layouts/Pagination'
+import siteMetadata from '@/data/siteMetadata'
 
 type Props = {
   params: { locale: LocaleTypes }
@@ -47,7 +48,7 @@ function Benefits ({params: { locale },posts }: Props) {
           <div className="mb-10 mx-auto">
             <h1 className="text-3xl lg:text-4xl font-bold text-heading dark:text-heading-dark font-logo text-center
                           text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
-              {t('title')}
+              {t('title')} فسيفساء المغرب
             </h1>
             <p className="mt-4 text-lg lg:text-xl font-medium text-gray-700 dark:text-primary-100">
               {t('title_description')}

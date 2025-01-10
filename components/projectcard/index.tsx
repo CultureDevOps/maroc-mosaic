@@ -14,8 +14,8 @@ const variants = {
 interface CardProps {
   title: string
   description: string
-  imgSrc?: string
-  href?: string
+  imgSrc: string
+  href: string
 }
 
 const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
@@ -29,17 +29,13 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
       transition={{ type: 'linear' }}
       className="w-full p-2"
     >
-      <div
+      <Link
+        href={href.startsWith('http') ? href : `/${locale}${href}`}
+        aria-label={`${t('linkto')}${title}`}
         className={`${
           imgSrc && 'h-full'
-        }  overflow-hidden rounded-md`}
+        }  overflow-hidden rounded-md group`}
       >
-        {imgSrc &&
-          (href ? (
-            <Link
-              href={href.startsWith('http') ? href : `/${locale}${href}`}
-              aria-label={`${t('linkto')}${title}`}
-            >
               <Image
                 alt={title}
                 title={title}
@@ -48,43 +44,21 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
                 width={544}
                 height={306}
               />
-            </Link>
-          ) : (
-            <Image
-              alt={title}
-              title={title}
-              src={imgSrc}
-              className="object-cover rounded-lg"
-              width={544}
-              height={306}
-            />
-          ))}
         <div className="p-6">
           <h2 className="mb-3 text-2xl text-heading dark:text-heading-dark font-headings font-bold leading-8 tracking-tight
-                        hover:text-secondary-600 dark:hover:text-secondary-400">
-            {href ? (
-              <Link
-                href={href.startsWith('http') ? href : `/${locale}${href}`}
-                aria-label={`${t('linkto')}${title}`}                
-              >
+                        group-hover:text-secondary-600 dark:group-hover:text-secondary-400">
                 {title}
-              </Link>
-            ) : (
-              title
-            )}
           </h2>
           <p className="prose mb-3 max-w-none text-gray-700 dark:text-gray-400">{description}</p>
-          {href && (
-            <Link
-              href={href.startsWith('http') ? href : `/${locale}${href}`}
-              className="text-base font-medium leading-6 text-link dark:dark-text-link hover:text-secondary-600 dark:hover:text-secondary-400"
-              aria-label={`${t('linkto')}${title}`}
+          
+            <div
+              className="text-base font-medium leading-6 text-link dark:dark-text-link 
+              group-hover:text-secondary-600 dark:group-hover:text-secondary-400"
             >
-              {href.startsWith('http') ? `${t('visit')}` : `${t('read')}`} &rarr;
-            </Link>
-          )}
+              {t('read')} &rarr;
+            </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   )
 }

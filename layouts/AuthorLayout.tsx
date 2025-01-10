@@ -17,7 +17,7 @@ export default async function AuthorLayout({
   content,
   params: { locale },
 }: AuthorLayoutProps) {
-  const { name, avatar, occupation, company, email, linkedin, facebook } = content
+  const { name, avatar, occupation, company, email, instagram, facebook } = content
   const { t } = await createTranslation(locale, 'about')
 
   return (
@@ -53,7 +53,7 @@ export default async function AuthorLayout({
             <div className="text-gray-600 dark:text-gray-400">{company}</div>
             <div className="flex space-x-3 pt-6">
               <SocialIcon kind="mail" href={`mailto:${email}`} size={6} />
-              <SocialIcon kind="linkedin" href={linkedin} size={6} />
+              <SocialIcon kind="instagram" href={instagram} size={6} />
               <SocialIcon kind="facebook" href={facebook} size={6} />
             </div>
           </div>

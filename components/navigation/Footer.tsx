@@ -39,22 +39,17 @@ export default function Footer() {
               )}
             </div>
             <div className="flex items-center">
-              <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
-            </div>
-            <div className="flex items-center">
-              <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-            </div>
-            <div className="flex items-center">
-              <SocialIcon kind="x" href={siteMetadata.x} size={6} />
+              <SocialIcon kind="instagram" href={siteMetadata.linkedin} size={6} />
             </div>
           </div>
           <div className="mb-2 flex space-x-2 text-sm text-gray-700 dark:text-gray-300">
-            <div>{siteMetadata.author}</div>
+            <Link href="/">{maintitle[locale]}</Link>
             <div>{` • `}</div>
             <div>{`© ${new Date().getFullYear()}`}</div>
-            <div>{` • `}</div>
-            <Link href="/">{maintitle[locale]}</Link>
           </div>
+          <div className="mb-8 text-sm text-gray-700 dark:text-gray-300">
+            <p><Link href="https://culturedevops.com">{t("author_ref")}</Link></p>
+          </div>          
         </div>
       </footer>
       <ContactModal />

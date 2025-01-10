@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'Maroc Mosaic',
   author: 'Maroc Mosaic',
-  headerTitle: 'Maroc Mosaic',
+  headerTitle: 'MAROC MOSAIC فسيفساء المغرب',
   description: 'A blog created with Next.js, i18n and Tailwind.css',
   language: 'fr',
   theme: process.env.NEXT_PUBLIC_SITE_THEME, // system, dark or light
@@ -15,11 +15,11 @@ const siteMetadata = {
   github: 'https://github.com',
   x: 'https://x.com',
   // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://www.facebook.com',
+  facebook: 'https://www.facebook.com/denis.gabriel.73',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
   threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
+  instagram: 'https://www.instagram.com/denisgabrielmosaic',
   locale: 'en',
   multiauthors: false,
   analytics: {
