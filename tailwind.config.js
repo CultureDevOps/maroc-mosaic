@@ -3,6 +3,18 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 const customColors = {
+  gold: {
+    100: '#fff8e7',
+    200: '#fde9b5',
+    300: '#f9d98c',
+    400: '#f3c363',
+    500: '#eda040',
+    600: '#d68536',
+    700: '#b6692e',
+    800: '#8f5125',
+    900: '#6d3d1c',
+    950: '#5a2f14',
+  },  
   beige: {
     100: '#faf7f0',
     200: '#f3e8d4',
@@ -92,7 +104,11 @@ module.exports = {
         secondary: customColors.terracotta,
         gray: colors.stone,   
         background: customColors.beige[100],     
-        heading: customColors.marron[700],
+        heading: {
+          DEFAULT: customColors.marron[700],
+          // dark: customColors.gold[200],
+          dark: colors.white,
+        },
         text: customColors.gris[900],
         link: customColors.terracotta[400],
         'button-primary': customColors.marron,

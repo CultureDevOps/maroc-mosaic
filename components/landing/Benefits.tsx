@@ -45,7 +45,7 @@ function Benefits ({params: { locale },posts }: Props) {
       <div className="divide-y">        
         <Container className="mx-auto px-4 py-12">
           <div className="mb-10 mx-auto">
-            <h1 className="text-3xl lg:text-4xl font-bold text-heading font-logo text-center dark:text-white
+            <h1 className="text-3xl lg:text-4xl font-bold text-heading dark:text-heading-dark font-logo text-center
                           text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
               {t('title')}
             </h1>

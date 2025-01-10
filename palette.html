@@ -32,7 +32,10 @@
       }
       .palette {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste la grille pour des écrans plus grands */
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(200px, 1fr)
+        ); /* Ajuste la grille pour des écrans plus grands */
         gap: 15px;
         margin-top: 20px;
       }
@@ -65,6 +68,40 @@
     <div class="container">
       <h1>Tailwind Color Palette Preview</h1>
 
+      <div class="section-title">Gold</div>
+      <div class="palette">
+        <div class="color-box" style="background-color: #fff8e7" onclick="copyColor('#FFF8E7')">
+          <label>Gold - 100</label><span>#FFF8E7</span>
+        </div>
+        <div class="color-box" style="background-color: #fde9b5" onclick="copyColor('#FDE9B5')">
+          <label>Gold - 200</label><span>#FDE9B5</span>
+        </div>
+        <div class="color-box" style="background-color: #f9d98c" onclick="copyColor('#F9D98C')">
+          <label>Gold - 300</label><span>#F9D98C</span>
+        </div>
+        <div class="color-box" style="background-color: #f3c363" onclick="copyColor('#F3C363')">
+          <label>Gold - 400</label><span>#F3C363</span>
+        </div>
+        <div class="color-box" style="background-color: #eda040" onclick="copyColor('#EDA040')">
+          <label>Gold - 500</label><span>#EDA040</span>
+        </div>
+        <div class="color-box" style="background-color: #d68536" onclick="copyColor('#D68536')">
+          <label>Gold - 600</label><span>#D68536</span>
+        </div>
+        <div class="color-box" style="background-color: #b6692e" onclick="copyColor('#B6692E')">
+          <label>Gold - 700</label><span>#B6692E</span>
+        </div>
+        <div class="color-box" style="background-color: #8f5125" onclick="copyColor('#8F5125')">
+          <label>Gold - 800</label><span>#8F5125</span>
+        </div>
+        <div class="color-box" style="background-color: #6d3d1c" onclick="copyColor('#6D3D1C')">
+          <label>Gold - 900</label><span>#6D3D1C</span>
+        </div>
+        <div class="color-box" style="background-color: #5a2f14" onclick="copyColor('#5A2F14')">
+          <label>Gold - 950</label><span>#5A2F14</span>
+        </div>
+      </div>
+
       <!-- Beige -->
       <div class="section-title">Beige</div>
       <div class="palette">
@@ -96,7 +133,6 @@
           <label>Beige - 900</label><span>#9C6243</span>
         </div>
       </div>
-      
 
       <!-- Marron -->
       <div class="section-title">Marron</div>
@@ -128,7 +164,7 @@
         <div class="color-box" style="background-color: #150d0b" onclick="copyColor('#150D0B')">
           <label>Marron - 900</label><span>#150D0B</span>
         </div>
-      </div>        
+      </div>
 
       <!-- Gris -->
       <div class="section-title">Gris</div>
@@ -193,7 +229,6 @@
           <label>Terracotta - 900</label><span>#8F1F10</span>
         </div>
       </div>
-      
 
       <!-- Olive -->
       <div class="section-title">Olive</div>

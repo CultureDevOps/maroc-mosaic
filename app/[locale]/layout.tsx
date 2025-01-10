@@ -131,7 +131,7 @@ export default function RootLayout({
       </head>
       <body className="text-black antialiased dark:text-white 
                       bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 
-                      dark:from-primary-800/90 dark:via-primary-950 dark:via-40% dark:via-gray-900 dark:via-75% dark:to-gray-900">
+                      dark:from-primary-800/90 dark:via-primary-950 dark:via-60% dark:via-gold-950/60 dark:via-75% dark:to-primary-900">
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>

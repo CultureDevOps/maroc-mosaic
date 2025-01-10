@@ -60,12 +60,12 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
             />
           ))}
         <div className="p-6">
-          <h2 className="mb-3 text-2xl text-heading font-headings font-bold leading-8 tracking-tight
+          <h2 className="mb-3 text-2xl text-heading dark:text-heading-dark font-headings font-bold leading-8 tracking-tight
                         hover:text-secondary-600 dark:hover:text-secondary-400">
             {href ? (
               <Link
                 href={href.startsWith('http') ? href : `/${locale}${href}`}
-                aria-label={`${t('linkto')}${title}`}
+                aria-label={`${t('linkto')}${title}`}                
               >
                 {title}
               </Link>
@@ -77,7 +77,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
           {href && (
             <Link
               href={href.startsWith('http') ? href : `/${locale}${href}`}
-              className="text-base font-medium leading-6 text-primary-500 hover:text-secondary-600 dark:hover:text-secondary-400"
+              className="text-base font-medium leading-6 text-link dark:dark-text-link hover:text-secondary-600 dark:hover:text-secondary-400"
               aria-label={`${t('linkto')}${title}`}
             >
               {href.startsWith('http') ? `${t('visit')}` : `${t('read')}`} &rarr;
