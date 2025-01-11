@@ -5,10 +5,12 @@ interface ModalBodyProps {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   name: string
   email: string
-  message: string
+  message: string,
+  adress: string,
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  handleAdressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   t: (key: string) => string
 }
 
@@ -18,9 +20,11 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
   name,
   email,
   message,
+  adress,
   handleNameChange,
   handleEmailChange,
   handleMessageChange,
+  handleAdressChange,
   t,
 }) => {
   return (
@@ -30,9 +34,11 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
           name={name}
           email={email}
           message={message}
+          adress={adress}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
           handleMessageChange={handleMessageChange}
+          handleAdressChange={handleAdressChange}
           state={state}
           t={t}
         />
