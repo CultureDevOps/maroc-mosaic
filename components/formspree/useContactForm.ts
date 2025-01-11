@@ -12,10 +12,12 @@ export const useContactForm = () => {
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
 
+  const [wbFormId, setWbFormId] = useState<string>('264a0f12') // Valeur par défaut
+  const [wbFormUuid, setWbFormUuid] = useState<string>('946edc24') // Valeur par défaut
+
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [succeeded, setSucceeded] = useState<boolean>(false)
   const [errors, setErrors] = useState<string | null>(null)
-
 
   const sendForm = async () => {
     setSubmitting(true)
@@ -26,7 +28,7 @@ export const useContactForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, wb_form_id: wbFormId, wb_form_uuid: wbFormUuid }),
       })
 
       if (!response.ok) {
