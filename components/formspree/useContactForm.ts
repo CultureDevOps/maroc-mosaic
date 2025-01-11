@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useForm } from '@formspree/react'
 import toast from 'react-hot-toast'
 import { useParams } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
@@ -8,28 +7,48 @@ import { useTranslation } from 'app/[locale]/i18n/client'
 export const useContactForm = () => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, 'common')
-  const [state, handleSubmit, reset] = useForm('xdojkndq')
+
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
 
-  useEffect(() => {
-    if (state.succeeded && !state.submitting) {
-      toast.success(t('thanks'), {
-        position: 'bottom-right',
+  const [submitting, setSubmitting] = useState<boolean>(false)
+  const [succeeded, setSucceeded] = useState<boolean>(false)
+  const [errors, setErrors] = useState<string | null>(null)
+
+
+  const sendForm = async () => {
+    setSubmitting(true)
+    setErrors(null)
+    try {
+      const response = await fetch('https://denisgabriel.com/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
       })
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de l’envoi du formulaire.')
+      }
+
+      setSucceeded(true)
+      toast.success(t('thanks'), { position: 'bottom-right' })
+      // Réinitialisation après un délai
       setTimeout(() => {
         setName('')
         setEmail('')
         setMessage('')
-        reset()
+        setSucceeded(false)
       }, 2000)
-    }
-
-    if (state.errors && Object.keys(state.errors).length > 0) {
+    } catch (error: any) {
+      setErrors(error.message || 'Une erreur est survenue.')
       toast.error(t('error'))
+    } finally {
+      setSubmitting(false)
     }
-  }, [state, reset, t])
+  }
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value)
@@ -43,8 +62,13 @@ export const useContactForm = () => {
     setMessage(e.target.value)
   }
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    sendForm()
+  }
+
   return {
-    state,
+    state: { submitting, succeeded, errors },
     handleSubmit,
     name,
     email,
