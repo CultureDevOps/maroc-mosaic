@@ -9,21 +9,24 @@ import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
+import PostGalleryLayout from '@/layouts/PostGalleryLayout'
 import siteMetadata from '@/data/siteMetadata'
 import { maintitle } from '@/data/localeMetadata'
 import { notFound } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import SectionContainer from '@/components/SectionContainer'
+import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
 
 interface BlogPageProps {
   params: { slug: string[]; locale: LocaleTypes }
 }
 
-const defaultLayout = 'PostLayout'
+const defaultLayout = 'PostGalleryLayout'
 const layouts = {
   PostSimple,
   PostLayout,
   PostBanner,
+  PostGalleryLayout,
 }
 
 async function getPostFromParams({ params: { slug, locale } }: BlogPageProps): Promise<any> {
@@ -148,7 +151,7 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
   const Layout = layouts[post.layout || defaultLayout]
 
   return (
-    <SectionContainer>
+    <FullLayoutSectionContainer>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -162,6 +165,6 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
         >
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </Layout>
-    </SectionContainer>
+    </FullLayoutSectionContainer>
   )
 }
