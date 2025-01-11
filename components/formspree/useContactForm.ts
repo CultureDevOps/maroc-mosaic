@@ -27,15 +27,19 @@ export const useContactForm = () => {
     const formData = new FormData()
     formData.append('wb_form_id', wbFormId)
     formData.append('wb_form_uuid', wbFormUuid)
-    formData.append('message', message)
+    formData.append('message', '')
+    formData.append('wb_input_0', 'Nom')
     formData.append('wb_input_0', name)
+    formData.append('wb_input_1', 'E-mail')
     formData.append('wb_input_1', email) // Label pour le champ 'Email'
+    formData.append('wb_input_2', 'Adresse')
     formData.append('wb_input_2', adress) // Label pour l'adresse
+    formData.append('wb_input_3', 'Message')
     formData.append('wb_input_3', message) // Valeur du champ 'Email'
-  
+
     try {
       const response = await fetch('https://denisgabriel.com/contact/', {
-        method: 'POST',
+        method: 'POST',  
         body: formData, // FormData directement dans le body
       })
   
