@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Lorsque l'élément est ciblé via une ancre (#) */
+:target {
+  top: -80px; 
+}
+
 #background-image {
   scrollbar-gutter: stable;
   width: 100vw; /* Fixe la largeur du conteneur */
