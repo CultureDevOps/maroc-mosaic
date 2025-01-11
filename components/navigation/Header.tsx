@@ -12,7 +12,7 @@ import SearchButton from '../search/SearchButton'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import type { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SectionContainer from '../SectionContainer'
 import PostsMenu from './PostsMenu'
 import AuthorsMenu from './AuthorsMenu'
@@ -27,6 +27,12 @@ const Header = () => {
 
   const [mounted, setMounted] = useState(false)
 
+  const spanRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    console.log('Span Element:', spanRef.current)
+  }, [])
+    
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -94,7 +100,7 @@ const Header = () => {
               )}
 
             </Link>
-            <div className="flex items-center space-x-4 leading-5 sm:space-x-6 font-headings antialiased">
+            <div className="flex items-center space-x-4 leading-5 sm:space-x-6 font-headings antialiased whitespace-nowrap">
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
@@ -108,7 +114,7 @@ const Header = () => {
                       href={`/${locale}${link.href}`}
                       className="flex transform-gpu items-center 
                                 space-x-1 transition-transform duration-300
-                                whitespace-nowrap text-md font-medium"
+                                text-md font-medium"
                       aria-label={link.title}
                     >
                       <div
@@ -117,9 +123,10 @@ const Header = () => {
                           : 'text-white hover:text-secondary-500'
                           } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
                       >
-                        <span className="relative z-10 font-bold text-shadow text-shadow-black">
+                        <span ref={spanRef} className="relative z-10 font-bold text-shadow text-shadow-black">
                           {t(`${link.title.toLowerCase()}`)}
                         </span>
+                        </div>
                         {isSelected && (
                           <motion.div
                             layoutId="tab"
@@ -133,7 +140,6 @@ const Header = () => {
                                       shadow-lg shadow-gray-950"
                           ></motion.div>
                         )}
-                      </div>
                     </Link>
 
                   )
