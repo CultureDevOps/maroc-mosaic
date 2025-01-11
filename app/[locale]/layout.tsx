@@ -3,7 +3,7 @@ import 'pliny/search/algolia.css'
 
 import { Open_Sans } from 'next/font/google'
 import { Scheherazade_New } from 'next/font/google'
-import { Amiri_Quran} from 'next/font/google'
+import { Amiri_Quran } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider } from '@/components/search/SearchProvider'
 import Header from '@/components/navigation/Header'
@@ -104,7 +104,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
   params: { locale: LocaleTypes }
-}) { 
+}) {
   const theme = siteMetadata.theme || 'system'
   return (
     <html
@@ -116,13 +116,13 @@ export default function RootLayout({
     >
       <head>
         <script
-              dangerouslySetInnerHTML={{
-                __html: `
+          dangerouslySetInnerHTML={{
+            __html: `
                   window.siteMetadata = { theme: '${process.env.NEXT_PUBLIC_SITE_THEME}' };
                 `,
-              }}
-            />        
-        <script src="/static/js/theme-switcher.js" />     
+          }}
+        />
+        <script src="/static/js/theme-switcher.js" />
         <link rel="manifest" href="/static/favicons/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
@@ -136,18 +136,16 @@ export default function RootLayout({
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
-            <div className="h-screen w-full">
-              <div className="">
-                <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
-                    <Header />  
-                  </div> 
-                <div className="flex flex-col justify-between font-sans">
-                  <main className="mb-auto">{children}</main>
-                </div>                
-                <div className="flex flex-col justify-between font-sans">
-                  <Footer />
-                </div>    
-                </div>      
+            <div className="w-full">
+              <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
+                <Header />
+              </div>
+              <div className="flex flex-col justify-between font-sans">
+                <main className="mb-auto">{children}</main>
+              </div>
+              <div className="flex flex-col justify-between font-sans">
+                <Footer />
+              </div>
             </div>
           </SearchProvider>
           <TwSizeIndicator />
