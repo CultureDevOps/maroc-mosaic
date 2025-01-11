@@ -131,12 +131,13 @@ export default function RootLayout({
       </head>
       <body className="text-black antialiased dark:text-white 
                       bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 
-                      dark:from-primary-800/90 dark:via-primary-950 dark:via-60% dark:via-gold-950/60 dark:via-75% dark:to-primary-900">
+                      dark:from-primary-800/90 dark:via-primary-950 dark:via-60% dark:via-gold-950/60 dark:via-75% dark:to-primary-900
+                      h-screen overflow-y-auto">
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
-            <div className="h-screen w-full overflow-y-auto">
-              {/* <div id="background-image" className="bg-image bg-no-repeat bg-cover bg-scroll h-screen w-full"> */}
+            <div className="h-screen w-full">
+              <div className="">
                 <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
                     <Header />  
                   </div> 
@@ -145,8 +146,8 @@ export default function RootLayout({
                 </div>                
                 <div className="flex flex-col justify-between font-sans">
                   <Footer />
-                </div>          
-            {/* </div> */}
+                </div>    
+                </div>      
             </div>
           </SearchProvider>
           <TwSizeIndicator />
