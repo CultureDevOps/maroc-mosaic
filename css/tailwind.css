@@ -5,8 +5,11 @@
 @tailwind utilities;
 
 /* Lorsque l'élément est ciblé via une ancre (#) */
-:target {
-  top: -80px; 
+:target::before {
+  content: '';
+  display: block;
+  height: 80px; /* La hauteur du header sticky */
+  margin-top: -80px;
 }
 
 #background-image {
