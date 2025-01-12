@@ -5,9 +5,9 @@ type HomeProps = {
   params: { locale: LocaleTypes }
 }
 
-export default async function Page({ params: { locale } }: HomeProps) {
-  
+export default async function Page({ params }: HomeProps) {
+  const locale = (await params).locale
   return (
-    <Landing params={{ locale: locale }} />
+    <Landing params={{ locale }} />
   )
 }

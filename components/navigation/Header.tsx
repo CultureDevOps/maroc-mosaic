@@ -28,10 +28,6 @@ const Header = () => {
   const [mounted, setMounted] = useState(false)
 
   const spanRef = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    console.log('Span Element:', spanRef.current)
-  }, [])
     
   useEffect(() => {
     setMounted(true)

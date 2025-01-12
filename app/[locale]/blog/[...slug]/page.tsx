@@ -34,7 +34,7 @@ async function getPostFromParams({ params: { slug, locale } }: BlogPageProps): P
   const post = allBlogs.filter((p) => p.language === locale).find((p) => p.slug === dslug) as Blog
 
   if (!post) {
-    null
+    return null
   }
 
   if (post?.series) {
@@ -58,8 +58,9 @@ async function getPostFromParams({ params: { slug, locale } }: BlogPageProps): P
 }
 
 export async function generateMetadata({
-  params: { slug, locale },
+  params,
 }: BlogPageProps): Promise<Metadata | undefined> {
+  const { slug, locale } = await params
   const dslug = decodeURI(slug.join('/'))
   const post = allBlogs.find((p) => p.slug === dslug && p.language === locale) as Blog
   if (!post) {
@@ -117,7 +118,8 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default async function Page({ params: { slug, locale } }: BlogPageProps) {
+export default async function Page({ params }: BlogPageProps) {
+  const { slug, locale } = await params
   const dslug = decodeURI(slug.join('/'))
   // Filter out drafts in production + locale filtering
   const sortedCoreContents = allCoreContent(
@@ -161,7 +163,7 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
           authorDetails={authorDetails}
           next={next}
           prev={prev}
-          params={{ locale: locale }}
+          params={{ locale }}
         >
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </Layout>

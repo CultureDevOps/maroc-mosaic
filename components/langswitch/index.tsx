@@ -63,7 +63,7 @@ const LangSwitch = () => {
     <div ref={menubarRef} className="relative inline-block text-left">
       <Menu>
         {({ open }) => (
-          <>
+          <div>
             <MenuButton
               className="inline-flex rounded-md px-1 py-2 font-bold leading-5 
                         text-white 
@@ -125,7 +125,7 @@ const LangSwitch = () => {
                 </RadioGroup>
               </MenuItems>
             </Transition>
-          </>
+          </div>
         )}
       </Menu>
     </div>

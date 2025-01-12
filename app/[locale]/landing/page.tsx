@@ -12,11 +12,12 @@ interface LandingProps {
   params: { locale: LocaleTypes }
 }
 
-export async function generateMetadata({ params: { locale } }: LandingProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LandingProps): Promise<Metadata> {
+  const locale = (await params).locale
   const { t } = await createTranslation(locale, 'hero')
   return genPageMetadata({
     title: t('title'),
-    params: { locale: locale },
+    params: { locale },
   })
 }
 
@@ -25,9 +26,9 @@ export default async function Landing({ params: { locale } }: LandingProps) {
   const filteredPosts = posts.filter((post) => post.language === locale)  
   return (
     <>
-      <Hero params={{ locale: locale }} />
+      <Hero params={{ locale }} />
       <FullLayoutSectionContainer>      
-        <Benefits params={{ locale: locale }} posts={filteredPosts}/>
+        <Benefits params={{ locale }} posts={filteredPosts}/>
       </FullLayoutSectionContainer>
     </>
   )

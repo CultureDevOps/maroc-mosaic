@@ -28,7 +28,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const lastSection = sections[sections.length - 1]
   const filterSections = pathname !== `/${locale}` && pathname !== '/'
 
-  const posts = useMemo(() => {    
+  const posts = useMemo(() => {
     const filteredPosts = allBlogs.filter((a) => a.language === locale && a.featured);
     const sortedPosts = sortByDate(filteredPosts);
     return sortedPosts;
@@ -58,11 +58,10 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             <Link
               href={`/${locale}/blog/${slug}`}
               onClick={closeMenu}
-              className={`${
-              focus
+              className={`${focus
                   ? 'bg-primary-400/50 dark:bg-primary-500/50'
                   : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/50'
-              } group flex w-full items-start gap-1 p-4 rounded-md 
+                } group flex w-full items-start gap-1 p-4 rounded-md 
               hover:backdrop-blur-sm group      
               `}
             >
@@ -75,10 +74,10 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
                   priority={true}
                   loading="eager"
                   className="rounded-md"
-                />    
-              </div>          
+                />
+              </div>
               <div
-                  className="break-words text-md font-bold text-primary-700 group-hover:text-secondary-500 dark:text-white
+                className="break-words text-md font-bold text-primary-700 group-hover:text-secondary-500 dark:text-white
                             text-shadow text-shadow-gray-400/80 dark:text-shadow-black
                             font-headings antialiased"
               >
@@ -101,11 +100,10 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               onClick={toggleMenu}
             >
               <div
-                className={`hidden font-medium ${
-                  isSelected
+                className={`hidden font-medium ${isSelected
                     ? 'text-secondary-500'
                     : 'text-white hover:text-secondary-500'
-                } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                  } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
               >
                 <span className="relative z-10 font-bold text-shadow text-shadow-black">{t('menu')}</span>
                 {isSelected && (
@@ -120,7 +118,6 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             </MenuButton>
           </div>
           <Transition
-            as={Fragment}
             show={isOpen}
             enter="transition-all ease-out duration-300"
             enterFrom="opacity-0 scale-95 translate-y-[-10px]"
@@ -129,26 +126,28 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             leaveFrom="opacity-100 scale-100 translate-y-0"
             leaveTo="opacity-0 scale-95 translate-y-[10px]"
           >
-            <MenuItems
-              className="absolute left-1/2 transform -translate-x-1/2 z-50 mt-2 origin-top-right divide-y divide-gray-100 rounded-md 
+            <div>
+              <MenuItems
+                className="absolute left-1/2 transform -translate-x-1/2 z-50 mt-2 origin-top-right divide-y divide-gray-100 rounded-md 
                         shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none backdrop-blur-sm
                         flex flex-col gap-1 max-w-screen-md"
-              as="div"
-            >
-              <RadioGroup>
-                <div className="p-1 rounded-md 
+                as="div"
+              >
+                <RadioGroup>
+                  <div className="p-1 rounded-md 
                               grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1
                               w-full min-w-[300px] sm:max-w-[300px] md:max-w-[900px] lg:max-w-[900px] xl:max-w-[1200px]
                               overflow-auto
                               bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80
                               dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80 dark:to-gray-900/80                               
                               shadow-xl shadow-gray-400 dark:shadow-gray-950">
-                  {posts.map(
-                    (post) => post.language === locale && renderBlogLink(post)
-                  )}
-                </div>
-              </RadioGroup>
-            </MenuItems>
+                    {posts.map(
+                      (post) => post.language === locale && renderBlogLink(post)
+                    )}
+                  </div>
+                </RadioGroup>
+              </MenuItems>
+            </div>
           </Transition>
         </Menu>
       </div>

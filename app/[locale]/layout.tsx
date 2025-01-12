@@ -3,7 +3,7 @@ import 'pliny/search/algolia.css'
 
 import { Open_Sans } from 'next/font/google'
 import { Scheherazade_New } from 'next/font/google'
-import { Amiri_Quran } from 'next/font/google'
+import { Amiri_Quran} from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider } from '@/components/search/SearchProvider'
 import Header from '@/components/navigation/Header'
@@ -42,7 +42,8 @@ const amiriQuran = Amiri_Quran({
   variable: '--font-amiri-quran',
 })
 
-export async function generateMetadata({ params: { locale } }): Promise<Metadata> {
+export async function generateMetadata({params,}: {params: { locale: LocaleTypes }}): Promise<Metadata> {
+  const locale = (await params).locale
   // const generateOptimizedUrl = (src: string): string => {     
   //   const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
   //   return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
@@ -98,14 +99,15 @@ export async function generateMetadata({ params: { locale } }): Promise<Metadata
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode
-  params: { locale: LocaleTypes }
-}) {
+  params
+}) { 
   const theme = siteMetadata.theme || 'system'
+  const locale = (await params).locale
   return (
     <html
       lang={locale}
@@ -116,13 +118,13 @@ export default function RootLayout({
     >
       <head>
         <script
-          dangerouslySetInnerHTML={{
-            __html: `
+              dangerouslySetInnerHTML={{
+                __html: `
                   window.siteMetadata = { theme: '${process.env.NEXT_PUBLIC_SITE_THEME}' };
                 `,
-          }}
-        />
-        <script src="/static/js/theme-switcher.js" />
+              }}
+            />        
+        <script src="/static/js/theme-switcher.js" />     
         <link rel="manifest" href="/static/favicons/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
@@ -137,15 +139,15 @@ export default function RootLayout({
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
             <div className="w-full">
-              <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
-                <Header />
-              </div>
-              <div className="flex flex-col justify-between font-sans">
-                <main className="mb-auto">{children}</main>
-              </div>
-              <div className="flex flex-col justify-between font-sans">
-                <Footer />
-              </div>
+                <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
+                    <Header />  
+                  </div> 
+                <div className="flex flex-col justify-between font-sans">
+                  <main className="mb-auto">{children}</main>
+                </div>                
+                <div className="flex flex-col justify-between font-sans">
+                  <Footer />
+                </div>    
             </div>
           </SearchProvider>
           <TwSizeIndicator />

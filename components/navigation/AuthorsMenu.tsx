@@ -102,8 +102,8 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
               >
                 <div
                   className={`hidden font-medium ${isSelected
-                      ? 'text-heading-500'
-                      : 'text-gray-600 hover:text-gray-900 dark:hover:text-gray-100'
+                    ? 'text-heading-500'
+                    : 'text-gray-600 hover:text-gray-900 dark:hover:text-gray-100'
                     } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                 >
                   <span className="relative z-10">{t('about')}</span>
@@ -118,7 +118,6 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
               </MenuButton>
             </div>
             <Transition
-              as={Fragment}
               show={isOpen}
               enter="transition-all ease-out duration-300"
               enterFrom="opacity-0 scale-95 translate-y-[-10px]"
@@ -127,62 +126,64 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
               leaveFrom="opacity-100 scale-100 translate-y-0"
               leaveTo="opacity-0 scale-95 translate-y-[10px]"
             >
-              <MenuItems
-                className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800"
-                as="div"
-              >
-                <RadioGroup>
-                  <div className="p-1">
-                    {authors.map(
-                      (author) => author.language === locale && renderAuthorLink(author)
-                    )}
-                  </div>
-                </RadioGroup>
-              </MenuItems>
+              <div>
+                <MenuItems
+                  className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800"
+                  as="div"
+                >
+                  <RadioGroup>
+                    <div className="p-1">
+                      {authors.map(
+                        (author) => author.language === locale && renderAuthorLink(author)
+                      )}
+                    </div>
+                  </RadioGroup>
+                </MenuItems>
+              </div>
             </Transition>
           </Menu>
         </div>
       ) : (
-<div className={className}>
-  {mainAuthor.map((author) => {
-    const { name, slug } = author
+        <div className={className}>
+          {mainAuthor.map((author) => {
+            const { name, slug } = author
 
-    return (
-      <Link
-        href={`/${locale}/about/${slug}`}
-        key={name}
-        className="flex transform-gpu items-center 
+            return (
+              <Link
+                href={`/${locale}/about/${slug}`}
+                key={name}
+                className="flex transform-gpu items-center 
                    space-x-1 transition-transform duration-300
                    whitespace-nowrap text-md font-medium"
-        aria-label={name}
-      >
-        <div
-          className={`hidden font-medium ${isSelected
-            ? 'text-secondary-500'
-            : 'text-white hover:text-secondary-500'
-            } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
-        >
-          <span className="relative z-10 font-bold text-shadow text-shadow-black">
-            {t('about')}
-          </span>
-          {isSelected && (
-            <motion.div
-              layoutId="tab"
-              transition={{
-                type: 'spring',
-                duration: 0.4,
-                damping: 25,
-                stiffness: 300,
-              }}
-              className="absolute inset-0 z-0 rounded-md shadow-md border border-white/10
+                aria-label={name}
+              >
+                <div
+                  className={`hidden font-medium ${isSelected
+                    ? 'text-secondary-500'
+                    : 'text-white hover:text-secondary-500'
+                    } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                >
+                  <span className="relative z-10 font-bold text-shadow text-shadow-black">
+                    {t('about')}
+                  </span>
+                  {isSelected && (
+                    <motion.div
+                      layoutId="tab"
+                      transition={{
+                        type: 'spring',
+                        duration: 0.4,
+                        damping: 25,
+                        stiffness: 300,
+                      }}
+                      className="absolute inset-0 z-0 rounded-md shadow-md border border-white/10
                         shadow-lg shadow-gray-950"
-            ></motion.div>
-          )}
+                    ></motion.div>
+                  )}
+                </div>
+              </Link>
+            )
+          })}
         </div>
-      </Link>
-    )
-  })}
-</div>
 
       )}
     </>
