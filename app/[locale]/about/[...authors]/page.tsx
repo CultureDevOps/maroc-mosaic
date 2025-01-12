@@ -14,8 +14,9 @@ type AboutProps = {
 }
 
 export async function generateMetadata({
-  params: { authors, locale },
+  params,
 }: AboutProps): Promise<Metadata | undefined> {
+  const { authors, locale } = await params
   const authorSlug = decodeURI(authors.join('/'))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
   if (!author) {
@@ -25,11 +26,12 @@ export async function generateMetadata({
 
   return genPageMetadata({
     title: `${t('about')} ${author.name}`,
-    params: { locale: locale },
+    params: { locale },
   })
 }
 
-export default async function Page({ params: { authors, locale } }: AboutProps) {
+export default async function Page({ params }: AboutProps) {
+  const { authors, locale } = await params
   const authorSlug = decodeURI(authors.join('/'))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
   const authorIndex = allAuthors.findIndex((p) => p.slug === authorSlug)
