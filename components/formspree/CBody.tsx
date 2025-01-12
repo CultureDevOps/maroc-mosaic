@@ -5,8 +5,8 @@ interface ModalBodyProps {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   name: string
   email: string
-  message: string,
-  adress: string,
+  message: string
+  adress: string
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void

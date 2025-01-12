@@ -23,12 +23,12 @@ const Header = () => {
   const pathname = usePathname()
 
   const [selectedPath, setSelectedPath] = useState<string | null>(null)
-  const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState(false)
 
   const [mounted, setMounted] = useState(false)
 
   const spanRef = useRef<HTMLSpanElement>(null)
-    
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -52,28 +52,25 @@ const Header = () => {
     })
   }
 
-
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setIsSticky(window.scrollY > 0)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header>
-      <div className="bg-primary-800
-                      border-b border-primary-900
-                      shadow-xl shadow-gray-950 transition-shadow duration-300">
+      <div className="border-b border-primary-900 bg-primary-800 shadow-xl shadow-gray-950 transition-shadow duration-300">
         <SectionContainer>
-          <div className="flex justify-between items-center py-2">
+          <div className="flex items-center justify-between py-2">
             <Link
               href={`/${locale}/`}
               aria-label={siteMetadata.headerTitle}
-              className="flex items-center w-full space-x-3 flex-grow mr-4"
+              className="mr-4 flex w-full flex-grow items-center space-x-3"
             >
-              <div className="block sm:hidden xl:block flex-shrink-0">
+              <div className="block flex-shrink-0 sm:hidden xl:block">
                 <Image
                   alt="logo"
                   src={siteMetadata.siteLogo ?? ''}
@@ -86,58 +83,54 @@ const Header = () => {
                 />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="text-xl lg:text-2xl md:text-md font-logo antialiased whitespace-nowrap 
-                                  hidden md:block max-w-xs lg:max-w-sm text-white
-                                  text-shadow text-shadow-black pb-3">
+                <div className="md:text-md text-shadow hidden max-w-xs whitespace-nowrap pb-3 font-logo text-xl text-white antialiased text-shadow-black md:block lg:max-w-sm lg:text-2xl">
                   {siteMetadata.headerTitle}
                 </div>
               ) : (
                 siteMetadata.headerTitle
               )}
-
             </Link>
-            <div className="flex items-center space-x-4 leading-5 sm:space-x-6 font-headings antialiased whitespace-nowrap">
+            <div className="flex items-center space-x-4 whitespace-nowrap font-headings leading-5 antialiased sm:space-x-6">
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
                   const isSelected =
-                    (selectedPath === `/${locale}` || selectedPath === '/') && link.href === '/landing'
+                    (selectedPath === `/${locale}` || selectedPath === '/') &&
+                    link.href === '/landing'
                       ? true
                       : selectedPath?.includes(link.href as string)
                   return (
                     <Link
                       key={link.title}
                       href={`/${locale}${link.href}`}
-                      className="flex transform-gpu items-center 
-                                space-x-1 transition-transform duration-300
-                                text-md font-medium"
+                      className="text-md flex transform-gpu items-center space-x-1 font-medium transition-transform duration-300"
                       aria-label={link.title}
                     >
                       <div
-                        className={`hidden font-medium ${isSelected
-                          ? 'text-secondary-500'
-                          : 'text-white hover:text-secondary-500'
-                          } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                        className={`hidden font-medium ${
+                          isSelected ? 'text-secondary-500' : 'text-white hover:text-secondary-500'
+                        } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
                       >
-                        <span ref={spanRef} className="relative z-10 font-bold text-shadow text-shadow-black">
+                        <span
+                          ref={spanRef}
+                          className="text-shadow relative z-10 font-bold text-shadow-black"
+                        >
                           {t(`${link.title.toLowerCase()}`)}
                         </span>
-                        </div>
-                        {isSelected && (
-                          <motion.div
-                            layoutId="tab"
-                            transition={{
-                              type: 'spring',
-                              duration: 0.4,
-                              damping: 25,
-                              stiffness: 300,
-                            }}
-                            className="absolute inset-0 z-0 rounded-md shadow-md border border-white/10
-                                      shadow-lg shadow-gray-950"
-                          ></motion.div>
-                        )}
+                      </div>
+                      {isSelected && (
+                        <motion.div
+                          layoutId="tab"
+                          transition={{
+                            type: 'spring',
+                            duration: 0.4,
+                            damping: 25,
+                            stiffness: 300,
+                          }}
+                          className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-md shadow-gray-950"
+                        ></motion.div>
+                      )}
                     </Link>
-
                   )
                 })}
               <PostsMenu /> {/* Intégration du menu déroulant */}
@@ -146,7 +139,7 @@ const Header = () => {
               <SearchButton />
               {/* Espace réservé si React n'est pas encore monté */}
               {!mounted ? (
-                <div className="w-6 h-6 rounded-full"></div> // Placeholder
+                <div className="h-6 w-6 rounded-full"></div> // Placeholder
               ) : (
                 <ThemeSwitch />
               )}
@@ -154,7 +147,7 @@ const Header = () => {
               {/* </div> */}
               {/* Mobile menu toggle button */}
               <button
-                className="sm:hidden z-50 text-gray-900 dark:text-gray-100"
+                className="z-50 text-gray-900 dark:text-gray-100 sm:hidden"
                 onClick={onToggleNav}
                 aria-label={t('showmenu')}
               >
@@ -169,7 +162,6 @@ const Header = () => {
                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                     clipRule="evenodd"
                   />
-
                 </svg>
               </button>
             </div>

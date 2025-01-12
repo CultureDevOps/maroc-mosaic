@@ -12,11 +12,7 @@ interface AuthorLayoutProps {
   params: { locale: LocaleTypes }
 }
 
-export default async function AuthorLayout({
-  children,
-  content,
-  params,
-}: AuthorLayoutProps) {
+export default async function AuthorLayout({ children, content, params }: AuthorLayoutProps) {
   const { name, avatar, occupation, company, email, instagram, facebook } = content
   const { locale } = await params
   const { t } = await createTranslation(locale, 'about')
@@ -25,10 +21,7 @@ export default async function AuthorLayout({
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-heading-700 
-                        dark:text-white sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 
-                        font-headings antialiased
-                        text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+          <h1 className="text-heading-700 text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight antialiased text-shadow-gray-400/80 dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {t('about')}
           </h1>
         </div>
@@ -41,13 +34,11 @@ export default async function AuthorLayout({
                 title="avatar"
                 width={192}
                 height={192}
-                className="h-48 w-48 rounded-full"                            
-                quality={80}                
+                className="h-48 w-48 rounded-full"
+                quality={80}
               />
             )}
-            <h2 
-              className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight font-headings
-                        text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+            <h2 className="text-shadow pb-2 pt-4 font-headings text-2xl font-bold leading-8 tracking-tight text-shadow-gray-400/80 dark:text-shadow-black">
               {name}
             </h2>
             <div className="text-gray-600 dark:text-gray-400">{occupation}</div>

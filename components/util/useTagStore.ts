@@ -1,9 +1,9 @@
-import { create } from 'zustand';
-import { subscribeWithSelector } from 'zustand/middleware';
+import { create } from 'zustand'
+import { subscribeWithSelector } from 'zustand/middleware'
 
 interface TagStore {
-  selectedTag: string;
-  setSelectedTag: (tag: string) => void;
+  selectedTag: string
+  setSelectedTag: (tag: string) => void
 }
 
 export const useTagStore = create(
@@ -11,4 +11,4 @@ export const useTagStore = create(
     selectedTag: '',
     setSelectedTag: (tag) => set({ selectedTag: tag }), // Pas de mise à jour si valeur identique
   }))
-);
+)

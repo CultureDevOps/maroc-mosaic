@@ -51,11 +51,11 @@ const LangSwitch = () => {
   )
 
   useEffect(() => {
-    const backgroundElement = document.getElementById("background-image");
+    const backgroundElement = document.getElementById('background-image')
     if (backgroundElement) {
-      backgroundElement.style.overflow = isMenuOpen ? 'hidden' : 'auto';
+      backgroundElement.style.overflow = isMenuOpen ? 'hidden' : 'auto'
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen])
 
   const currentLocale = useMemo(() => locale.charAt(0).toUpperCase() + locale.slice(1), [locale])
 
@@ -65,15 +65,13 @@ const LangSwitch = () => {
         {({ open }) => (
           <div>
             <MenuButton
-              className="inline-flex rounded-md px-1 py-2 font-bold leading-5 
-                        text-white 
-                        text-shadow text-shadow-black"
+              className="text-shadow inline-flex rounded-md px-1 py-2 font-bold leading-5 text-white text-shadow-black"
               aria-haspopup="true"
               aria-expanded={open}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {/* {currentLocale} */}
-              <Flag locale={currentLocale}/>
+              <Flag locale={currentLocale} />
               <ChevronDownIcon
                 className={`ml-1 mt-1 transform transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
               />
@@ -89,16 +87,11 @@ const LangSwitch = () => {
             >
               <MenuItems
                 modal={false}
-                className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md 
-                      shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  backdrop-blur-sm"
+                className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
                 aria-orientation="vertical"
               >
                 <RadioGroup>
-                  <div
-                    className="p-1 rounded-md
-                              bg-primary-800                                
-                              shadow-xl shadow-gray-950"
-                  >
+                  <div className="rounded-md bg-primary-800 p-1 shadow-xl shadow-gray-950">
                     {locales.map((newLocale: string) => (
                       <Radio key={newLocale} value={newLocale}>
                         <MenuItem>
@@ -109,10 +102,7 @@ const LangSwitch = () => {
                                 focus
                                   ? 'bg-primary-400/50 dark:bg-primary-500/30'
                                   : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
-                              } 
-                              group flex w-full items-center rounded-md px-2 py-2 text-sm font-bold 
-                              text-white hover:text-secondary-500
-                              text-shadow text-shadow-black`}
+                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
                               role="menuitem"
                             >
                               <Flag locale={newLocale} />

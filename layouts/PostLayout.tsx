@@ -51,12 +51,7 @@ export default async function PostLayout({
     <>
       <ScrollTopAndComment />
       {/* <Sidetoc toc={tableOfContents} /> */}
-      <div className="mb-6
-                      bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 
-                      dark:bg-gradient-to-tr dark:from-gray-900/30 dark:via-primary-950/30 dark:to-gray-900/30 
-                      backdrop-blur-sm rounded-lg p-8 shadow-lg 
-                      border border-white/20 dark:border-gray-700/20 h-fit
-                      shadow-xl shadow-gray-400 dark:shadow-gray-950">
+      <div className="dark:via-primary-950/30 mb-6 h-fit rounded-lg border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 p-8 shadow-lg shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950">
         <FancyboxWrapper>
           <article>
             <div className="xl:divide-y xl:divide-gray-300 xl:dark:divide-gray-700">
@@ -72,7 +67,7 @@ export default async function PostLayout({
                       </dd>
                     </div>
                   </dl>
-                  <div className="font-headings text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+                  <div className="text-shadow font-headings text-shadow-gray-400/80 dark:text-shadow-black">
                     <PageTitle>{title}</PageTitle>
                   </div>
                 </div>
@@ -83,7 +78,10 @@ export default async function PostLayout({
                   <dd>
                     <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                       {authorDetails.map((author) => (
-                        <li className="flex flex-col items-center space-x-2 space-y-2" key={author.name}>
+                        <li
+                          className="flex flex-col items-center space-x-2 space-y-2"
+                          key={author.name}
+                        >
                           {author.avatar && (
                             <Link href={`/${locale}/about/${author.slug}`}>
                               <Image
@@ -92,18 +90,17 @@ export default async function PostLayout({
                                 height={80}
                                 alt="avatar"
                                 title="avatar"
-                                className="h-16 w-16 rounded-full lg:h-30 lg:w-30"
+                                className="lg:h-30 lg:w-30 h-16 w-16 rounded-full"
                                 sizes="(max-width: 640px) 64px, 120px"
                               />
                             </Link>
                           )}
-                          <dl className="whitespace-nowrap text-sm font-medium leading-5 font-headings
-                                        text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+                          <dl className="text-shadow whitespace-nowrap font-headings text-sm font-medium leading-5 text-shadow-gray-400/80 dark:text-shadow-black">
                             <dt className="sr-only">{t('name')}</dt>
                             <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                             <dt className="sr-only">Twitter</dt>
                             <dd>
-                              <div className="flex pt-2 space-x-3 justify-center">
+                              <div className="flex justify-center space-x-3 pt-2">
                                 {/* Social icons */}
                                 {author.github && (
                                   <SocialIcon kind="github" href={author.github} size={5} />
@@ -131,15 +128,19 @@ export default async function PostLayout({
                   <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
                   <Share title={title} slug={slug} />
                   <div className="pb-6 pt-6">
-                    <div className="flex items-center justify-center space-x-2 text-sm
-                                text-gray-700 dark:text-gray-300">
-                      <Link href={discussUrl(path)} rel="nofollow"
-                        className="hover:text-primary-600 dark:hover:text-primary-400">
+                    <div className="flex items-center justify-center space-x-2 text-sm text-gray-700 dark:text-gray-300">
+                      <Link
+                        href={discussUrl(path)}
+                        rel="nofollow"
+                        className="hover:text-primary-600 dark:hover:text-primary-400"
+                      >
                         {t('twitter')}
                       </Link>
                       <span>{` • `}</span>
-                      <Link href={editUrl(filePath)}
-                        className="hover:text-primary-600 dark:hover:text-primary-400">
+                      <Link
+                        href={editUrl(filePath)}
+                        className="hover:text-primary-600 dark:hover:text-primary-400"
+                      >
                         {t('github')}
                       </Link>
                     </div>

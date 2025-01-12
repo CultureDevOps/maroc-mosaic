@@ -38,21 +38,17 @@ const ThemeSwitch = () => {
   }
 
   useEffect(() => {
-    const backgroundElement = document.getElementById("background-image");
+    const backgroundElement = document.getElementById('background-image')
     if (backgroundElement) {
-      backgroundElement.style.overflow = menuOpen ? 'hidden' : '';
+      backgroundElement.style.overflow = menuOpen ? 'hidden' : ''
     }
-  }, [menuOpen]);
+  }, [menuOpen])
 
   if (!mounted) return null
 
   return (
     <div ref={menubarRef} className="mr-5">
-      <Menu
-        as="div"
-        className="relative mt-1 inline-block text-left"
-        data-open={menuOpen}
-      >
+      <Menu as="div" className="relative mt-1 inline-block text-left" data-open={menuOpen}>
         <MenuButton aria-label={t('theme')}>
           <DarkModeSwitch
             checked={darkModeChecked}
@@ -74,25 +70,20 @@ const ThemeSwitch = () => {
           <div>
             <MenuItems
               modal={true}
-              className="absolute right-0 z-60 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md 
-                      shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none backdrop-blur-sm">
+              className="z-60 absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+            >
               <RadioGroup value={theme} onChange={handleThemeChange}>
-                <div className="p-1 rounded-md 
-                              bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95
-                              dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95                                
-                              shadow-xl shadow-gray-400 dark:shadow-gray-950">
+                <div className="rounded-md bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95 p-1 shadow-xl shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95 dark:shadow-gray-950">
                   <Radio value="light">
                     <MenuItem>
                       {({ focus }) => (
                         <button
                           onClick={() => handleThemeChange('light')}
-                          className={`${focus
-                            ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                            : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
-                            } group flex w-full items-center rounded-md px-2 py-2 text-sm 
-                        hover:backdrop-blur-sm
-                        text-white hover:text-secondary-500
-                        text-shadow text-shadow-black`}
+                          className={`${
+                            focus
+                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
+                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
                         >
                           <Sun className="h-6 w-6" />
                           <span className="ml-2">{t('light')}</span>
@@ -105,15 +96,11 @@ const ThemeSwitch = () => {
                       {({ focus }) => (
                         <button
                           onClick={() => handleThemeChange('dark')}
-                          className={`${focus
-                            ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                            : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
-                            } group flex w-full items-center rounded-md px-2 py-2 text-sm 
-                        hover:backdrop-blur-sm
-                        text-gray-700 hover:text-primary-500
-                        dark:text-white dark:hover:text-primary-500
-                        dark:hover:text-primary-500
-                        text-shadow text-shadow-gray-400/80 dark:text-shadow-black`}
+                          className={`${
+                            focus
+                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
+                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                         >
                           <Moon className="h-6 w-6" />
                           <span className="ml-2">{t('dark')}</span>
@@ -126,15 +113,11 @@ const ThemeSwitch = () => {
                       {({ focus }) => (
                         <button
                           onClick={() => handleThemeChange('system')}
-                          className={`${focus
-                            ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                            : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
-                            } group flex w-full items-center rounded-md px-2 py-2 text-sm 
-                        text-gray-700 hover:text-primary-500
-                        hover:backdrop-blur-sm
-                        dark:text-white dark:hover:text-primary-500
-                        dark:hover:text-primary-500
-                        text-shadow text-shadow-gray-400/80 dark:text-shadow-black`}
+                          className={`${
+                            focus
+                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
+                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                         >
                           <Monitor className="h-6 w-6" />
                           <span className="ml-2">{t('system')}</span>

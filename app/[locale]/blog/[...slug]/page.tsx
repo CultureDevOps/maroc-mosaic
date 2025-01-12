@@ -17,8 +17,11 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import SectionContainer from '@/components/SectionContainer'
 import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
 
-interface BlogPageProps {
-  params: { slug: string[]; locale: LocaleTypes }
+interface PageProps {
+  params: Promise<{
+    slug: string[]
+    locale: LocaleTypes
+  }>
 }
 
 const defaultLayout = 'PostGalleryLayout'
@@ -29,7 +32,12 @@ const layouts = {
   PostGalleryLayout,
 }
 
-async function getPostFromParams({ params: { slug, locale } }: BlogPageProps): Promise<any> {
+async function getPostFromParams({
+  params,
+}: {
+  params: Promise<{ slug: string[]; locale: LocaleTypes }>
+}): Promise<any> {
+  const { slug, locale } = await params
   const dslug = decodeURI(slug.join('/'))
   const post = allBlogs.filter((p) => p.language === locale).find((p) => p.slug === dslug) as Blog
 
@@ -57,9 +65,7 @@ async function getPostFromParams({ params: { slug, locale } }: BlogPageProps): P
   return post
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPageProps): Promise<Metadata | undefined> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata | undefined> {
   const { slug, locale } = await params
   const dslug = decodeURI(slug.join('/'))
   const post = allBlogs.find((p) => p.slug === dslug && p.language === locale) as Blog
@@ -82,10 +88,12 @@ export async function generateMetadata({
     imageList = typeof post.images === 'string' ? [post.images] : post.images
   }
   const ogImages = imageList.map((img) => {
-    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;
+    const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl
     return {
       // url: img.includes('http') ? img : `${basePath}/_next/image?url=${encodeURIComponent(img)}&w=1200&q=75`,
-      url: img.includes('http') ? img : process.env.CLOUD_FRONT_URL + img + '?format=auto&width=1200',
+      url: img.includes('http')
+        ? img
+        : process.env.CLOUD_FRONT_URL + img + '?format=auto&width=1200',
     }
   })
 
@@ -118,7 +126,7 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default async function Page({ params }: BlogPageProps) {
+export default async function Page({ params }: PageProps) {
   const { slug, locale } = await params
   const dslug = decodeURI(slug.join('/'))
   // Filter out drafts in production + locale filtering
@@ -132,7 +140,7 @@ export default async function Page({ params }: BlogPageProps) {
 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
-  const post = await getPostFromParams({ params: { slug, locale } })
+  const post = await getPostFromParams({ params })
   const author = allAuthors.filter((a) => a.language === locale).find((a) => a.default === true)
   const authorList = post.authors || author
   const authorDetails = authorList.map((author) => {
@@ -154,10 +162,11 @@ export default async function Page({ params }: BlogPageProps) {
 
   return (
     <FullLayoutSectionContainer>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />        
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Layout
           content={mainContent}
           authorDetails={authorDetails}
@@ -167,6 +176,7 @@ export default async function Page({ params }: BlogPageProps) {
         >
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </Layout>
+      </>
     </FullLayoutSectionContainer>
   )
 }

@@ -1,4 +1,3 @@
-
 'use client'
 
 import { Inter } from 'next/font/google'
@@ -19,38 +18,36 @@ const inter = Inter({
 })
 
 const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
-  const pathname = usePathname();
-  const isFullPageLayout = pathname === '/' || pathname.startsWith('/landing');
+  const pathname = usePathname()
+  const isFullPageLayout = pathname === '/' || pathname.startsWith('/landing')
   // const isFullPageLayout = true;
 
-  return isFullPageLayout ? ( 
+  return isFullPageLayout ? (
     <div className="h-screen">
       <SearchProvider>
         <SectionContainer>
           <div className="flex flex-col justify-between font-sans">
-          <Header />  
+            <Header />
           </div>
         </SectionContainer>
-        <FullLayoutSectionContainer>      
-          <div className="flex flex-col justify-between font-sans">
-            {children}        
-          </div>
+        <FullLayoutSectionContainer>
+          <div className="flex flex-col justify-between font-sans">{children}</div>
         </FullLayoutSectionContainer>
       </SearchProvider>
       <div className="flex flex-col justify-between font-sans">
         <Footer />
       </div>
-    </div>       
-  ) : (    
+    </div>
+  ) : (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between font-sans">
         <SearchProvider>
-          <Header />            
-            {children}            
-          <Footer /> 
+          <Header />
+          {children}
+          <Footer />
         </SearchProvider>
-      </div>   
-    </SectionContainer>    
-  );
+      </div>
+    </SectionContainer>
+  )
 }
 export default LayoutWrapper

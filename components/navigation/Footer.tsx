@@ -48,8 +48,10 @@ export default function Footer() {
             <div>{`© ${new Date().getFullYear()}`}</div>
           </div>
           <div className="mb-8 text-sm text-gray-700 dark:text-gray-300">
-            <p><Link href="https://culturedevops.com">{t("author_ref")}</Link></p>
-          </div>          
+            <p>
+              <Link href="https://culturedevops.com">{t('author_ref')}</Link>
+            </p>
+          </div>
         </div>
       </footer>
       <ContactModal />

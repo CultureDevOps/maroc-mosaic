@@ -54,7 +54,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
       />
       <input
         required
-        autoComplete="adresse"
+        autoComplete="street-address"
         id="adresse"
         type="text"
         name="wb_input_2"
@@ -62,7 +62,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         value={adress}
         onChange={handleAdressChange}
         className="mb-2 w-full rounded-md border-black bg-white p-2 text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
-      />      
+      />
       {/* <ValidationError prefix="Email" field="email" errors={state.errors} /> */}
       <textarea
         required

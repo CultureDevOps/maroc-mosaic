@@ -7,11 +7,13 @@ import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
 import SectionContainer from '@/components/SectionContainer'
 
-type BlogPageProps = {
-  params: { locale: LocaleTypes }
+interface PageProps {
+  params: Promise<{
+    locale: LocaleTypes
+  }>
 }
 
-export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (await params).locale
   return genPageMetadata({
     title: 'Blog',
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   })
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
+export default async function BlogPage({ params }: PageProps) {
   const locale = (await params).locale
   const { t } = await createTranslation(locale, 'home')
   const posts = allCoreContent(sortPosts(allBlogs))
@@ -28,8 +30,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <div className="pt-24">
       <SectionContainer>
-        <ListLayout params={{ locale }} posts={filteredPosts} title={t('all')}/>
+        <ListLayout params={{ locale }} posts={filteredPosts} title={t('all')} />
       </SectionContainer>
     </div>
-  ) 
+  )
 }

@@ -9,16 +9,14 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { notFound } from 'next/navigation'
 import SectionContainer from '@/components/SectionContainer'
 
-type AboutProps = {
-  params: { 
+interface PageProps {
+  params: Promise<{
     authors: string[]
-    locale: LocaleTypes 
-  }
+    locale: LocaleTypes
+  }>
 }
 
-export async function generateMetadata({
-  params,
-}: AboutProps): Promise<Metadata | undefined> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata | undefined> {
   const { authors, locale } = await params
   const authorSlug = decodeURI(authors.join('/'))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
@@ -33,7 +31,7 @@ export async function generateMetadata({
   })
 }
 
-export default async function Page({ params }: AboutProps) {
+export default async function Page({ params }: PageProps) {
   const { authors, locale } = await params
   const authorSlug = decodeURI(authors.join('/'))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
@@ -45,18 +43,13 @@ export default async function Page({ params }: AboutProps) {
 
   return (
     <div className="pt-24">
-    <SectionContainer>
-      <div className="mb-6 flex-grow 
-                bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 
-                dark:bg-gradient-to-tr dark:from-gray-900/30 dark:via-primary-950/30 dark:to-gray-900/30 
-                backdrop-blur-sm rounded-lg p-8 shadow-lg 
-                border border-white/20 dark:border-gray-700/20
-                shadow-xl shadow-gray-400 dark:shadow-gray-950">
-        <AuthorLayout params={{ locale }} content={mainContent}>
-          <MDXLayoutRenderer code={author.body.code} />
-        </AuthorLayout>
-      </div>      
-    </SectionContainer>
+      <SectionContainer>
+        <div className="dark:via-primary-950/30 mb-6 flex-grow rounded-lg border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 p-8 shadow-lg shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950">
+          <AuthorLayout params={{ locale }} content={mainContent}>
+            <MDXLayoutRenderer code={author.body.code} />
+          </AuthorLayout>
+        </div>
+      </SectionContainer>
     </div>
   )
 }

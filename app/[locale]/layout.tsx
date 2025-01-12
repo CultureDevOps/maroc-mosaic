@@ -3,7 +3,7 @@ import 'pliny/search/algolia.css'
 
 import { Open_Sans } from 'next/font/google'
 import { Scheherazade_New } from 'next/font/google'
-import { Amiri_Quran} from 'next/font/google'
+import { Amiri_Quran } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider } from '@/components/search/SearchProvider'
 import Header from '@/components/navigation/Header'
@@ -15,7 +15,8 @@ import { Metadata } from 'next'
 import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import Script from 'next/script'
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -42,14 +43,18 @@ const amiriQuran = Amiri_Quran({
   variable: '--font-amiri-quran',
 })
 
-export async function generateMetadata({params,}: {params: { locale: LocaleTypes }}): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: LocaleTypes }
+}): Promise<Metadata> {
   const locale = (await params).locale
-  // const generateOptimizedUrl = (src: string): string => {     
+  // const generateOptimizedUrl = (src: string): string => {
   //   const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl;;
   //   return src.includes('http') ? src : `${basePath}/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75`
   // };
   // const imageUrl = generateOptimizedUrl(siteMetadata.socialBanner);
-  const imageUrl = `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${siteMetadata.socialBanner}?format=auto&width=1200`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_CLOUD_FRONT_URL}${siteMetadata.socialBanner}?format=auto&width=1200`
   return {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
@@ -105,49 +110,45 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
   params
-}) { 
+}) {
   const theme = siteMetadata.theme || 'system'
   const locale = (await params).locale
   return (
     <html
       lang={locale}
       dir={dir(locale)}
-      className={`${open_sans.variable} ${scheherazadeNew.variable} ${amiriQuran.variable}
-      scroll-smooth ${theme}`}
+      className={`${open_sans.variable} ${scheherazadeNew.variable} ${amiriQuran.variable} scroll-smooth ${theme}`}
       suppressHydrationWarning
     >
       <head>
         <script
-              dangerouslySetInnerHTML={{
-                __html: `
+          dangerouslySetInnerHTML={{
+            __html: `
                   window.siteMetadata = { theme: '${process.env.NEXT_PUBLIC_SITE_THEME}' };
                 `,
-              }}
-            />        
-        <script src="/static/js/theme-switcher.js" />     
+          }}
+        />
+        <Script src="/static/js/theme-switcher.js" strategy="beforeInteractive" />
         <link rel="manifest" href="/static/favicons/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className="text-black antialiased dark:text-white 
-                      bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 
-                      dark:from-primary-800/90 dark:via-primary-950 dark:via-60% dark:via-gold-950/60 dark:via-75% dark:to-primary-900
-                      h-screen overflow-y-auto">
+      <body className="dark:via-primary-950 h-screen overflow-y-auto bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 text-black antialiased dark:from-primary-800/90 dark:via-gold-950/60 dark:via-60% dark:via-75% dark:to-primary-900 dark:text-white">
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
             <div className="w-full">
-                <div className="flex flex-col justify-between font-sans sticky top-0 z-50">
-                    <Header />  
-                  </div> 
-                <div className="flex flex-col justify-between font-sans">
-                  <main className="mb-auto">{children}</main>
-                </div>                
-                <div className="flex flex-col justify-between font-sans">
-                  <Footer />
-                </div>    
+              <div className="sticky top-0 z-50 flex flex-col justify-between font-sans">
+                <Header />
+              </div>
+              <div className="flex flex-col justify-between font-sans">
+                <main className="mb-auto">{children}</main>
+              </div>
+              <div className="flex flex-col justify-between font-sans">
+                <Footer />
+              </div>
             </div>
           </SearchProvider>
           <TwSizeIndicator />

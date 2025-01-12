@@ -11,54 +11,53 @@ import { CommentsIcon, ArrowTopIcon } from './icons'
 import { SearchIcon } from '../search/icons'
 
 const ScrollTopAndComment = () => {
-  const locale = useParams()?.locale as LocaleTypes;
-  const { t } = useTranslation(locale, 'common');
-  const [show, setShow] = useState<boolean>(false);
-  const [backgroundImage, setBackgroundImage] = useState<HTMLElement | null>(null);
+  const locale = useParams()?.locale as LocaleTypes
+  const { t } = useTranslation(locale, 'common')
+  const [show, setShow] = useState<boolean>(false)
+  const [backgroundImage, setBackgroundImage] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
     // Définir l'élément `background-image` uniquement côté client
-    const element = document.getElementById('background-image');
-    setBackgroundImage(element);
+    const element = document.getElementById('background-image')
+    setBackgroundImage(element)
 
     const handleScroll = () => {
       if (element && element.scrollTop > 50) {
-        setShow(true);
+        setShow(true)
       } else {
-        setShow(false);
+        setShow(false)
       }
-    };
+    }
 
     // Ajouter un écouteur de scroll sur l'élément trouvé
     if (element) {
-      element.addEventListener('scroll', handleScroll);
+      element.addEventListener('scroll', handleScroll)
     }
 
     return () => {
       if (element) {
-        element.removeEventListener('scroll', handleScroll);
+        element.removeEventListener('scroll', handleScroll)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   const handleScrollTop = () => {
-    backgroundImage?.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    backgroundImage?.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const handleScrollToComment = () => {
-    const commentElement = document.getElementById('comment');
+    const commentElement = document.getElementById('comment')
     if (commentElement && backgroundImage) {
-      const offset = 50; // Ajuster si nécessaire
-      const elementPosition = commentElement.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + backgroundImage.scrollTop - offset;
+      const offset = 50 // Ajuster si nécessaire
+      const elementPosition = commentElement.getBoundingClientRect().top
+      const offsetPosition = elementPosition + backgroundImage.scrollTop - offset
 
       backgroundImage.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
-      });
+      })
     }
-  };
+  }
 
   if (
     siteMetadata.search &&
@@ -93,8 +92,7 @@ const ScrollTopAndComment = () => {
           <ArrowTopIcon className="h-5 w-5" />
         </button>
       </div>
-
-      )
+    )
   }
 }
 

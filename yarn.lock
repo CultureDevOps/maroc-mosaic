@@ -8875,6 +8875,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"leaflet-defaulticon-compatibility@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "leaflet-defaulticon-compatibility@npm:0.1.2"
+  checksum: c50972f415311e9321ae534dde4d1382e846020fc4207d9063eccfafd8b7627476f47989b5c16957fea8253828dc8aa9d0650aaadd9f78608032f9dc5d9aa9e7
+  languageName: node
+  linkType: hard
+
 "leaflet@npm:^1.9.4":
   version: 1.9.4
   resolution: "leaflet@npm:1.9.4"
@@ -13395,6 +13402,7 @@ __metadata:
     i18next-resources-to-backend: "npm:^1.2.1"
     image-size: "npm:^1.1.1"
     leaflet: "npm:^1.9.4"
+    leaflet-defaulticon-compatibility: "npm:^0.1.2"
     lint-staged: "npm:^15.2.11"
     next: "npm:^15.1.0"
     next-contentlayer2: "npm:^0.5.3"

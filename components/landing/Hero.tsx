@@ -19,7 +19,7 @@ export default async function Hero({ params: { locale } }: Props) {
         fill
         quality={90}
         priority
-        className="object-cover pointer-events-none z-[-1]" // Masque pour simuler un fond
+        className="pointer-events-none z-[-1] object-cover" // Masque pour simuler un fond
       />
     </div>
   )

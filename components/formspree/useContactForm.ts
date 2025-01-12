@@ -23,7 +23,7 @@ export const useContactForm = () => {
   const sendForm = async () => {
     setSubmitting(true)
     setErrors(null)
-  
+
     const formData = new FormData()
     formData.append('wb_form_id', wbFormId)
     formData.append('wb_form_uuid', wbFormUuid)
@@ -39,14 +39,14 @@ export const useContactForm = () => {
 
     try {
       const response = await fetch('https://denisgabriel.com/contact/', {
-        method: 'POST',  
+        method: 'POST',
         body: formData, // FormData directement dans le body
       })
-  
+
       if (!response.ok) {
         throw new Error('Erreur lors de l’envoi du formulaire.')
       }
-  
+
       setSucceeded(true)
       toast.success(t('thanks'), { position: 'bottom-right' })
       // Réinitialisation après un délai
@@ -64,7 +64,6 @@ export const useContactForm = () => {
       setSubmitting(false)
     }
   }
-  
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value)

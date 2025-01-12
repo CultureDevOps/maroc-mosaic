@@ -89,7 +89,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
     animate: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0.99 },
     transition: { duration: 0.5 }, // Durée de l'animation
-  };
+  }
 
   if (!mounted) return null
 
@@ -98,14 +98,11 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
       <KBarPortal>
         <KBarPositioner className="bg-gray-300/60 p-4 backdrop-blur-sm dark:bg-black/60">
           <KBarAnimator className="w-full max-w-xl">
-          <motion.div
-            style={{ zIndex: "100" ,transformOrigin: "center center" }}
-            className="overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b 
-                      from-white/70 via-primary-200/40 to-white/30 backdrop-blur-lg 
-                      shadow-2xl dark:border-gray-800 dark:bg-gradient-to-b 
-                      dark:from-gray-900/70 dark:via-primary-950/50 dark:to-gray-900/40 dark:shadow-gray-900/70"
-            {...animationProps}
-          >
+            <motion.div
+              style={{ zIndex: '100', transformOrigin: 'center center' }}
+              className="dark:via-primary-950/50 overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b from-white/70 via-primary-200/40 to-white/30 shadow-2xl backdrop-blur-lg dark:border-gray-800 dark:bg-gradient-to-b dark:from-gray-900/70 dark:to-gray-900/40 dark:shadow-gray-900/70"
+              {...animationProps}
+            >
               <div className="flex items-center space-x-4 p-4">
                 <span className="block w-5">
                   <SearchIcon className="text-gray-400 dark:text-gray-300" />
@@ -180,7 +177,6 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
           </KBarAnimator>
         </KBarPositioner>
       </KBarPortal>
-
 
       <Toaster />
     </>

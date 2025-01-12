@@ -32,31 +32,25 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
       <Link
         href={href.startsWith('http') ? href : `/${locale}${href}`}
         aria-label={`${t('linkto')}${title}`}
-        className={`${
-          imgSrc && 'h-full'
-        }  overflow-hidden rounded-md group`}
+        className={`${imgSrc && 'h-full'} group overflow-hidden rounded-md`}
       >
-              <Image
-                alt={title}
-                title={title}
-                src={imgSrc}
-                className="object-cover rounded-lg"
-                width={544}
-                height={306}
-              />
+        <Image
+          alt={title}
+          title={title}
+          src={imgSrc}
+          className="rounded-lg object-cover"
+          width={544}
+          height={306}
+        />
         <div className="p-6">
-          <h2 className="mb-3 text-2xl text-heading dark:text-heading-dark font-headings font-bold leading-8 tracking-tight
-                        group-hover:text-secondary-600 dark:group-hover:text-secondary-400">
-                {title}
+          <h2 className="mb-3 font-headings text-2xl font-bold leading-8 tracking-tight text-heading group-hover:text-secondary-600 dark:text-heading-dark dark:group-hover:text-secondary-400">
+            {title}
           </h2>
           <p className="prose mb-3 max-w-none text-gray-700 dark:text-gray-400">{description}</p>
-          
-            <div
-              className="text-base font-medium leading-6 text-link dark:dark-text-link 
-              group-hover:text-secondary-600 dark:group-hover:text-secondary-400"
-            >
-              {t('read')} &rarr;
-            </div>
+
+          <div className="dark:dark-text-link text-base font-medium leading-6 text-link group-hover:text-secondary-600 dark:group-hover:text-secondary-400">
+            {t('read')} &rarr;
+          </div>
         </div>
       </Link>
     </motion.div>
