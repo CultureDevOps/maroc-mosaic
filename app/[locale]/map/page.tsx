@@ -21,7 +21,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function MapPage({ params }: PageProps) {
-
   return (
     <FullLayoutSectionContainer>
       <Map />

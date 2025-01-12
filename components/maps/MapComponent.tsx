@@ -10,7 +10,7 @@ const MapComponent = () => {
     {
       name: 'Palais Al Wajba (Doha, Qatar)',
       coords: [25.2798, 51.5074],
-      info: 'Revêtement de la coupole et des colonnes en mosaïque de marbre et travertin. 350 m2. Revêtement sol de la place d\'accueil en mosaïque de 10/20 mm. 3200 m2. Alberto PINTO (intérieur design).',
+      info: "Revêtement de la coupole et des colonnes en mosaïque de marbre et travertin. 350 m2. Revêtement sol de la place d'accueil en mosaïque de 10/20 mm. 3200 m2. Alberto PINTO (intérieur design).",
     },
     {
       name: 'Palais du Prince Khaled bin Sultan (Riyadh, Arabie Saoudite)',
@@ -18,7 +18,7 @@ const MapComponent = () => {
       info: 'Réalisation d’une mosaique murale d’éclats de marbre et galets naturels de Grenade. 1200 pièces, 120m2. Alberto PINTO (intérieur design).',
     },
     {
-      name: 'Place de l\'hôtel de ville de Chambery, France',
+      name: "Place de l'hôtel de ville de Chambery, France",
       coords: [45.5643, 5.9115],
       info: '5200 m2, Pavés 8/10 et Dalles porphyre.',
     },
@@ -28,7 +28,7 @@ const MapComponent = () => {
       info: '3000 m2, Pavés 6/8 et Dalles porphyre. Architecte Mario Botta.',
     },
     {
-      name: 'Centre international d\'art contemporain et du paysage de Vassivière (France)',
+      name: "Centre international d'art contemporain et du paysage de Vassivière (France)",
       coords: [45.7032, 1.8006],
       info: '150 m2, Pavés sciés en Granite rouge du Limousin. Architecte Aldo Rossi.',
     },
@@ -40,7 +40,7 @@ const MapComponent = () => {
     {
       name: 'Al Khaldia / Fahd ben Abdelaziz Al Saoud (Marbella, Espagne)',
       coords: [36.5025, -4.8928],
-      info: 'Frises en mosaïque de galets naturels d\'Essaouira (cinq couleurs). 350 ML. Alberto PINTO (intérieur design).',
+      info: "Frises en mosaïque de galets naturels d'Essaouira (cinq couleurs). 350 ML. Alberto PINTO (intérieur design).",
     },
     {
       name: 'Le Parc Cimetière Paysager du Grand Lyon (France)',
@@ -60,7 +60,7 @@ const MapComponent = () => {
     {
       name: 'Casa Mabara (Marbella, Espagne)',
       coords: [36.5085, -4.8775],
-      info: 'Chaussées, place et allées de jardin en mosaïque de galets noirs et blancs de Grenade (Empedrado Granadino fino). 2500 m2. Réalisation de jeux d’eau, séguias, et de 12 fontaines (copies de l\'Alhambra).',
+      info: "Chaussées, place et allées de jardin en mosaïque de galets noirs et blancs de Grenade (Empedrado Granadino fino). 2500 m2. Réalisation de jeux d’eau, séguias, et de 12 fontaines (copies de l'Alhambra).",
     },
     {
       name: 'Santa Lucia (Cassis, France)',
@@ -68,7 +68,7 @@ const MapComponent = () => {
       info: 'Réalisation de la chaussée et des terrasses en porphyre 6/8 et dalles de 40 cms en pierre de Bourgogne 800 m². Création et réalisation de 4 mosaïques de tesselles de marbre et galets noirs de Grenade (Mosaïque de Bacchus, mosaïque d’Italica, mosaïque d’Adrien et mosaïque de Santa Lucia SL). Dg Design.',
     },
     {
-      name: 'Village médiéval d\'Oberbronn (Alsace, France)',
+      name: "Village médiéval d'Oberbronn (Alsace, France)",
       coords: [48.8872, 7.3756],
       info: 'Pavé 4x6, 6x8, 8x10 en grès rose des Vosges, 6000 m2.',
     },
@@ -95,7 +95,7 @@ const MapComponent = () => {
     {
       name: 'Château Marravenne (Var, France)',
       coords: [43.2255, 6.1168],
-      info: 'Réalisation du blason de Marravenne (12 m²) en galets naturels d\'Essaouira (cinq couleurs). Dg Design.',
+      info: "Réalisation du blason de Marravenne (12 m²) en galets naturels d'Essaouira (cinq couleurs). Dg Design.",
     },
     {
       name: 'Château de Ronzière (Beaujolais, France)',
@@ -105,7 +105,7 @@ const MapComponent = () => {
     {
       name: 'Château de Brantes (Avignon, France)',
       coords: [43.9043, 4.8357],
-      info: 'Réalisation d\'une mosaïque en hommage aux frères Montgolfier. 25 m².',
+      info: "Réalisation d'une mosaïque en hommage aux frères Montgolfier. 25 m².",
     },
     {
       name: 'Villa Cologny (Genève, Suisse)',
@@ -130,7 +130,7 @@ const MapComponent = () => {
     {
       name: 'Villa Ondine St Paul de Vence (France)',
       coords: [43.7023, 7.1145],
-      info: 'Mosaïque de galets gris-bleus, blancs, lie de vin, noirs, et bruns beiges (blason de St Paul de Vence). Chaussée et place d\'accueil en pavés porphyre 6/8, 4200 m2. Dg Design.',
+      info: "Mosaïque de galets gris-bleus, blancs, lie de vin, noirs, et bruns beiges (blason de St Paul de Vence). Chaussée et place d'accueil en pavés porphyre 6/8, 4200 m2. Dg Design.",
     },
     {
       name: 'Abbatiale de Rabastens (France)',
@@ -148,115 +148,115 @@ const MapComponent = () => {
       info: 'Pavés 8/10 et dalles de 40 cm en granit jaune du Vietnam. 1200 m².',
     },
     {
-      "name": "Hotel des Milles et une Nuits (Marrakech, Maroc)",
-      "coords": [31.6258, -7.9899],
-      "info": "Mosaique de galets dans hammam (galets blancs, lie de vin, verts, noirs). Etoiles et arabesques. 30 m²."
+      name: 'Hotel des Milles et une Nuits (Marrakech, Maroc)',
+      coords: [31.6258, -7.9899],
+      info: 'Mosaique de galets dans hammam (galets blancs, lie de vin, verts, noirs). Etoiles et arabesques. 30 m².',
     },
     {
-      "name": "L'Art du Jardin 95 (Parc de St Cloud, Paris)",
-      "coords": [48.8570, 2.1870],
-      "info": "Création de mosaiques pour les revues CÔTE SUD & DETOUR EN FRANCE. 25 m²."
+      name: "L'Art du Jardin 95 (Parc de St Cloud, Paris)",
+      coords: [48.857, 2.187],
+      info: 'Création de mosaiques pour les revues CÔTE SUD & DETOUR EN FRANCE. 25 m².',
     },
     {
-      "name": "Château de Sainte Croix (Dombes, France)",
-      "coords": [46.0393, 5.1369],
-      "info": "Plage de piscine en galets blancs de Bresse. 220 m²."
+      name: 'Château de Sainte Croix (Dombes, France)',
+      coords: [46.0393, 5.1369],
+      info: 'Plage de piscine en galets blancs de Bresse. 220 m².',
     },
     {
-      "name": "Villa Ledoux (Annemasse, France)",
-      "coords": [46.2001, 6.2437],
-      "info": "Mosaique de galets blancs et bruns avec motifs (Arabesques). 28 m²."
+      name: 'Villa Ledoux (Annemasse, France)',
+      coords: [46.2001, 6.2437],
+      info: 'Mosaique de galets blancs et bruns avec motifs (Arabesques). 28 m².',
     },
     {
-      "name": "Villa Ambassadeur (Palmeraie de Marrakech, Maroc)",
-      "coords": [31.6639, -7.9819],
-      "info": "Mosaique de galets blancs, lie de vin et noirs d'Essaouira avec motifs (Moucharabies). 50 m²."
+      name: 'Villa Ambassadeur (Palmeraie de Marrakech, Maroc)',
+      coords: [31.6639, -7.9819],
+      info: "Mosaique de galets blancs, lie de vin et noirs d'Essaouira avec motifs (Moucharabies). 50 m².",
     },
     {
-      "name": "Villa Wrobel (St Tropez, France)",
-      "coords": [43.2682, 6.6424],
-      "info": "Mosaique de galets blancs et bruns avec motifs (Arabesques). 75 m²."
+      name: 'Villa Wrobel (St Tropez, France)',
+      coords: [43.2682, 6.6424],
+      info: 'Mosaique de galets blancs et bruns avec motifs (Arabesques). 75 m².',
     },
     {
-      "name": "Villa Neptune (Perpignan, France)",
-      "coords": [42.6987, 2.8955],
-      "info": "Le trident de Neptune, mosaique de galets grecques blancs et noirs."
+      name: 'Villa Neptune (Perpignan, France)',
+      coords: [42.6987, 2.8955],
+      info: 'Le trident de Neptune, mosaique de galets grecques blancs et noirs.',
     },
     {
-      "name": "Villa aux Lions (Marbella, Espagne)",
-      "coords": [36.5123, -4.8800],
-      "info": "Mosaique de galets blancs et noirs de Grenade (Arabesques). 580 m²."
+      name: 'Villa aux Lions (Marbella, Espagne)',
+      coords: [36.5123, -4.88],
+      info: 'Mosaique de galets blancs et noirs de Grenade (Arabesques). 580 m².',
     },
     {
-      "name": "Fountain House (Marbella, Espagne)",
-      "coords": [36.5135, -4.8850],
-      "info": "Projet et réalisation des extérieurs. Marbre, mosaïques, fontaines Romaines, bassins. 500 m²."
+      name: 'Fountain House (Marbella, Espagne)',
+      coords: [36.5135, -4.885],
+      info: 'Projet et réalisation des extérieurs. Marbre, mosaïques, fontaines Romaines, bassins. 500 m².',
     },
     {
-      "name": "Gadalmina Beach (Marbella, Espagne)",
-      "coords": [36.5195, -5.0250],
-      "info": "Projet et réalisation des extérieurs (Mosaïques de Porphyre). 250 m²."
+      name: 'Gadalmina Beach (Marbella, Espagne)',
+      coords: [36.5195, -5.025],
+      info: 'Projet et réalisation des extérieurs (Mosaïques de Porphyre). 250 m².',
     },
     {
-      "name": "Vasary Office (Puerto Bañus, Espagne)",
-      "coords": [36.4967, -4.9469],
-      "info": "Réalisation du Logo Vasary en mosaïque de tesselles de marbre brun et galets noirs de Grenade. 4 m²."
+      name: 'Vasary Office (Puerto Bañus, Espagne)',
+      coords: [36.4967, -4.9469],
+      info: 'Réalisation du Logo Vasary en mosaïque de tesselles de marbre brun et galets noirs de Grenade. 4 m².',
     },
     {
-      "name": "Villa Sierra Blanca (Marbella, Espagne)",
-      "coords": [36.4983, -4.9252],
-      "info": "Mosaique d'éclats de marbre blanc et rouge d'Almeria (Arabesques). 50 m². Tadelakt 700 m²."
+      name: 'Villa Sierra Blanca (Marbella, Espagne)',
+      coords: [36.4983, -4.9252],
+      info: "Mosaique d'éclats de marbre blanc et rouge d'Almeria (Arabesques). 50 m². Tadelakt 700 m².",
     },
     {
-      "name": "Villa Gomez (Marbella, Espagne)",
-      "coords": [36.5074, -4.8860],
-      "info": "Mosaique d'éclats de marbre blanc et rouge d'Almeria (Arabesques). 120 m²."
+      name: 'Villa Gomez (Marbella, Espagne)',
+      coords: [36.5074, -4.886],
+      info: "Mosaique d'éclats de marbre blanc et rouge d'Almeria (Arabesques). 120 m².",
     },
     {
-      "name": "Villa Garavan (Menton, France)",
-      "coords": [43.7805, 7.5103],
-      "info": "Mosaique de marbre blancs, rouge et galets noirs polis de Grenade (Empedrado Granadino fino): 375 m². Calades provençales 160 m²."
+      name: 'Villa Garavan (Menton, France)',
+      coords: [43.7805, 7.5103],
+      info: 'Mosaique de marbre blancs, rouge et galets noirs polis de Grenade (Empedrado Granadino fino): 375 m². Calades provençales 160 m².',
     },
     {
-      "name": "Villa Oasis (Marrakech, Maroc)",
-      "coords": [31.6655, -8.0000],
-      "info": "Série de gueridons pour Yves St Laurent & Mosaiques de tesselle de marbre."
+      name: 'Villa Oasis (Marrakech, Maroc)',
+      coords: [31.6655, -8.0],
+      info: 'Série de gueridons pour Yves St Laurent & Mosaiques de tesselle de marbre.',
     },
     {
-      "name": "Villa 'Augusta' (St Paul Trois Châteaux, France)",
-      "coords": [44.2401, 4.7323],
-      "info": "Mosaïque de tesselles de marbre (frises et bassin), 80 ml, 12 m²."
+      name: "Villa 'Augusta' (St Paul Trois Châteaux, France)",
+      coords: [44.2401, 4.7323],
+      info: 'Mosaïque de tesselles de marbre (frises et bassin), 80 ml, 12 m².',
     },
     {
-      "name": "Villa Privat (Narbonne, France)",
-      "coords": [43.1821, 3.0031],
-      "info": "Mosaïques Marocaine (Zelliges Beldi de Fez). Piscine, plage, allées de jardin et fontaine murale. 220 m²."
+      name: 'Villa Privat (Narbonne, France)',
+      coords: [43.1821, 3.0031],
+      info: 'Mosaïques Marocaine (Zelliges Beldi de Fez). Piscine, plage, allées de jardin et fontaine murale. 220 m².',
     },
     {
-      "name": "Riad Khemis (Marrakech, Maroc)",
-      "coords": [31.6235, -7.9995],
-      "info": "Mosaïque 'des soleils', mosaique de tesselles de marbre et galets naturels (Bill Willis designer). 25 m²."
+      name: 'Riad Khemis (Marrakech, Maroc)',
+      coords: [31.6235, -7.9995],
+      info: "Mosaïque 'des soleils', mosaique de tesselles de marbre et galets naturels (Bill Willis designer). 25 m².",
     },
     {
-      "name": "Résidence Princière: Palmeraie de Marrakech (Maroc)",
-      "coords": [31.6620, -8.0007],
-      "info": "Route d'accès en galets calibrés 8/10 roses et blancs avec insertion de motifs & frises en galets 6/8 noirs. Tapis de galets 2/4 noirs et blancs d'Essaouira. 500 m²."
+      name: 'Résidence Princière: Palmeraie de Marrakech (Maroc)',
+      coords: [31.662, -8.0007],
+      info: "Route d'accès en galets calibrés 8/10 roses et blancs avec insertion de motifs & frises en galets 6/8 noirs. Tapis de galets 2/4 noirs et blancs d'Essaouira. 500 m².",
     },
     {
-      "name": "Compas Stone International (U.S.A)",
-      "coords": [40.7485, -73.9857],
-      "info": "Emblémas (frises & guéridons)."
+      name: 'Compas Stone International (U.S.A)',
+      coords: [40.7485, -73.9857],
+      info: 'Emblémas (frises & guéridons).',
     },
     {
-      "name": "Hôtel Restaurant le 'Koudou' Marrakech (Maroc)",
-      "coords": [31.6301, -7.9875],
-      "info": "Revêtements muraux et sols en marbre marocain & réalisation des revêtements extérieurs en pierres et galets. Mosaïque du pont aux flamands: Petits galets de marbre rose et noir. 800 m²."
+      name: "Hôtel Restaurant le 'Koudou' Marrakech (Maroc)",
+      coords: [31.6301, -7.9875],
+      info: 'Revêtements muraux et sols en marbre marocain & réalisation des revêtements extérieurs en pierres et galets. Mosaïque du pont aux flamands: Petits galets de marbre rose et noir. 800 m².',
     },
     {
-      "name": "Riad Dar Alif (Marrakech, Maroc)",
-      "coords": [31.6275, -8.0045],
-      "info": "Aménagement et décoration du grand patio piscine. Décoration végétale, bassin, Tadelakt, zellige, mobilier, éclairage, voilage et tissus."
-    }
+      name: 'Riad Dar Alif (Marrakech, Maroc)',
+      coords: [31.6275, -8.0045],
+      info: 'Aménagement et décoration du grand patio piscine. Décoration végétale, bassin, Tadelakt, zellige, mobilier, éclairage, voilage et tissus.',
+    },
   ]
 
   return (
@@ -284,7 +284,11 @@ const MapComponent = () => {
             shadowAnchor: [12, 41],
           })}
         >
-          <Popup>{location.name}<br />{location.info}</Popup>
+          <Popup>
+            {location.name}
+            <br />
+            {location.info}
+          </Popup>
         </Marker>
       ))}
     </MapContainer>
