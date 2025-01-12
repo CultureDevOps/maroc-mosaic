@@ -49,7 +49,7 @@ export default async function Page({ params }: AboutProps) {
                 backdrop-blur-sm rounded-lg p-8 shadow-lg 
                 border border-white/20 dark:border-gray-700/20
                 shadow-xl shadow-gray-400 dark:shadow-gray-950">
-        <AuthorLayout params={{ locale: locale }} content={mainContent}>
+        <AuthorLayout params={{ locale }} content={mainContent}>
           <MDXLayoutRenderer code={author.body.code} />
         </AuthorLayout>
       </div>      
