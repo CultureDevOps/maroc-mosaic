@@ -15,9 +15,10 @@ interface AuthorLayoutProps {
 export default async function AuthorLayout({
   children,
   content,
-  params: { locale },
+  params,
 }: AuthorLayoutProps) {
   const { name, avatar, occupation, company, email, instagram, facebook } = content
+  const { locale } = await params
   const { t } = await createTranslation(locale, 'about')
 
   return (
