@@ -10,7 +10,10 @@ import { notFound } from 'next/navigation'
 import SectionContainer from '@/components/SectionContainer'
 
 type AboutProps = {
-  params: { authors: string[]; locale: LocaleTypes }
+  params: { 
+    authors: string[]
+    locale: LocaleTypes 
+  }
 }
 
 export async function generateMetadata({
