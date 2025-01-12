@@ -1,29 +1,29 @@
-import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
-import Comments from '@/components/comments/Comments'
-import Link from '@/components/mdxcomponents/Link'
-import PageTitle from '@/components/PageTitle'
-import Image from '@/components/mdxcomponents/Image'
-import Tag from '@/components/tag'
-import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/scroll'
-import { createTranslation } from 'app/[locale]/i18n/server'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
-import FancyboxWrapper from '@/components/mdxcomponents/FancyboxWrapper'
-import SocialIcon from '@/components/social-icons'
+import { ReactNode } from "react"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog, Authors } from "contentlayer/generated"
+import Comments from "@/components/comments/Comments"
+import Link from "@/components/mdxcomponents/Link"
+import PageTitle from "@/components/PageTitle"
+import Image from "@/components/mdxcomponents/Image"
+import Tag from "@/components/tag"
+import siteMetadata from "@/data/siteMetadata"
+import ScrollTopAndComment from "@/components/scroll"
+import { createTranslation } from "app/[locale]/i18n/server"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { PostSeriesBox } from "@/components/seriescard"
+import Share from "@/components/share"
+import FancyboxWrapper from "@/components/mdxcomponents/FancyboxWrapper"
+import SocialIcon from "@/components/social-icons"
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 }
 
 interface LayoutProps {
@@ -44,8 +44,8 @@ export default async function PostLayout({
   params: { locale },
 }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, language, series, toc } = content
-  const basePath = path.split('/')[0]
-  const { t } = await createTranslation(locale, 'home')
+  const basePath = path.split("/")[0]
+  const { t } = await createTranslation(locale, "home")
   // const tableOfContents: Toc = toc as unknown as Toc
   return (
     <>
@@ -76,14 +76,14 @@ export default async function PostLayout({
                       rel="nofollow"
                       className="hover:text-primary-600 dark:hover:text-primary-400"
                     >
-                      {t('twitter')}
+                      {t("twitter")}
                     </Link>
                     <span>{` • `}</span>
                     <Link
                       href={editUrl(filePath)}
                       className="hover:text-primary-600 dark:hover:text-primary-400"
                     >
-                      {t('github')}
+                      {t("github")}
                     </Link>
                   </div>
                   <div className="pt-6 text-center" id="comment">

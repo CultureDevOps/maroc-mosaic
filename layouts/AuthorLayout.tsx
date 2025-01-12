@@ -1,28 +1,28 @@
-import { ReactNode } from 'react'
-import type { Authors } from 'contentlayer/generated'
-import SocialIcon from '@/components/social-icons'
-import Image from '@/components/mdxcomponents/Image'
+import { ReactNode } from "react"
+import type { Authors } from "contentlayer/generated"
+import SocialIcon from "@/components/social-icons"
+import Image from "@/components/mdxcomponents/Image"
 
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { createTranslation } from 'app/[locale]/i18n/server'
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { createTranslation } from "app/[locale]/i18n/server"
 
 interface AuthorLayoutProps {
   children: ReactNode
-  content: Omit<Authors, '_id' | '_raw' | 'body'>
+  content: Omit<Authors, "_id" | "_raw" | "body">
   params: { locale: LocaleTypes }
 }
 
 export default async function AuthorLayout({ children, content, params }: AuthorLayoutProps) {
   const { name, avatar, occupation, company, email, instagram, facebook } = content
   const { locale } = await params
-  const { t } = await createTranslation(locale, 'about')
+  const { t } = await createTranslation(locale, "about")
 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-heading-700 text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight antialiased text-shadow-gray-400/80 dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {t('about')}
+            {t("about")}
           </h1>
         </div>
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">

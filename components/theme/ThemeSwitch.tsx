@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from "react"
 import {
   Menu,
   MenuButton,
@@ -9,27 +9,27 @@ import {
   Radio,
   RadioGroup,
   Transition,
-} from '@headlessui/react'
-import { DarkModeSwitch } from './DarkModeSwitch'
-import { Monitor, Moon, Sun } from './icons'
-import { useTheme } from './ThemeContext'
-import { useOuterClick } from '../util/useOuterClick'
-import { useParams } from 'next/navigation'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { useTranslation } from 'app/[locale]/i18n/client'
+} from "@headlessui/react"
+import { DarkModeSwitch } from "./DarkModeSwitch"
+import { Monitor, Moon, Sun } from "./icons"
+import { useTheme } from "./ThemeContext"
+import { useOuterClick } from "../util/useOuterClick"
+import { useParams } from "next/navigation"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { useTranslation } from "app/[locale]/i18n/client"
 
 const ThemeSwitch = () => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const { t } = useTranslation(locale, "common")
   const { theme, setTheme, mounted } = useTheme()
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const [darkModeChecked, setDarkModeChecked] = useState<boolean>(theme === 'dark')
+  const [darkModeChecked, setDarkModeChecked] = useState<boolean>(theme === "dark")
   const menubarRef = useRef<HTMLDivElement>(null)
 
   useOuterClick(menubarRef, () => setMenuOpen(false))
 
   useEffect(() => {
-    setDarkModeChecked(theme === 'dark')
+    setDarkModeChecked(theme === "dark")
   }, [theme])
 
   const handleThemeChange = (newTheme: string) => {
@@ -38,9 +38,9 @@ const ThemeSwitch = () => {
   }
 
   useEffect(() => {
-    const backgroundElement = document.getElementById('background-image')
+    const backgroundElement = document.getElementById("background-image")
     if (backgroundElement) {
-      backgroundElement.style.overflow = menuOpen ? 'hidden' : ''
+      backgroundElement.style.overflow = menuOpen ? "hidden" : ""
     }
   }, [menuOpen])
 
@@ -49,7 +49,7 @@ const ThemeSwitch = () => {
   return (
     <div ref={menubarRef} className="mr-5">
       <Menu as="div" className="relative mt-1 inline-block text-left" data-open={menuOpen}>
-        <MenuButton aria-label={t('theme')}>
+        <MenuButton aria-label={t("theme")}>
           <DarkModeSwitch
             checked={darkModeChecked}
             onChange={(isChecked) => setDarkModeChecked(isChecked)}
@@ -78,15 +78,15 @@ const ThemeSwitch = () => {
                     <MenuItem>
                       {({ focus }) => (
                         <button
-                          onClick={() => handleThemeChange('light')}
+                          onClick={() => handleThemeChange("light")}
                           className={`${
                             focus
-                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                              ? "bg-primary-400/50 dark:bg-primary-500/30"
+                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                           } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
                         >
                           <Sun className="h-6 w-6" />
-                          <span className="ml-2">{t('light')}</span>
+                          <span className="ml-2">{t("light")}</span>
                         </button>
                       )}
                     </MenuItem>
@@ -95,15 +95,15 @@ const ThemeSwitch = () => {
                     <MenuItem>
                       {({ focus }) => (
                         <button
-                          onClick={() => handleThemeChange('dark')}
+                          onClick={() => handleThemeChange("dark")}
                           className={`${
                             focus
-                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                              ? "bg-primary-400/50 dark:bg-primary-500/30"
+                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                           } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                         >
                           <Moon className="h-6 w-6" />
-                          <span className="ml-2">{t('dark')}</span>
+                          <span className="ml-2">{t("dark")}</span>
                         </button>
                       )}
                     </MenuItem>
@@ -112,15 +112,15 @@ const ThemeSwitch = () => {
                     <MenuItem>
                       {({ focus }) => (
                         <button
-                          onClick={() => handleThemeChange('system')}
+                          onClick={() => handleThemeChange("system")}
                           className={`${
                             focus
-                              ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                              : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                              ? "bg-primary-400/50 dark:bg-primary-500/30"
+                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                           } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                         >
                           <Monitor className="h-6 w-6" />
-                          <span className="ml-2">{t('system')}</span>
+                          <span className="ml-2">{t("system")}</span>
                         </button>
                       )}
                     </MenuItem>

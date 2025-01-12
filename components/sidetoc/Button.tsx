@@ -1,5 +1,5 @@
-import { ArrowRightIcon } from './icon'
-import useSidebarStore from './store'
+import { ArrowRightIcon } from "./icon"
+import useSidebarStore from "./store"
 
 const Button = () => {
   const { sidebarOpen, toggleSidebar } = useSidebarStore()
@@ -12,7 +12,7 @@ const Button = () => {
         aria-label="sidebar-button"
       >
         <ArrowRightIcon
-          className={`h-5 w-5 transform transition-transform ${sidebarOpen ? 'rotate-180' : ''}`}
+          className={`h-5 w-5 transform transition-transform ${sidebarOpen ? "rotate-180" : ""}`}
         />
       </button>
     </div>

@@ -1,5 +1,5 @@
-import { ValidationError } from '@formspree/react'
-import { StringFieldDef } from 'contentlayer2/source-files'
+import { ValidationError } from "@formspree/react"
+import { StringFieldDef } from "contentlayer2/source-files"
 
 interface FormInputsProps {
   name: string
@@ -36,7 +36,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         id="fullName"
         type="text"
         name="wb_input_0"
-        placeholder={t('name')}
+        placeholder={t("name")}
         value={name}
         onChange={handleNameChange}
         className="mb-2 w-full rounded-md border-black bg-white p-2 text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
@@ -47,7 +47,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         id="email"
         type="email"
         name="wb_input_1"
-        placeholder={t('mail')}
+        placeholder={t("mail")}
         value={email}
         onChange={handleEmailChange}
         className="mb-2 w-full rounded-md border-black bg-white p-2 text-base text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
@@ -58,7 +58,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         id="adresse"
         type="text"
         name="wb_input_2"
-        placeholder={t('Adresse')}
+        placeholder={t("Adresse")}
         value={adress}
         onChange={handleAdressChange}
         className="mb-2 w-full rounded-md border-black bg-white p-2 text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
@@ -68,7 +68,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         required
         id="message"
         name="wb_input_3"
-        placeholder={t('message')}
+        placeholder={t("message")}
         value={message}
         onChange={handleMessageChange}
         className="mb-2 w-full rounded-md border-black bg-white p-2 text-base text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"

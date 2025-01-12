@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useCallback } from 'react'
-import { useParams } from 'next/navigation'
-import Link from 'next/link'
-import { useTagStore } from '../util/useTagStore'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import { useCallback } from "react"
+import { useParams } from "next/navigation"
+import Link from "next/link"
+import { useTagStore } from "../util/useTagStore"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
 
 interface Props {
   text: string
@@ -19,7 +19,7 @@ const Tag = ({ text }: Props) => {
   }, [text, setSelectedTag])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       handleClick()
     }
   }
@@ -33,7 +33,7 @@ const Tag = ({ text }: Props) => {
         role="button" // Ajout du rôle de bouton
         tabIndex={0} // Rendre l'élément focusable
       >
-        {text.split(' ').join('-')}
+        {text.split(" ").join("-")}
       </span>
     </Link>
   )

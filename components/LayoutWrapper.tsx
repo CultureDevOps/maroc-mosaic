@@ -1,25 +1,25 @@
-'use client'
+"use client"
 
-import { Inter } from 'next/font/google'
-import SectionContainer from './SectionContainer'
-import Footer from './navigation/Footer'
-import { ReactNode } from 'react'
-import Header from './navigation/Header'
-import { usePathname } from 'next/navigation'
-import { SearchProvider } from './search/SearchProvider'
-import FullLayoutSectionContainer from './FullLayoutSectionContainer'
+import { Inter } from "next/font/google"
+import SectionContainer from "./SectionContainer"
+import Footer from "./navigation/Footer"
+import { ReactNode } from "react"
+import Header from "./navigation/Header"
+import { usePathname } from "next/navigation"
+import { SearchProvider } from "./search/SearchProvider"
+import FullLayoutSectionContainer from "./FullLayoutSectionContainer"
 
 interface LayoutWrapperProps {
   children: ReactNode
 }
 
 const inter = Inter({
-  subsets: ['latin'],
+  subsets: ["latin"],
 })
 
 const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   const pathname = usePathname()
-  const isFullPageLayout = pathname === '/' || pathname.startsWith('/landing')
+  const isFullPageLayout = pathname === "/" || pathname.startsWith("/landing")
   // const isFullPageLayout = true;
 
   return isFullPageLayout ? (

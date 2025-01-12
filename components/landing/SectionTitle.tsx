@@ -1,11 +1,11 @@
-import React from 'react'
-import Container from './Container'
+import React from "react"
+import Container from "./Container"
 
 const SectionTitle = (props) => {
   return (
     <Container
       className={`mt-4 flex w-full flex-col ${
-        props.align === 'left' ? '' : 'items-center justify-center text-center'
+        props.align === "left" ? "" : "items-center justify-center text-center"
       }`}
     >
       {props.pretitle && (

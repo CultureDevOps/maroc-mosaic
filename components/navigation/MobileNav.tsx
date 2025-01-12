@@ -1,19 +1,19 @@
-'use client'
+"use client"
 
-import { SVGProps, useMemo, useState } from 'react'
-import Image from 'next/image'
-import Link from '../mdxcomponents/Link'
-import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
-import { Authors, Blog, allAuthors, allBlogs } from 'contentlayer/generated'
-import { useParams } from 'next/navigation'
-import { useTranslation } from 'app/[locale]/i18n/client'
-import type { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { motion } from 'framer-motion'
-import LangSwitch from '../langswitch'
-import SearchButton from '../search/SearchButton'
-import ThemeSwitch from '../theme/ThemeSwitch'
-import { sortByDate } from '../util/sortByDate'
+import { SVGProps, useMemo, useState } from "react"
+import Image from "next/image"
+import Link from "../mdxcomponents/Link"
+import siteMetadata from "@/data/siteMetadata"
+import headerNavLinks from "@/data/headerNavLinks"
+import { Authors, Blog, allAuthors, allBlogs } from "contentlayer/generated"
+import { useParams } from "next/navigation"
+import { useTranslation } from "app/[locale]/i18n/client"
+import type { LocaleTypes } from "app/[locale]/i18n/settings"
+import { motion } from "framer-motion"
+import LangSwitch from "../langswitch"
+import SearchButton from "../search/SearchButton"
+import ThemeSwitch from "../theme/ThemeSwitch"
+import { sortByDate } from "../util/sortByDate"
 
 export function ChevronDownIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
@@ -30,7 +30,7 @@ export function ChevronDownIcon({ className, ...props }: SVGProps<SVGSVGElement>
 
 const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: () => void }) => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const { t } = useTranslation(locale, "common")
   const authors = allAuthors
     .filter((a) => a.language === locale)
     .sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1)) as Authors[]
@@ -50,7 +50,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       // Appel de la fonction qui gère le clic
       toggleAccordion()
     }
@@ -60,7 +60,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
     <>
       <div
         className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
+          navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex justify-end">
@@ -104,17 +104,17 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
               role="button"
               tabIndex={0}
             >
-              <div>{t('menu')}:</div>
+              <div>{t("menu")}:</div>
               <motion.div
                 animate={{ rotate: accordionOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDownIcon className={`h-5 w-5 ${accordionOpen ? 'text-primary-500' : ''}`} />
+                <ChevronDownIcon className={`h-5 w-5 ${accordionOpen ? "text-primary-500" : ""}`} />
               </motion.div>
             </div>
             <motion.div
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: accordionOpen ? 'auto' : 0, opacity: accordionOpen ? 1 : 0 }}
+              animate={{ height: accordionOpen ? "auto" : 0, opacity: accordionOpen ? 1 : 0 }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
               className="overflow-hidden"
             >

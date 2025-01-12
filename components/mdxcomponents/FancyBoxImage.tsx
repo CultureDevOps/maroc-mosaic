@@ -1,6 +1,6 @@
-'use client'
-import NextImage, { ImageProps } from 'next/image'
-import siteMetadata from '@/data/siteMetadata'
+"use client"
+import NextImage, { ImageProps } from "next/image"
+import siteMetadata from "@/data/siteMetadata"
 
 interface ImageWithFancyboxProps extends ImageProps {
   src: string // Source obligatoire
@@ -9,7 +9,7 @@ interface ImageWithFancyboxProps extends ImageProps {
 }
 
 const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) => {
-  const isExternal = src.startsWith('http') // Vérifie si l'URL est externe
+  const isExternal = src.startsWith("http") // Vérifie si l'URL est externe
 
   // // Génère une URL optimisée pour les images internes
   // const generateOptimizedSrc = (src: string): string => {
@@ -24,14 +24,14 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
 
   const cloudFrontUrl = process.env.CLOUD_FRONT_URL
   let optimizedSrc = isExternal ? src : `${cloudFrontUrl}${src}`
-  if (!isExternal && !optimizedSrc.includes('?format=')) {
-    optimizedSrc += '?format=auto'
-    if (!optimizedSrc.includes('width=')) {
-      optimizedSrc += '&width=1920'
+  if (!isExternal && !optimizedSrc.includes("?format=")) {
+    optimizedSrc += "?format=auto"
+    if (!optimizedSrc.includes("width=")) {
+      optimizedSrc += "&width=1920"
     }
   }
 
-  const shadow = noShadow ? '' : 'shadow-xl shadow-gray-400 dark:shadow-gray-950'
+  const shadow = noShadow ? "" : "shadow-xl shadow-gray-400 dark:shadow-gray-950"
 
   const imageContent = isExternal ? (
     // Si l'image est externe, on utilise une balise <img> standard
@@ -55,7 +55,7 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
 
   // Fonction pour gérer les événements clavier (touche Enter ou Espace)
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       // Appel de handleClick sans conversion de type
       const mouseEvent = { ...e, currentTarget: e.currentTarget } as unknown as React.MouseEvent<
         HTMLDivElement,

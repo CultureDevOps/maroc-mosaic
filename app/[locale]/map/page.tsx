@@ -1,10 +1,10 @@
-import { Metadata } from 'next'
-import { createTranslation } from '../i18n/server'
-import { LocaleTypes } from '../i18n/settings'
-import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
-import { genPageMetadata } from 'app/[locale]/seo'
-import dynamic from 'next/dynamic'
-import Map from '@/components/maps/Map'
+import { Metadata } from "next"
+import { createTranslation } from "../i18n/server"
+import { LocaleTypes } from "../i18n/settings"
+import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
+import { genPageMetadata } from "app/[locale]/seo"
+import dynamic from "next/dynamic"
+import Map from "@/components/maps/Map"
 
 interface PageProps {
   params: Promise<{
@@ -13,9 +13,9 @@ interface PageProps {
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (await params).locale
-  const { t } = await createTranslation(locale, 'hero')
+  const { t } = await createTranslation(locale, "hero")
   return genPageMetadata({
-    title: t('title'),
+    title: t("title"),
     params: { locale: locale },
   })
 }

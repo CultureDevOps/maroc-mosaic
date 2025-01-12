@@ -1,21 +1,21 @@
-import 'css/prism.css'
-import 'katex/dist/katex.css'
-import { Metadata } from 'next'
-import { components } from '@/components/mdxcomponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
-import PostGalleryLayout from '@/layouts/PostGalleryLayout'
-import siteMetadata from '@/data/siteMetadata'
-import { maintitle } from '@/data/localeMetadata'
-import { notFound } from 'next/navigation'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import SectionContainer from '@/components/SectionContainer'
-import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
+import "css/prism.css"
+import "katex/dist/katex.css"
+import { Metadata } from "next"
+import { components } from "@/components/mdxcomponents"
+import { MDXLayoutRenderer } from "pliny/mdx-components"
+import { sortPosts, coreContent, allCoreContent } from "pliny/utils/contentlayer"
+import { allBlogs, allAuthors } from "contentlayer/generated"
+import type { Authors, Blog } from "contentlayer/generated"
+import PostSimple from "@/layouts/PostSimple"
+import PostLayout from "@/layouts/PostLayout"
+import PostBanner from "@/layouts/PostBanner"
+import PostGalleryLayout from "@/layouts/PostGalleryLayout"
+import siteMetadata from "@/data/siteMetadata"
+import { maintitle } from "@/data/localeMetadata"
+import { notFound } from "next/navigation"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import SectionContainer from "@/components/SectionContainer"
+import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
 
 interface PageProps {
   params: Promise<{
@@ -24,7 +24,7 @@ interface PageProps {
   }>
 }
 
-const defaultLayout = 'PostGalleryLayout'
+const defaultLayout = "PostGalleryLayout"
 const layouts = {
   PostSimple,
   PostLayout,
@@ -38,7 +38,7 @@ async function getPostFromParams({
   params: Promise<{ slug: string[]; locale: LocaleTypes }>
 }): Promise<any> {
   const { slug, locale } = await params
-  const dslug = decodeURI(slug.join('/'))
+  const dslug = decodeURI(slug.join("/"))
   const post = allBlogs.filter((p) => p.language === locale).find((p) => p.slug === dslug) as Blog
 
   if (!post) {
@@ -67,7 +67,7 @@ async function getPostFromParams({
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata | undefined> {
   const { slug, locale } = await params
-  const dslug = decodeURI(slug.join('/'))
+  const dslug = decodeURI(slug.join("/"))
   const post = allBlogs.find((p) => p.slug === dslug && p.language === locale) as Blog
   if (!post) {
     return
@@ -85,15 +85,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata 
   const authors = authorDetails.map((author) => author.name)
   let imageList = [siteMetadata.socialBanner]
   if (post.images) {
-    imageList = typeof post.images === 'string' ? [post.images] : post.images
+    imageList = typeof post.images === "string" ? [post.images] : post.images
   }
   const ogImages = imageList.map((img) => {
     const basePath = process.env.NEXT_PUBLIC_SITE_URL || siteMetadata.siteUrl
     return {
       // url: img.includes('http') ? img : `${basePath}/_next/image?url=${encodeURIComponent(img)}&w=1200&q=75`,
-      url: img.includes('http')
+      url: img.includes("http")
         ? img
-        : process.env.CLOUD_FRONT_URL + img + '?format=auto&width=1200',
+        : process.env.CLOUD_FRONT_URL + img + "?format=auto&width=1200",
     }
   })
 
@@ -105,15 +105,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata 
       description: post.summary,
       siteName: maintitle[locale],
       locale: post.language,
-      type: 'article',
+      type: "article",
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
-      url: './',
+      url: "./",
       images: ogImages,
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.summary,
       images: ogImages,
@@ -122,13 +122,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata 
 }
 
 export const generateStaticParams = async () => {
-  const paths = allBlogs.map((p) => ({ slug: p.slug.split('/') }))
+  const paths = allBlogs.map((p) => ({ slug: p.slug.split("/") }))
   return paths
 }
 
 export default async function Page({ params }: PageProps) {
   const { slug, locale } = await params
-  const dslug = decodeURI(slug.join('/'))
+  const dslug = decodeURI(slug.join("/"))
   // Filter out drafts in production + locale filtering
   const sortedCoreContents = allCoreContent(
     sortPosts(allBlogs.filter((p) => p.language === locale))
@@ -151,9 +151,9 @@ export default async function Page({ params }: PageProps) {
   })
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
+  jsonLd["author"] = authorDetails.map((author) => {
     return {
-      '@type': 'Person',
+      "@type": "Person",
       name: author.name,
     }
   })

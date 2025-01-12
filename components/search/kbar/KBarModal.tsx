@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import { useParams, usePathname, useRouter } from 'next/navigation'
-import { useTranslation } from 'app/[locale]/i18n/client'
-import { useTheme } from '@/components/theme/ThemeContext'
-import { useTagStore } from '@/components/util/useTagStore'
-import { useContactForm } from '@/components/formspree/useContactForm'
-import { useRegisterActions } from 'kbar'
-import siteMetadata from '@/data/siteMetadata'
-import EmailForm from './Emailform'
-import Settings from './Settings'
-import Button from './Button'
-import CopyButton from './CopyButton'
-import RenderResults from './RenderResults'
-import { KBarPortal, KBarAnimator, KBarPositioner, KBarSearch } from 'kbar'
-import { Toaster } from 'react-hot-toast'
-import { SearchIcon, MailIcon, SettingsIcon } from '../icons'
-import { LocaleTypes, locales } from 'app/[locale]/i18n/settings'
-import { motion } from 'framer-motion'
+import { useState } from "react"
+import { useParams, usePathname, useRouter } from "next/navigation"
+import { useTranslation } from "app/[locale]/i18n/client"
+import { useTheme } from "@/components/theme/ThemeContext"
+import { useTagStore } from "@/components/util/useTagStore"
+import { useContactForm } from "@/components/formspree/useContactForm"
+import { useRegisterActions } from "kbar"
+import siteMetadata from "@/data/siteMetadata"
+import EmailForm from "./Emailform"
+import Settings from "./Settings"
+import Button from "./Button"
+import CopyButton from "./CopyButton"
+import RenderResults from "./RenderResults"
+import { KBarPortal, KBarAnimator, KBarPositioner, KBarSearch } from "kbar"
+import { Toaster } from "react-hot-toast"
+import { SearchIcon, MailIcon, SettingsIcon } from "../icons"
+import { LocaleTypes, locales } from "app/[locale]/i18n/settings"
+import { motion } from "framer-motion"
 
 interface KBarModalProps {
   actions: any
@@ -24,7 +24,7 @@ interface KBarModalProps {
 
 export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const { t } = useTranslation(locale, "common")
   const pathname = usePathname()
   const router = useRouter()
   const setSelectedTag = useTagStore((state) => state.setSelectedTag)
@@ -66,18 +66,18 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
   }
 
   const handleLocaleChange = (newLocale: string) => {
-    const segments = pathname.split('/')
+    const segments = pathname.split("/")
     const localeIndex = segments.findIndex((segment) => locales.includes(segment as LocaleTypes))
     if (localeIndex !== -1) {
       segments[localeIndex] = newLocale
     } else {
       segments.splice(1, 0, newLocale)
     }
-    return segments.join('/')
+    return segments.join("/")
   }
 
   const handleLinkClick = (newLocale: string) => {
-    setSelectedTag('')
+    setSelectedTag("")
     const resolvedUrl = handleLocaleChange(newLocale)
     router.push(resolvedUrl)
   }
@@ -99,7 +99,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
         <KBarPositioner className="bg-gray-300/60 p-4 backdrop-blur-sm dark:bg-black/60">
           <KBarAnimator className="w-full max-w-xl">
             <motion.div
-              style={{ zIndex: '100', transformOrigin: 'center center' }}
+              style={{ zIndex: "100", transformOrigin: "center center" }}
               className="dark:via-primary-950/50 overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b from-white/70 via-primary-200/40 to-white/30 shadow-2xl backdrop-blur-lg dark:border-gray-800 dark:bg-gradient-to-b dark:from-gray-900/70 dark:to-gray-900/40 dark:shadow-gray-900/70"
               {...animationProps}
             >
@@ -111,7 +111,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                   <div className="h-8 w-full bg-transparent" />
                 ) : (
                   <KBarSearch
-                    defaultPlaceholder={t('kbarplaceholder')}
+                    defaultPlaceholder={t("kbarplaceholder")}
                     className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500"
                   />
                 )}
@@ -125,8 +125,8 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                     onClick={toggleShowEmail}
                     show={showEmailForm}
                     icon={<MailIcon />}
-                    label={t('contact')}
-                    backLabel={t('back')}
+                    label={t("contact")}
+                    backLabel={t("back")}
                   />
                 )}
                 {!showEmailForm && (
@@ -134,8 +134,8 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                     onClick={toggleSettings}
                     show={showSettings}
                     icon={<SettingsIcon />}
-                    label={t('settings')}
-                    backLabel={t('back')}
+                    label={t("settings")}
+                    backLabel={t("back")}
                   />
                 )}
                 <CopyButton
@@ -170,7 +170,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
               {!isLoading && !showEmailForm && !showSettings && <RenderResults />}
               {isLoading && (
                 <div className="block border-t border-gray-100 px-4 py-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
-                  {t('loading')}
+                  {t("loading")}
                 </div>
               )}
             </motion.div>

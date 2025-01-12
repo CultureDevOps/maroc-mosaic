@@ -1,29 +1,29 @@
-import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
-import Comments from '@/components/comments/Comments'
-import Link from '@/components/mdxcomponents/Link'
-import PageTitle from '@/components/PageTitle'
-import Image from '@/components/mdxcomponents/Image'
-import Tag from '@/components/tag'
-import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/scroll'
-import { createTranslation } from 'app/[locale]/i18n/server'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
-import FancyboxWrapper from '@/components/mdxcomponents/FancyboxWrapper'
-import SocialIcon from '@/components/social-icons'
+import { ReactNode } from "react"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog, Authors } from "contentlayer/generated"
+import Comments from "@/components/comments/Comments"
+import Link from "@/components/mdxcomponents/Link"
+import PageTitle from "@/components/PageTitle"
+import Image from "@/components/mdxcomponents/Image"
+import Tag from "@/components/tag"
+import siteMetadata from "@/data/siteMetadata"
+import ScrollTopAndComment from "@/components/scroll"
+import { createTranslation } from "app/[locale]/i18n/server"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { PostSeriesBox } from "@/components/seriescard"
+import Share from "@/components/share"
+import FancyboxWrapper from "@/components/mdxcomponents/FancyboxWrapper"
+import SocialIcon from "@/components/social-icons"
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 }
 
 interface LayoutProps {
@@ -44,8 +44,8 @@ export default async function PostLayout({
   params: { locale },
 }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, language, series, toc } = content
-  const basePath = path.split('/')[0]
-  const { t } = await createTranslation(locale, 'home')
+  const basePath = path.split("/")[0]
+  const { t } = await createTranslation(locale, "home")
   // const tableOfContents: Toc = toc as unknown as Toc
   return (
     <>
@@ -59,7 +59,7 @@ export default async function PostLayout({
                 <div className="space-y-1 text-center">
                   <dl className="space-y-10">
                     <div>
-                      <dt className="sr-only">{t('pub')}</dt>
+                      <dt className="sr-only">{t("pub")}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
                         <time dateTime={date}>
                           {new Date(date).toLocaleDateString(language, postDateTemplate)}
@@ -74,7 +74,7 @@ export default async function PostLayout({
               </header>
               <div className="grid-rows-[auto_1fr] divide-y divide-gray-300 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
                 <dl className="pb-10 pt-6 xl:border-b xl:border-gray-300 xl:pt-11 xl:dark:border-gray-700">
-                  <dt className="sr-only">{t('authors')}</dt>
+                  <dt className="sr-only">{t("authors")}</dt>
                   <dd>
                     <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                       {authorDetails.map((author) => (
@@ -96,7 +96,7 @@ export default async function PostLayout({
                             </Link>
                           )}
                           <dl className="text-shadow whitespace-nowrap font-headings text-sm font-medium leading-5 text-shadow-gray-400/80 dark:text-shadow-black">
-                            <dt className="sr-only">{t('name')}</dt>
+                            <dt className="sr-only">{t("name")}</dt>
                             <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                             <dt className="sr-only">Twitter</dt>
                             <dd>
@@ -134,14 +134,14 @@ export default async function PostLayout({
                         rel="nofollow"
                         className="hover:text-primary-600 dark:hover:text-primary-400"
                       >
-                        {t('twitter')}
+                        {t("twitter")}
                       </Link>
                       <span>{` • `}</span>
                       <Link
                         href={editUrl(filePath)}
                         className="hover:text-primary-600 dark:hover:text-primary-400"
                       >
-                        {t('github')}
+                        {t("github")}
                       </Link>
                     </div>
                     <div className="pt-6 text-center" id="comment">
@@ -170,7 +170,7 @@ export default async function PostLayout({
                         {prev && prev.slug && (
                           <div>
                             <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">
-                              {t('preva')}
+                              {t("preva")}
                             </p>
                             <div className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400">
                               <Link href={`/${locale}/blog/${prev.slug}`}>{prev.title}</Link>
@@ -180,7 +180,7 @@ export default async function PostLayout({
                         {next && next.slug && (
                           <div>
                             <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">
-                              {t('nexta')}
+                              {t("nexta")}
                             </p>
                             <div className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400">
                               <Link href={`/${locale}/blog/${next.slug}`}>{next.title}</Link>
@@ -196,7 +196,7 @@ export default async function PostLayout({
                       className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400"
                       aria-label="Back to the blog"
                     >
-                      &larr;{t('back')}
+                      &larr;{t("back")}
                     </Link>
                   </div>
                 </footer>

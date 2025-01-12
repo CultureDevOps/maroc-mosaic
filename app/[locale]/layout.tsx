@@ -1,46 +1,46 @@
-import 'css/tailwind.css'
-import 'pliny/search/algolia.css'
+import "css/tailwind.css"
+import "pliny/search/algolia.css"
 
-import { Open_Sans } from 'next/font/google'
-import { Scheherazade_New } from 'next/font/google'
-import { Amiri_Quran } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { SearchProvider } from '@/components/search/SearchProvider'
-import Header from '@/components/navigation/Header'
-import Footer from '@/components/navigation/Footer'
-import siteMetadata from '@/data/siteMetadata'
-import { maintitle, maindescription } from '@/data/localeMetadata'
-import { ThemeProvider } from '@/components/theme/ThemeContext'
-import { Metadata } from 'next'
-import { dir } from 'i18next'
-import { LocaleTypes, locales } from './i18n/settings'
-import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Script from 'next/script'
+import { Open_Sans } from "next/font/google"
+import { Scheherazade_New } from "next/font/google"
+import { Amiri_Quran } from "next/font/google"
+import { Analytics, AnalyticsConfig } from "pliny/analytics"
+import { SearchProvider } from "@/components/search/SearchProvider"
+import Header from "@/components/navigation/Header"
+import Footer from "@/components/navigation/Footer"
+import siteMetadata from "@/data/siteMetadata"
+import { maintitle, maindescription } from "@/data/localeMetadata"
+import { ThemeProvider } from "@/components/theme/ThemeContext"
+import { Metadata } from "next"
+import { dir } from "i18next"
+import { LocaleTypes, locales } from "./i18n/settings"
+import TwSizeIndicator from "@/components/helper/TwSizeIndicator"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import Script from "next/script"
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
 
 const open_sans = Open_Sans({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-open-sans',
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-open-sans",
 })
 
 const scheherazadeNew = Scheherazade_New({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-scheherazade-new',
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-scheherazade-new",
 })
 
 const amiriQuran = Amiri_Quran({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-amiri-quran',
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-amiri-quran",
 })
 
 export async function generateMetadata({
@@ -65,16 +65,16 @@ export async function generateMetadata({
     openGraph: {
       title: maintitle[locale],
       description: maindescription[locale],
-      url: './',
+      url: "./",
       siteName: maintitle[locale],
       images: [imageUrl],
       locale: locale,
-      type: 'website',
+      type: "website",
     },
     alternates: {
-      canonical: './',
+      canonical: "./",
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
+        "application/rss+xml": `${siteMetadata.siteUrl}/feed.xml`,
       },
     },
     robots: {
@@ -83,9 +83,9 @@ export async function generateMetadata({
       googleBot: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     twitter: {
@@ -93,13 +93,13 @@ export async function generateMetadata({
       description: maindescription[locale],
       site: siteMetadata.siteUrl,
       creator: siteMetadata.author,
-      card: 'summary_large_image',
+      card: "summary_large_image",
       images: [imageUrl],
     },
     icons: {
-      icon: '/static/favicons/favicon-32x32.png',
-      apple: '/static/favicons/apple-touch-icon.png',
-      shortcut: '/static/favicons/android-chrome-192x192.png',
+      icon: "/static/favicons/favicon-32x32.png",
+      apple: "/static/favicons/apple-touch-icon.png",
+      shortcut: "/static/favicons/android-chrome-192x192.png",
     },
   }
 }
@@ -111,7 +111,7 @@ export default async function RootLayout({
   children: React.ReactNode
   params
 }) {
-  const theme = siteMetadata.theme || 'system'
+  const theme = siteMetadata.theme || "system"
   const locale = (await params).locale
   return (
     <html

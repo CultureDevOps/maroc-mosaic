@@ -1,14 +1,14 @@
-import React from 'react'
-import FlagEn from '@/data/flag-en.svg'
-import FlagFr from '@/data/flag-fr.svg'
+import React from "react"
+import FlagEn from "@/data/flag-en.svg"
+import FlagFr from "@/data/flag-fr.svg"
 
 type FlagProps = {
   locale: string
 }
 
 const flags = [
-  { locale: 'en', icon: <FlagEn className="h-5 w-5" /> },
-  { locale: 'fr', icon: <FlagFr className="h-5 w-5" /> },
+  { locale: "en", icon: <FlagEn className="h-5 w-5" /> },
+  { locale: "fr", icon: <FlagFr className="h-5 w-5" /> },
 ]
 
 const Flag: React.FC<FlagProps> = ({ locale }) => {

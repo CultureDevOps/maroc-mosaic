@@ -1,8 +1,8 @@
-import { useState, useRef, useCallback, useMemo, useEffect } from 'react'
-import { usePathname, useParams, useRouter } from 'next/navigation'
-import { useOuterClick } from '../util/useOuterClick'
-import { useTagStore } from '@/components/util/useTagStore'
-import { LocaleTypes, locales } from 'app/[locale]/i18n/settings'
+import { useState, useRef, useCallback, useMemo, useEffect } from "react"
+import { usePathname, useParams, useRouter } from "next/navigation"
+import { useOuterClick } from "../util/useOuterClick"
+import { useTagStore } from "@/components/util/useTagStore"
+import { LocaleTypes, locales } from "app/[locale]/i18n/settings"
 import {
   Menu,
   Transition,
@@ -11,14 +11,14 @@ import {
   MenuItems,
   Radio,
   MenuItem,
-} from '@headlessui/react'
-import { ChevronDownIcon } from './icon'
-import Flag from './flag'
+} from "@headlessui/react"
+import { ChevronDownIcon } from "./icon"
+import Flag from "./flag"
 
 const LangSwitch = () => {
   const pathname = usePathname()
   const params = useParams()
-  const locale = (params.locale as string) || ''
+  const locale = (params.locale as string) || ""
   const router = useRouter()
   const setSelectedTag = useTagStore((state) => state.setSelectedTag)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -27,14 +27,14 @@ const LangSwitch = () => {
 
   const handleLocaleChange = useCallback(
     (newLocale: string): string => {
-      const segments = pathname!.split('/')
+      const segments = pathname!.split("/")
       const localeIndex = segments.findIndex((segment) => locales.includes(segment as LocaleTypes))
       if (localeIndex !== -1) {
         segments[localeIndex] = newLocale
       } else {
         segments.splice(1, 0, newLocale)
       }
-      const newPath = segments.join('/').replace(/\/$/, '')
+      const newPath = segments.join("/").replace(/\/$/, "")
       return newPath
     },
     [pathname]
@@ -42,7 +42,7 @@ const LangSwitch = () => {
 
   const handleLinkClick = useCallback(
     (newLocale: string) => {
-      setSelectedTag('')
+      setSelectedTag("")
       const resolvedUrl = handleLocaleChange(newLocale)
       router.push(resolvedUrl)
       setIsMenuOpen(false)
@@ -51,9 +51,9 @@ const LangSwitch = () => {
   )
 
   useEffect(() => {
-    const backgroundElement = document.getElementById('background-image')
+    const backgroundElement = document.getElementById("background-image")
     if (backgroundElement) {
-      backgroundElement.style.overflow = isMenuOpen ? 'hidden' : 'auto'
+      backgroundElement.style.overflow = isMenuOpen ? "hidden" : "auto"
     }
   }, [isMenuOpen])
 
@@ -73,7 +73,7 @@ const LangSwitch = () => {
               {/* {currentLocale} */}
               <Flag locale={currentLocale} />
               <ChevronDownIcon
-                className={`ml-1 mt-1 transform transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
+                className={`ml-1 mt-1 transform transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"}`}
               />
             </MenuButton>
             <Transition
@@ -100,8 +100,8 @@ const LangSwitch = () => {
                               onClick={() => handleLinkClick(newLocale)}
                               className={`${
                                 focus
-                                  ? 'bg-primary-400/50 dark:bg-primary-500/30'
-                                  : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/40'
+                                  ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                               } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
                               role="menuitem"
                             >

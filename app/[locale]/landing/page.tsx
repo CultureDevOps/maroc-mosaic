@@ -1,12 +1,12 @@
-import { Metadata } from 'next'
-import { createTranslation } from '../i18n/server'
-import { LocaleTypes } from '../i18n/settings'
-import Hero from '@/components/landing/Hero'
-import Benefits from '@/components/landing/Benefits'
-import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
-import { genPageMetadata } from 'app/[locale]/seo'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
+import { Metadata } from "next"
+import { createTranslation } from "../i18n/server"
+import { LocaleTypes } from "../i18n/settings"
+import Hero from "@/components/landing/Hero"
+import Benefits from "@/components/landing/Benefits"
+import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
+import { genPageMetadata } from "app/[locale]/seo"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer"
+import { allBlogs } from "contentlayer/generated"
 
 interface PageProps {
   params: Promise<{
@@ -16,9 +16,9 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (await params).locale
-  const { t } = await createTranslation(locale, 'hero')
+  const { t } = await createTranslation(locale, "hero")
   return genPageMetadata({
-    title: t('title'),
+    title: t("title"),
     params: { locale },
   })
 }

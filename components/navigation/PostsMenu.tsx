@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Blog, allBlogs } from 'contentlayer/generated'
-import { Fragment, useRef, useState, useMemo } from 'react'
+import Image from "next/image"
+import Link from "next/link"
+import { Blog, allBlogs } from "contentlayer/generated"
+import { Fragment, useRef, useState, useMemo } from "react"
 import {
   Menu,
   MenuButton,
@@ -12,21 +12,21 @@ import {
   Radio,
   RadioGroup,
   Transition,
-} from '@headlessui/react'
-import { useOuterClick } from '../util/useOuterClick'
-import { useParams, usePathname } from 'next/navigation'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { useTranslation } from 'app/[locale]/i18n/client'
-import { motion } from 'framer-motion'
-import { sortByDate } from '@/components/util/sortByDate'
+} from "@headlessui/react"
+import { useOuterClick } from "../util/useOuterClick"
+import { useParams, usePathname } from "next/navigation"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { useTranslation } from "app/[locale]/i18n/client"
+import { motion } from "framer-motion"
+import { sortByDate } from "@/components/util/sortByDate"
 
 const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const { t } = useTranslation(locale, "common")
   const pathname = usePathname()
-  const sections = pathname!.split('/')
+  const sections = pathname!.split("/")
   const lastSection = sections[sections.length - 1]
-  const filterSections = pathname !== `/${locale}` && pathname !== '/'
+  const filterSections = pathname !== `/${locale}` && pathname !== "/"
 
   const posts = useMemo(() => {
     const filteredPosts = allBlogs.filter((a) => a.language === locale && a.featured)
@@ -60,13 +60,13 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               onClick={closeMenu}
               className={`${
                 focus
-                  ? 'bg-primary-400/50 dark:bg-primary-500/50'
-                  : 'hover:bg-primary-400/50 dark:hover:bg-gray-600/50'
+                  ? "bg-primary-400/50 dark:bg-primary-500/50"
+                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/50"
               } group flex w-full items-start gap-1 rounded-md p-4 hover:backdrop-blur-sm`}
             >
               <div className="h-[56px] min-w-[100px]">
                 <Image
-                  src={post.banner || ''}
+                  src={post.banner || ""}
                   alt={title}
                   width={100}
                   height={56}
@@ -96,16 +96,16 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             >
               <div
                 className={`hidden font-medium ${
-                  isSelected ? 'text-secondary-500' : 'text-white hover:text-secondary-500'
+                  isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
                 } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
               >
                 <span className="text-shadow relative z-10 font-bold text-shadow-black">
-                  {t('menu')}
+                  {t("menu")}
                 </span>
                 {isSelected && (
                   <motion.span
                     layoutId="tab"
-                    transition={{ type: 'spring', duration: 0.4 }}
+                    transition={{ type: "spring", duration: 0.4 }}
                     className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-md shadow-gray-950"
                   ></motion.span>
                 )}

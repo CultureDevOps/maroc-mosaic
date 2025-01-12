@@ -12,8 +12,8 @@ import {
   Threads,
   Instagram,
   Reddit,
-} from './icons'
-import siteMetadata from '@/data/siteMetadata'
+} from "./icons"
+import siteMetadata from "@/data/siteMetadata"
 
 const components = {
   mail: Mail,
@@ -42,7 +42,7 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
 
   return (
     <>
-      {kind === 'mail' && !href && siteMetadata.formspree === true ? (
+      {kind === "mail" && !href && siteMetadata.formspree === true ? (
         <>
           <span className="sr-only">{kind}</span>
           <SocialSvg

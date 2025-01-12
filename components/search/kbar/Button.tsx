@@ -1,4 +1,4 @@
-import { BackwardIcon } from '../icons'
+import { BackwardIcon } from "../icons"
 
 interface ButtonProps {
   onClick: () => void

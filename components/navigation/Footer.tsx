@@ -1,20 +1,20 @@
-'use client'
+"use client"
 
-import Link from '../mdxcomponents/Link'
-import siteMetadata from '@/data/siteMetadata'
-import { maintitle } from '@/data/localeMetadata'
-import SocialIcon from '@/components/social-icons'
+import Link from "../mdxcomponents/Link"
+import siteMetadata from "@/data/siteMetadata"
+import { maintitle } from "@/data/localeMetadata"
+import SocialIcon from "@/components/social-icons"
 
-import { useParams } from 'next/navigation'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { useTranslation } from 'app/[locale]/i18n/client'
+import { useParams } from "next/navigation"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { useTranslation } from "app/[locale]/i18n/client"
 
-import { useContactModal } from '../formspree/store'
-import { ContactModal } from '../formspree'
+import { useContactModal } from "../formspree/store"
+import { ContactModal } from "../formspree"
 
 export default function Footer() {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'footer')
+  const { t } = useTranslation(locale, "footer")
   const contactModal = useContactModal()
 
   const handleContactClick = (): void => {
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
           <div className="mb-8 text-sm text-gray-700 dark:text-gray-300">
             <p>
-              <Link href="https://culturedevops.com">{t('author_ref')}</Link>
+              <Link href="https://culturedevops.com">{t("author_ref")}</Link>
             </p>
           </div>
         </div>

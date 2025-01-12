@@ -1,18 +1,18 @@
-'use client'
+"use client"
 
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useTagStore } from '@/components/util/useTagStore'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
-import Link from '@/components/mdxcomponents/Link'
-import { sortByDate } from '@/components/util/sortByDate'
-import Pagination from './Pagination'
-import tagData from 'app/[locale]/tag-data.json'
-import { POSTS_PER_PAGE } from '@/data/postsPerPage'
-import { useTranslation } from 'app/[locale]/i18n/client'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import Image from '@/components/mdxcomponents/Image'
+import { useEffect, useMemo, useRef, useState } from "react"
+import { useTagStore } from "@/components/util/useTagStore"
+import { formatDate } from "pliny/utils/formatDate"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog } from "contentlayer/generated"
+import Link from "@/components/mdxcomponents/Link"
+import { sortByDate } from "@/components/util/sortByDate"
+import Pagination from "./Pagination"
+import tagData from "app/[locale]/tag-data.json"
+import { POSTS_PER_PAGE } from "@/data/postsPerPage"
+import { useTranslation } from "app/[locale]/i18n/client"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import Image from "@/components/mdxcomponents/Image"
 
 interface PaginationProps {
   totalPages: number
@@ -44,7 +44,7 @@ const item = {
 }
 
 export default function ListLayoutWithTags({ params: { locale }, posts, title }: ListLayoutProps) {
-  const { t } = useTranslation(locale, 'home')
+  const { t } = useTranslation(locale, "home")
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = POSTS_PER_PAGE
   const sortedPosts = sortByDate(posts)
@@ -73,7 +73,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
   }
 
   const handleTagClick = (tag: string) => {
-    setSelectedTag(tag === useTagStore.getState().selectedTag ? '' : tag)
+    setSelectedTag(tag === useTagStore.getState().selectedTag ? "" : tag)
     setCurrentPage(1)
   }
 
@@ -100,9 +100,9 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
       <li key={postTag} className="my-3">
         <button
           onClick={() => handleTagClick(postTag)}
-          aria-labelledby={`${t('poststagged')} ${postTag}`}
+          aria-labelledby={`${t("poststagged")} ${postTag}`}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === "Enter" || e.key === " ") {
               handleTagClick(postTag)
             }
           }}
@@ -110,11 +110,11 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
           <h3
             className={`inline px-3 py-2 text-sm font-medium uppercase ${
               useTagStore.getState().selectedTag === postTag
-                ? 'text-heading-800 dark:text-heading-300'
-                : 'hover:text-heading-800 dark:hover:text-heading-300 text-gray-600 dark:text-gray-300'
+                ? "text-heading-800 dark:text-heading-300"
+                : "hover:text-heading-800 dark:hover:text-heading-300 text-gray-600 dark:text-gray-300"
             }`}
           >
-            {' '}
+            {" "}
             {postTag} ({tagCountMap[postTag]})
           </h3>
         </button>
@@ -131,14 +131,14 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
         >
           <div className="px-6 py-4">
             <button
-              onClick={() => setSelectedTag('')}
+              onClick={() => setSelectedTag("")}
               className={`${
-                useTagStore.getState().selectedTag === ''
-                  ? 'text-primary-600 dark:text-primary-300' /* Couleur de texte plus douce */
-                  : 'text-gray-900 dark:text-gray-200'
+                useTagStore.getState().selectedTag === ""
+                  ? "text-primary-600 dark:text-primary-300" /* Couleur de texte plus douce */
+                  : "text-gray-900 dark:text-gray-200"
               } text-shadow font-headings font-bold uppercase antialiased transition-colors duration-300 text-shadow-gray-400/80 dark:text-shadow-black`}
             >
-              {t('all')}
+              {t("all")}
             </button>
             <ul className="mt-4 space-y-2">{filteredTags}</ul>
           </div>
@@ -162,7 +162,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                         {post.banner && (
                           <div
                             className="relative h-auto w-full overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700"
-                            style={{ aspectRatio: '2 / 1' }}
+                            style={{ aspectRatio: "2 / 1" }}
                           >
                             {/* Version desktop par défaut */}
                             <Image
@@ -180,7 +180,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                           </div>
                         )}
                         <dl>
-                          <dt className="sr-only">{t('pub')}</dt>
+                          <dt className="sr-only">{t("pub")}</dt>
                           <dd className="text-base font-medium leading-6 text-gray-700 dark:text-gray-400">
                             <time dateTime={date}>{formatDate(date, language)}</time>
                           </dd>
@@ -196,7 +196,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                           className="flex cursor-default flex-wrap group-hover:cursor-default"
                           onClick={(e) => e.preventDefault()} // Si l'action est nécessaire
                           onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
+                            if (e.key === "Enter" || e.key === " ") {
                               e.preventDefault()
                             }
                           }}
@@ -209,14 +209,14 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                                   handleTagClick(t)
                                 }}
                                 onKeyDown={(e) => {
-                                  if (e.key === 'Enter' || e.key === ' ') {
+                                  if (e.key === "Enter" || e.key === " ") {
                                     handleTagClick(t)
                                   }
                                 }}
                                 className={`${
                                   useTagStore.getState().selectedTag === t
-                                    ? 'text-heading-700 dark:text-heading-400'
-                                    : 'text-primary-700 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-500'
+                                    ? "text-heading-700 dark:text-heading-400"
+                                    : "text-primary-700 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-500"
                                 } mr-3 cursor-pointer py-0.5 text-sm font-medium uppercase`}
                                 aria-label={`View posts tagged ${t}`}
                               >

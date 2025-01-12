@@ -1,4 +1,4 @@
-import { CopyToClipboard } from '../icons'
+import { CopyToClipboard } from "../icons"
 
 interface CopyButtonProps {
   show: boolean
@@ -18,12 +18,12 @@ const CopyButton: React.FC<CopyButtonProps> = ({ show, copyUrl, showCopied, t })
           <CopyToClipboard />
         </span>
         <div className="sm:hidden">Url</div>
-        <div className="hidden sm:block">{t('copyurl')}</div>
+        <div className="hidden sm:block">{t("copyurl")}</div>
       </button>
     )}
     {showCopied && (
       <div className="absolute right-0 top-10 z-50 rounded-md bg-white p-2 text-center shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
-        <p className="text-primary-500 dark:text-primary-400">{t('urlcopied')}</p>
+        <p className="text-primary-500 dark:text-primary-400">{t("urlcopied")}</p>
       </div>
     )}
   </div>

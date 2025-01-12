@@ -1,13 +1,13 @@
-import { Metadata } from 'next'
-import { Authors, allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/[locale]/seo'
-import { createTranslation } from 'app/[locale]/i18n/server'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { notFound } from 'next/navigation'
-import SectionContainer from '@/components/SectionContainer'
+import { Metadata } from "next"
+import { Authors, allAuthors } from "contentlayer/generated"
+import { MDXLayoutRenderer } from "pliny/mdx-components"
+import AuthorLayout from "@/layouts/AuthorLayout"
+import { coreContent } from "pliny/utils/contentlayer"
+import { genPageMetadata } from "app/[locale]/seo"
+import { createTranslation } from "app/[locale]/i18n/server"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { notFound } from "next/navigation"
+import SectionContainer from "@/components/SectionContainer"
 
 interface PageProps {
   params: Promise<{
@@ -18,22 +18,22 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata | undefined> {
   const { authors, locale } = await params
-  const authorSlug = decodeURI(authors.join('/'))
+  const authorSlug = decodeURI(authors.join("/"))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
   if (!author) {
     return
   }
-  const { t } = await createTranslation(locale, 'about')
+  const { t } = await createTranslation(locale, "about")
 
   return genPageMetadata({
-    title: `${t('about')} ${author.name}`,
+    title: `${t("about")} ${author.name}`,
     params: { locale },
   })
 }
 
 export default async function Page({ params }: PageProps) {
   const { authors, locale } = await params
-  const authorSlug = decodeURI(authors.join('/'))
+  const authorSlug = decodeURI(authors.join("/"))
   const author = allAuthors.find((a) => a.slug === authorSlug && a.language === locale) as Authors
   const authorIndex = allAuthors.findIndex((p) => p.slug === authorSlug)
   if (authorIndex === -1) {

@@ -1,21 +1,21 @@
-import { ReactNode } from 'react'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
-import WalineComments from '@/components/comments/walinecomponents/walineComments'
-import Comments from '@/components/comments/Comments'
-import Link from '@/components/mdxcomponents/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/scroll'
-import { createTranslation } from 'app/[locale]/i18n/server'
-import { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { PostSeriesBox } from '@/components/seriescard'
-import Share from '@/components/share'
-import { Toc } from 'pliny/mdx-plugins'
-import Sidetoc from '@/components/sidetoc'
-import FancyboxWrapper from '@/components/mdxcomponents/FancyboxWrapper'
+import { ReactNode } from "react"
+import { formatDate } from "pliny/utils/formatDate"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog } from "contentlayer/generated"
+import WalineComments from "@/components/comments/walinecomponents/walineComments"
+import Comments from "@/components/comments/Comments"
+import Link from "@/components/mdxcomponents/Link"
+import PageTitle from "@/components/PageTitle"
+import SectionContainer from "@/components/SectionContainer"
+import siteMetadata from "@/data/siteMetadata"
+import ScrollTopAndComment from "@/components/scroll"
+import { createTranslation } from "app/[locale]/i18n/server"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { PostSeriesBox } from "@/components/seriescard"
+import Share from "@/components/share"
+import { Toc } from "pliny/mdx-plugins"
+import Sidetoc from "@/components/sidetoc"
+import FancyboxWrapper from "@/components/mdxcomponents/FancyboxWrapper"
 
 interface PostSimpleProps {
   content: CoreContent<Blog>
@@ -34,7 +34,7 @@ export default async function PostLayout({
 }: PostSimpleProps) {
   const { slug, date, title, language, series, toc } = content
   const tableOfContents: Toc = toc as unknown as Toc
-  const { t } = await createTranslation(locale, 'home')
+  const { t } = await createTranslation(locale, "home")
   return (
     <>
       <ScrollTopAndComment />
@@ -47,7 +47,7 @@ export default async function PostLayout({
                 <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
                   <dl>
                     <div>
-                      <dt className="sr-only">{t('pub')}</dt>
+                      <dt className="sr-only">{t("pub")}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date, language)}</time>
                       </dd>

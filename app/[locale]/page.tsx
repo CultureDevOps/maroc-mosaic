@@ -1,10 +1,10 @@
-import FullLayoutSectionContainer from '@/components/FullLayoutSectionContainer'
-import Benefits from '@/components/landing/Benefits'
-import Hero from '@/components/landing/Hero'
-import { allBlogs } from 'contentlayer/generated'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { LocaleTypes } from './i18n/settings'
-import Landing from './landing/page'
+import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
+import Benefits from "@/components/landing/Benefits"
+import Hero from "@/components/landing/Hero"
+import { allBlogs } from "contentlayer/generated"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer"
+import { LocaleTypes } from "./i18n/settings"
+import Landing from "./landing/page"
 
 interface PageProps {
   params: Promise<{

@@ -1,25 +1,25 @@
-'use client'
+"use client"
 
-import Image from 'next/image'
-import { useParams, usePathname } from 'next/navigation'
-import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
-import Link from '../mdxcomponents/Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from '../theme/ThemeSwitch'
-import LangSwitch from '../langswitch'
-import SearchButton from '../search/SearchButton'
-import { useTranslation } from 'app/[locale]/i18n/client'
-import type { LocaleTypes } from 'app/[locale]/i18n/settings'
-import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import SectionContainer from '../SectionContainer'
-import PostsMenu from './PostsMenu'
-import AuthorsMenu from './AuthorsMenu'
+import Image from "next/image"
+import { useParams, usePathname } from "next/navigation"
+import siteMetadata from "@/data/siteMetadata"
+import headerNavLinks from "@/data/headerNavLinks"
+import Link from "../mdxcomponents/Link"
+import MobileNav from "./MobileNav"
+import ThemeSwitch from "../theme/ThemeSwitch"
+import LangSwitch from "../langswitch"
+import SearchButton from "../search/SearchButton"
+import { useTranslation } from "app/[locale]/i18n/client"
+import type { LocaleTypes } from "app/[locale]/i18n/settings"
+import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import SectionContainer from "../SectionContainer"
+import PostsMenu from "./PostsMenu"
+import AuthorsMenu from "./AuthorsMenu"
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const { t } = useTranslation(locale, "common")
   const pathname = usePathname()
 
   const [selectedPath, setSelectedPath] = useState<string | null>(null)
@@ -44,9 +44,9 @@ const Header = () => {
   const onToggleNav = () => {
     setNavShow((prev) => {
       if (prev) {
-        document.body.style.overflow = 'hidden'
+        document.body.style.overflow = "hidden"
       } else {
-        document.body.style.overflow = ''
+        document.body.style.overflow = ""
       }
       return !prev
     })
@@ -56,8 +56,8 @@ const Header = () => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 0)
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
@@ -73,7 +73,7 @@ const Header = () => {
               <div className="block flex-shrink-0 sm:hidden xl:block">
                 <Image
                   alt="logo"
-                  src={siteMetadata.siteLogo ?? ''}
+                  src={siteMetadata.siteLogo ?? ""}
                   width={40}
                   height={40}
                   priority={true}
@@ -82,7 +82,7 @@ const Header = () => {
                   quality={80}
                 />
               </div>
-              {typeof siteMetadata.headerTitle === 'string' ? (
+              {typeof siteMetadata.headerTitle === "string" ? (
                 <div className="md:text-md text-shadow hidden max-w-xs whitespace-nowrap pb-3 font-logo text-xl text-white antialiased text-shadow-black md:block lg:max-w-sm lg:text-2xl">
                   {siteMetadata.headerTitle}
                 </div>
@@ -95,8 +95,8 @@ const Header = () => {
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
                   const isSelected =
-                    (selectedPath === `/${locale}` || selectedPath === '/') &&
-                    link.href === '/landing'
+                    (selectedPath === `/${locale}` || selectedPath === "/") &&
+                    link.href === "/landing"
                       ? true
                       : selectedPath?.includes(link.href as string)
                   return (
@@ -108,7 +108,7 @@ const Header = () => {
                     >
                       <div
                         className={`hidden font-medium ${
-                          isSelected ? 'text-secondary-500' : 'text-white hover:text-secondary-500'
+                          isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
                         } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
                       >
                         <span
@@ -122,7 +122,7 @@ const Header = () => {
                         <motion.div
                           layoutId="tab"
                           transition={{
-                            type: 'spring',
+                            type: "spring",
                             duration: 0.4,
                             damping: 25,
                             stiffness: 300,
@@ -149,7 +149,7 @@ const Header = () => {
               <button
                 className="z-50 text-gray-900 dark:text-gray-100 sm:hidden"
                 onClick={onToggleNav}
-                aria-label={t('showmenu')}
+                aria-label={t("showmenu")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

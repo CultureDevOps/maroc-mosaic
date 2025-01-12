@@ -1,10 +1,10 @@
-import { Metadata } from 'next'
-import Tag from '@/components/tag'
-import tagData from 'app/[locale]/tag-data.json'
-import { genPageMetadata } from 'app/[locale]/seo'
-import { createTranslation } from '../i18n/server'
-import { LocaleTypes } from '../i18n/settings'
-import SectionContainer from '@/components/SectionContainer'
+import { Metadata } from "next"
+import Tag from "@/components/tag"
+import tagData from "app/[locale]/tag-data.json"
+import { genPageMetadata } from "app/[locale]/seo"
+import { createTranslation } from "../i18n/server"
+import { LocaleTypes } from "../i18n/settings"
+import SectionContainer from "@/components/SectionContainer"
 
 interface PageProps {
   params: Promise<{
@@ -14,10 +14,10 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (await params).locale
-  const { t } = await createTranslation(locale, 'SEO')
+  const { t } = await createTranslation(locale, "SEO")
   return genPageMetadata({
-    title: 'Tags',
-    description: t('tags'),
+    title: "Tags",
+    description: t("tags"),
     params: { locale: locale },
   })
 }
@@ -39,7 +39,7 @@ export default async function Page({ params }: PageProps) {
               </h1>
             </div>
             <div className="flex max-w-lg flex-wrap">
-              {tagKeys.length === 0 && 'No tags found.'}
+              {tagKeys.length === 0 && "No tags found."}
               {sortedTags.map((tag) => (
                 <div key={tag} className="mb-2 mr-5 mt-2">
                   <Tag text={tag} />

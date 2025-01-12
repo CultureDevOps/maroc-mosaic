@@ -1,7 +1,7 @@
-import { useRef, useCallback } from 'react'
-import { useOuterClick } from '../util/useOuterClick'
-import { motion } from 'framer-motion'
-import { MailIcon } from '../search/icons'
+import { useRef, useCallback } from "react"
+import { useOuterClick } from "../util/useOuterClick"
+import { motion } from "framer-motion"
+import { MailIcon } from "../search/icons"
 
 interface cModalProps {
   isOpen?: boolean
@@ -45,7 +45,7 @@ export const CModal: React.FC<cModalProps> = ({
       variants={variants}
       initial="hidden"
       animate="enter"
-      transition={{ type: 'linear' }}
+      transition={{ type: "linear" }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50"
     >
       <div className="relative mx-auto my-3 h-full w-full sm:h-auto sm:w-2/5 sm:max-w-xl">
@@ -65,7 +65,7 @@ export const CModal: React.FC<cModalProps> = ({
               onClick={handleClose}
               className="ml-auto border-0 p-1 transition hover:opacity-70"
             >
-              <p className="text-lg font-bold" style={{ fontSize: '1.5rem' }}>
+              <p className="text-lg font-bold" style={{ fontSize: "1.5rem" }}>
                 &times;
               </p>
             </button>
