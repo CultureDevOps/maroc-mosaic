@@ -50,7 +50,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
   const sortedPosts = sortByDate(posts)
   const selectedTag = useTagStore((state) => state.selectedTag)
   const setSelectedTag = useTagStore((state) => state.setSelectedTag)
-  const [isHydrated, setIsHydrated] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false)
 
   const filteredPosts = useMemo(() => {
     if (selectedTag) {
@@ -65,8 +65,8 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
   const displayPosts = filteredPosts.slice(startIndex, endIndex)
 
   useEffect(() => {
-    setIsHydrated(true);
-  }, []);
+    setIsHydrated(true)
+  }, [])
 
   const onPageChange = (page: number) => {
     setCurrentPage(page)
@@ -191,7 +191,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             {title}
                           </h2>
                         </div>
-                        {/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */}
+                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                         <ul
                           className="flex cursor-default flex-wrap group-hover:cursor-default"
                           onClick={(e) => e.preventDefault()} // Si l'action est nécessaire
@@ -201,7 +201,6 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             }
                           }}
                         >
-                        {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */}
                           {tags.map((t) => (
                             <li key={t} className="my-3">
                               <button
