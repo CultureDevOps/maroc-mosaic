@@ -15,6 +15,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',    
     'plugin:prettier/recommended',
+    'plugin:tailwindcss/recommended',
     'next',
     'next/core-web-vitals',
   ],
@@ -30,6 +31,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'tailwindcss/classnames-order': 'warn',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',

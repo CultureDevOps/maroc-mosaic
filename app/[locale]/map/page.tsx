@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function MapPage({ params }: PageProps) {
   return (
-    <section className="mt-7 mx-auto max-w-5xl px-4 sm:px-6 xl:max-w-full xl:px-20">
+    <section className="mx-auto mt-7 max-w-5xl px-4 sm:px-6 xl:max-w-full xl:px-20">
       <Map />
     </section>
   )
