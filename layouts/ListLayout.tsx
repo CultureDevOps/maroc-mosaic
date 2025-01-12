@@ -48,52 +48,32 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = POSTS_PER_PAGE
   const sortedPosts = sortByDate(posts)
-  const setSelectedTag = useTagStore((state) => state.setSelectedTag)
-  const [isHydrated, setIsHydrated] = useState(false)
   const selectedTag = useTagStore((state) => state.selectedTag)
-  const selectedTagRef = useRef(selectedTag)
+  const setSelectedTag = useTagStore((state) => state.setSelectedTag)
+  const [isHydrated, setIsHydrated] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = useTagStore.subscribe(
-      (state) => state.selectedTag,
-      (newSelectedTag) => {
-        if (newSelectedTag !== selectedTagRef.current) {
-          setSelectedTag(newSelectedTag)
-          selectedTagRef.current = newSelectedTag
-        }
-      }
-    )
-    return () => unsubscribe()
-  }, [])
-
-  useEffect(() => {
-    setIsHydrated(true)
-  }, [])
-
-  useEffect(() => {
-    setCurrentPage(1) // Réinitialiser la pagination sur un changement de tag
-  }, [selectedTag])
-
-  const filteredPosts = selectedTag
-    ? sortedPosts.filter((post) => post.tags.includes(selectedTag))
-    : sortedPosts
+  const filteredPosts = useMemo(() => {
+    if (selectedTag) {
+      return sortedPosts.filter((post) => post.tags.includes(selectedTag))
+    }
+    return sortedPosts
+  }, [selectedTag, sortedPosts])
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
   const startIndex = (currentPage - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
+  const displayPosts = filteredPosts.slice(startIndex, endIndex)
 
-  const displayPosts = useMemo(() => {
-    const startIndex = (currentPage - 1) * postsPerPage
-    const endIndex = startIndex + postsPerPage
-    return filteredPosts.slice(startIndex, endIndex)
-  }, [filteredPosts, currentPage, postsPerPage])
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const onPageChange = (page: number) => {
     setCurrentPage(page)
   }
 
   const handleTagClick = (tag: string) => {
-    setSelectedTag(tag === selectedTag ? '' : tag)
+    setSelectedTag(tag === useTagStore.getState().selectedTag ? '' : tag)
     setCurrentPage(1)
   }
 
@@ -211,7 +191,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             {title}
                           </h2>
                         </div>
-
+                        {/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */}
                         <ul
                           className="flex cursor-default flex-wrap group-hover:cursor-default"
                           onClick={(e) => e.preventDefault()} // Si l'action est nécessaire
@@ -221,6 +201,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                             }
                           }}
                         >
+                        {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */}
                           {tags.map((t) => (
                             <li key={t} className="my-3">
                               <button

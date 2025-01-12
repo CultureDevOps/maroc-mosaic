@@ -54,6 +54,7 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
     dirs: ['app', 'components', 'layouts', 'scripts'],
+    // ignoreDuringBuilds: true,
   },
   images: {
     remotePatterns: [
