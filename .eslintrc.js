@@ -27,7 +27,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto', singleQuote: true, semi: true
+        endOfLine: 'auto',
       },
     ],
     'react/react-in-jsx-scope': 'off',
