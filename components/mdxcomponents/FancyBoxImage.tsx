@@ -35,9 +35,8 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
 
   const imageContent = isExternal ? (
     // Si l'image est externe, on utilise une balise <img> standard
-    /* eslint-disable @next/next/no-img-element */
+    /* eslint-disable-next-line @next/next/no-img-element */
     <img alt={alt} src={src} {...rest} className={`rounded-lg ${shadow}`} />
-    /* eslint-enable @next/next/no-img-element */
   ) : (
     <NextImage
       {...rest}
