@@ -38,10 +38,11 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         value={name}
         onChange={handleNameChange}
         className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 
-                  text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 
-                  focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 
+                  text-black shadow-sm outline-none transition duration-300 
+                  focus:border-secondary-500 focus:ring-1 focus:ring-secondary-200 
+                  disabled:cursor-not-allowed disabled:bg-neutral-900 
                   disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white 
-                  dark:focus:border-terracota-500 dark:focus:ring-terracota-300"
+                  dark:focus:border-secondary-500 dark:focus:ring-secondary-300"
       />
       <input
         required
@@ -52,7 +53,12 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("mail")}
         value={email}
         onChange={handleEmailChange}
-        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 
+                  text-black shadow-sm outline-none transition duration-300 
+                  focus:border-secondary-500 focus:ring-1 focus:ring-secondary-200 
+                  disabled:cursor-not-allowed disabled:bg-neutral-900 
+                  disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white 
+                  dark:focus:border-secondary-500 dark:focus:ring-secondary-300"
       />
       <input
         required
@@ -63,7 +69,12 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("Adresse")}
         value={address}
         onChange={handleAddressChange}
-        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 
+                  text-black shadow-sm outline-none transition duration-300 
+                  focus:border-secondary-500 focus:ring-1 focus:ring-secondary-200 
+                  disabled:cursor-not-allowed disabled:bg-neutral-900 
+                  disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white 
+                  dark:focus:border-secondary-500 dark:focus:ring-secondary-300"
       />
       <textarea
         required
@@ -72,7 +83,12 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("message")}
         value={message}
         onChange={handleMessageChange}
-        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 
+                  text-black shadow-sm outline-none transition duration-300 
+                  focus:border-secondary-500 focus:ring-1 focus:ring-secondary-200 
+                  disabled:cursor-not-allowed disabled:bg-neutral-900 
+                  disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white 
+                  dark:focus:border-secondary-500 dark:focus:ring-secondary-300"
       />
     </>
 

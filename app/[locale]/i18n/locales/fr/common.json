@@ -37,6 +37,7 @@
   "error": "Oups, quelque chose s'est mal passé!",
   "thanks": "Merci de m'avoir contacté, je vous répondrai sous peu !",
   "message": "Message*",
+  "address": "Adresse*",
   "copyurl": "Copier l'URL",
   "urlcopied": "URL copiée!",
   "contact": "Contact",
