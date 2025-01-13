@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.leaflet-pane {
+  z-index: 10 !important;
+}
+
 /* Lorsque l'élément est ciblé via une ancre (#) */
 :target::before {
   content: '';
