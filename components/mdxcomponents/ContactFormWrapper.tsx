@@ -19,8 +19,8 @@ const ContactFormWrapper = () => {
   } = useContactForm();
 
   return (
-    <div className="my-6 p-4 rounded-md">
-      <h2 className="text-xl font-semibold mb-4">{t("contact")}</h2>
+    <div className="rounded-md">
+      <h2 className="text-xl font-semibold">{t("contact")}</h2>
       <ModalBody
         state={state}
         handleSubmit={handleSubmit}
