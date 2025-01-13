@@ -15,11 +15,11 @@ export const ContactModal = (): JSX.Element => {
     name,
     email,
     message,
-    adress,
+    address,
     handleNameChange,
     handleEmailChange,
     handleMessageChange,
-    handleAdressChange,
+    handleAddressChange,
     t,
   } = useContactForm()
 
@@ -36,11 +36,11 @@ export const ContactModal = (): JSX.Element => {
             name={name}
             email={email}
             message={message}
-            adress={adress}
+            address={address}
             handleNameChange={handleNameChange}
             handleEmailChange={handleEmailChange}
             handleMessageChange={handleMessageChange}
-            handleAdressChange={handleAdressChange}
+            handleAddressChange={handleAddressChange}
             t={t}
           />
         }

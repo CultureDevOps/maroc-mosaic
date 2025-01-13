@@ -7,10 +7,10 @@ interface EmailFormProps {
   name: string
   email: string
   message: string
-  adress: string
+  address: string
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleAdressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleAddressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   t: (key: string) => string
 }
@@ -21,11 +21,11 @@ const EmailForm: React.FC<EmailFormProps> = ({
   name,
   email,
   message,
-  adress,
+  address,
   handleNameChange,
   handleEmailChange,
   handleMessageChange,
-  handleAdressChange,
+  handleAddressChange,
   t,
 }) => (
   <>
@@ -41,11 +41,11 @@ const EmailForm: React.FC<EmailFormProps> = ({
         name={name}
         email={email}
         message={message}
-        adress={adress}
+        address={address}
         handleNameChange={handleNameChange}
         handleEmailChange={handleEmailChange}
         handleMessageChange={handleMessageChange}
-        handleAdressChange={handleAdressChange}
+        handleAddressChange={handleAddressChange}
         state={state}
         t={t}
       />

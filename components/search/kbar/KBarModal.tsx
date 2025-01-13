@@ -37,11 +37,11 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
     name,
     email,
     message,
-    adress,
+    address,
     handleNameChange,
     handleEmailChange,
     handleMessageChange,
-    handleAdressChange,
+    handleAddressChange,
   } = useContactForm()
 
   const { setTheme, mounted } = useTheme()
@@ -152,11 +152,11 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                   name={name}
                   email={email}
                   message={message}
-                  adress={adress}
+                  address={address}
                   handleNameChange={handleNameChange}
                   handleEmailChange={handleEmailChange}
                   handleMessageChange={handleMessageChange}
-                  handleAdressChange={handleAdressChange}
+                  handleAddressChange={handleAddressChange}
                   t={t}
                 />
               )}

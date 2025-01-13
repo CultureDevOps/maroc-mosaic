@@ -5,11 +5,11 @@ interface FormInputsProps {
   name: string
   email: string
   message: string
-  adress: string
+  address: string
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  handleAdressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleAddressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   state: any
   t: (key: string) => string
 }
@@ -18,18 +18,16 @@ export const FormInputs: React.FC<FormInputsProps> = ({
   name,
   email,
   message,
-  adress,
+  address,
   handleNameChange,
   handleEmailChange,
   handleMessageChange,
-  handleAdressChange,
+  handleAddressChange,
   state,
   t,
 }) => {
   return (
     <>
-      <input type="hidden" name="wb_form_id" value="264a0f12"></input>
-      <input type="hidden" name="wb_form_uuid" value="946edc24"></input>
       <input
         required
         autoComplete="name"
@@ -39,7 +37,11 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("name")}
         value={name}
         onChange={handleNameChange}
-        className="mb-2 w-full rounded-md border-black bg-white p-2 text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 
+                  text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 
+                  focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 
+                  disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white 
+                  dark:focus:border-terracota-500 dark:focus:ring-terracota-300"
       />
       <input
         required
@@ -50,7 +52,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("mail")}
         value={email}
         onChange={handleEmailChange}
-        className="mb-2 w-full rounded-md border-black bg-white p-2 text-base text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
       />
       <input
         required
@@ -59,11 +61,10 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         type="text"
         name="wb_input_2"
         placeholder={t("Adresse")}
-        value={adress}
-        onChange={handleAdressChange}
-        className="mb-2 w-full rounded-md border-black bg-white p-2 text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
+        value={address}
+        onChange={handleAddressChange}
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
       />
-      {/* <ValidationError prefix="Email" field="email" errors={state.errors} /> */}
       <textarea
         required
         id="message"
@@ -71,9 +72,9 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         placeholder={t("message")}
         value={message}
         onChange={handleMessageChange}
-        className="mb-2 w-full rounded-md border-black bg-white p-2 text-base text-black outline-none transition disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:bg-black dark:text-white"
+        className="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 text-black shadow-sm outline-none transition duration-300 focus:border-blue-500 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-purple-500 dark:focus:ring-purple-300"
       />
-      {/* <ValidationError prefix="Message" field="message" errors={state.errors} /> */}
     </>
+
   )
 }

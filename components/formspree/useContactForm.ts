@@ -10,7 +10,7 @@ export const useContactForm = () => {
 
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
-  const [adress, setAdress] = useState<string>("")
+  const [address, setAddress] = useState<string>("")
   const [message, setMessage] = useState<string>("")
 
   const [wbFormId, setWbFormId] = useState<string>("264a0f12") // Valeur par défaut
@@ -33,7 +33,7 @@ export const useContactForm = () => {
     formData.append("wb_input_1", "E-mail")
     formData.append("wb_input_1", email) // Label pour le champ 'Email'
     formData.append("wb_input_2", "Adresse")
-    formData.append("wb_input_2", adress) // Label pour l'adresse
+    formData.append("wb_input_2", address) // Label pour l'adresse
     formData.append("wb_input_3", "Message")
     formData.append("wb_input_3", message) // Valeur du champ 'Email'
 
@@ -53,7 +53,7 @@ export const useContactForm = () => {
       setTimeout(() => {
         setName("")
         setEmail("")
-        setAdress("")
+        setAddress("")
         setMessage("")
         setSucceeded(false)
       }, 2000)
@@ -73,8 +73,8 @@ export const useContactForm = () => {
     setEmail(e.target.value)
   }
 
-  const handleAdressChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setAdress(e.target.value)
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setAddress(e.target.value)
   }
 
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
@@ -91,12 +91,12 @@ export const useContactForm = () => {
     handleSubmit,
     name,
     email,
-    adress,
+    address,
     message,
     handleNameChange,
     handleEmailChange,
     handleMessageChange,
-    handleAdressChange,
+    handleAddressChange,
     t,
   }
 }

@@ -8,6 +8,7 @@ import TableWrapper from "./TableWrapper"
 import Audioplayer from "./Audioplayer"
 import WebsiteEmbed from "./WebsiteEmbed"
 import FancyBoxImage from "./FancyBoxImage"
+import ContactFormWrapper from "./ContactFormWrapper"
 
 export const components: MDXComponents = {
   Image,
@@ -19,4 +20,5 @@ export const components: MDXComponents = {
   Audioplayer,
   WebsiteEmbed,
   FancyBoxImage,
+  ContactFormWrapper,
 }

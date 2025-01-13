@@ -6,11 +6,11 @@ interface ModalBodyProps {
   name: string
   email: string
   message: string
-  adress: string
+  address: string
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  handleAdressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleAddressChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   t: (key: string) => string
 }
 
@@ -20,11 +20,11 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
   name,
   email,
   message,
-  adress,
+  address,
   handleNameChange,
   handleEmailChange,
   handleMessageChange,
-  handleAdressChange,
+  handleAddressChange,
   t,
 }) => {
   return (
@@ -34,11 +34,11 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
           name={name}
           email={email}
           message={message}
-          adress={adress}
+          address={address}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
           handleMessageChange={handleMessageChange}
-          handleAdressChange={handleAdressChange}
+          handleAddressChange={handleAddressChange}
           state={state}
           t={t}
         />
