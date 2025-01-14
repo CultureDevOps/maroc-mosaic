@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Blog, allBlogs } from "contentlayer/generated"
-import { Fragment, useRef, useState, useMemo } from "react"
+import { Fragment, useRef, useState, useMemo, useEffect } from "react"
 import {
   Menu,
   MenuButton,
@@ -48,6 +48,13 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   useOuterClick(menubarRef, closeMenu)
 
   const isSelected = posts.some((post) => post.slug.includes(lastSection)) && filterSections
+
+  useEffect(() => {
+    const backgroundElement = document.body
+    if (backgroundElement) {
+      backgroundElement.style.overflow = isOpen ? "hidden" : "auto"
+    }
+  }, [isOpen])
 
   const renderBlogLink = (post: Blog) => {
     const { slug, title } = post
@@ -121,8 +128,12 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
           >
             <div>
               <MenuItems
-                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md origin-top-right -translate-x-1/2 transform flex-col gap-1 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md 
+                origin-top-right -translate-x-1/2 transform flex-col gap-1 
+                divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black 
+                ring-opacity-5 backdrop-blur-sm focus:outline-none"
                 as="div"
+                modal={false}
               >
                 <RadioGroup>
                   <div className="grid w-full min-w-[300px] grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-1 overflow-auto rounded-md bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80 p-1 shadow-xl shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80 dark:to-gray-900/80 dark:shadow-gray-950 sm:max-w-[300px] md:max-w-[900px] lg:max-w-[900px] xl:max-w-[1200px]">

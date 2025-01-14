@@ -38,9 +38,9 @@ const ThemeSwitch = () => {
   }
 
   useEffect(() => {
-    const backgroundElement = document.getElementById("background-image")
+    const backgroundElement = document.body
     if (backgroundElement) {
-      backgroundElement.style.overflow = menuOpen ? "hidden" : ""
+      backgroundElement.style.overflow = menuOpen ? "hidden" : "auto"
     }
   }, [menuOpen])
 
@@ -48,88 +48,93 @@ const ThemeSwitch = () => {
 
   return (
     <div ref={menubarRef} className="mr-5">
-      <Menu as="div" className="relative mt-1 inline-block text-left" data-open={menuOpen}>
-        <MenuButton aria-label={t("theme")}>
-          <DarkModeSwitch
-            checked={darkModeChecked}
-            onChange={(isChecked) => setDarkModeChecked(isChecked)}
-            onClick={() => setMenuOpen(!menuOpen)}
-            size={24}
-            theme={theme}
-          />
-        </MenuButton>
-        <Transition
-          show={menuOpen}
-          enter="transition-all ease-out duration-300"
-          enterFrom="opacity-0 scale-95 translate-y-[-10px]"
-          enterTo="opacity-100 scale-100 translate-y-0"
-          leave="transition-all ease-in duration-200"
-          leaveFrom="opacity-100 scale-100 translate-y-0"
-          leaveTo="opacity-0 scale-95 translate-y-[10px]"
-        >
+      <Menu as="div" className="relative mt-1 inline-block text-left">
+        {({ open }) => (
           <div>
-            <MenuItems
-              modal={true}
-              className="z-60 absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+            <MenuButton
+              aria-label={t("theme")}
+              aria-expanded={open}
             >
-              <RadioGroup value={theme} onChange={handleThemeChange}>
-                <div className="rounded-md bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95 p-1 shadow-xl shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95 dark:shadow-gray-950">
-                  <Radio value="light">
-                    <MenuItem>
-                      {({ focus }) => (
-                        <button
-                          onClick={() => handleThemeChange("light")}
-                          className={`${
-                            focus
-                              ? "bg-primary-400/50 dark:bg-primary-500/30"
-                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
-                        >
-                          <Sun className="h-6 w-6" />
-                          <span className="ml-2">{t("light")}</span>
-                        </button>
-                      )}
-                    </MenuItem>
-                  </Radio>
-                  <Radio value="dark">
-                    <MenuItem>
-                      {({ focus }) => (
-                        <button
-                          onClick={() => handleThemeChange("dark")}
-                          className={`${
-                            focus
-                              ? "bg-primary-400/50 dark:bg-primary-500/30"
-                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
-                        >
-                          <Moon className="h-6 w-6" />
-                          <span className="ml-2">{t("dark")}</span>
-                        </button>
-                      )}
-                    </MenuItem>
-                  </Radio>
-                  <Radio value="system">
-                    <MenuItem>
-                      {({ focus }) => (
-                        <button
-                          onClick={() => handleThemeChange("system")}
-                          className={`${
-                            focus
-                              ? "bg-primary-400/50 dark:bg-primary-500/30"
-                              : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                          } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
-                        >
-                          <Monitor className="h-6 w-6" />
-                          <span className="ml-2">{t("system")}</span>
-                        </button>
-                      )}
-                    </MenuItem>
-                  </Radio>
-                </div>
-              </RadioGroup>
-            </MenuItems>
+              <DarkModeSwitch
+                checked={darkModeChecked}
+                onChange={(isChecked) => setDarkModeChecked(isChecked)}
+                onClick={() => setMenuOpen(!menuOpen)}
+                size={24}
+                theme={theme}
+              />
+            </MenuButton>
+            <Transition
+              show={open}
+              enter="transition-all ease-out duration-300"
+              enterFrom="opacity-0 scale-95 translate-y-[-10px]"
+              enterTo="opacity-100 scale-100 translate-y-0"
+              leave="transition-all ease-in duration-200"
+              leaveFrom="opacity-100 scale-100 translate-y-0"
+              leaveTo="opacity-0 scale-95 translate-y-[10px]"
+            >
+              <div>
+                <MenuItems
+                  modal={false}
+                  className="z-60 absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                >
+                  <RadioGroup value={theme} onChange={handleThemeChange}>
+                    <div className="rounded-md bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95 p-1 shadow-xl shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95 dark:shadow-gray-950">
+                      <Radio value="light">
+                        <MenuItem>
+                          {({ focus }) => (
+                            <button
+                              onClick={() => handleThemeChange("light")}
+                              className={`${focus
+                                ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
+                            >
+                              <Sun className="h-6 w-6" />
+                              <span className="ml-2">{t("light")}</span>
+                            </button>
+                          )}
+                        </MenuItem>
+                      </Radio>
+                      <Radio value="dark">
+                        <MenuItem>
+                          {({ focus }) => (
+                            <button
+                              onClick={() => handleThemeChange("dark")}
+                              className={`${focus
+                                ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                            >
+                              <Moon className="h-6 w-6" />
+                              <span className="ml-2">{t("dark")}</span>
+                            </button>
+                          )}
+                        </MenuItem>
+                      </Radio>
+                      <Radio value="system">
+                        <MenuItem>
+                          {({ focus }) => (
+                            <button
+                              onClick={() => handleThemeChange("system")}
+                              className={`${focus
+                                ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                              role="menuitem"
+                            >
+                              <Monitor className="h-6 w-6" />
+                              <span className="ml-2">{t("system")}</span>
+                            </button>
+                          )}
+                        </MenuItem>
+                      </Radio>
+                    </div>
+                  </RadioGroup>
+                </MenuItems>
+              </div>
+            </Transition>
           </div>
-        </Transition>
+        )}
       </Menu>
     </div>
   )
