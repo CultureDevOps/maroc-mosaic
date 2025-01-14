@@ -63,12 +63,12 @@ const Header = () => {
   return (
     <header>
       <div className="border-b border-primary-900 bg-primary-800 shadow-xl shadow-gray-950 transition-shadow duration-300">
-        <SectionContainer>
+        <section className="mx-auto max-w-4xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
           <div className="flex items-center justify-between py-2">
             <Link
               href={`/${locale}/`}
               aria-label={siteMetadata.headerTitle}
-              className="mr-4 flex w-full flex-grow items-center space-x-3"
+              className="mr-4 flex w-full flex-grow items-center space-x-2"
             >
               <div className="block flex-shrink-0 sm:hidden xl:block">
                 <Image
@@ -84,19 +84,19 @@ const Header = () => {
               </div>
               {typeof siteMetadata.headerTitle === "string" ? (
                 <div className="md:text-md text-shadow hidden max-w-xs whitespace-nowrap pb-3 font-logo text-xl text-white antialiased text-shadow-black md:block lg:max-w-sm lg:text-2xl">
-                  {siteMetadata.headerTitle}
+                  {siteMetadata.headerTitle} <span className="hidden xl:inline-block">{siteMetadata.headerSubTitle}</span>
                 </div>
               ) : (
                 siteMetadata.headerTitle
               )}
             </Link>
-            <div className="flex items-center space-x-4 whitespace-nowrap font-headings leading-5 antialiased sm:space-x-6">
+            <div className="flex items-center space-x-2 whitespace-nowrap font-headings leading-5 antialiased sm:space-x-4">
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
                   const isSelected =
                     (selectedPath === `/${locale}` || selectedPath === "/") &&
-                    link.href === "/landing"
+                      link.href === "/landing"
                       ? true
                       : selectedPath?.includes(link.href as string)
                   return (
@@ -107,9 +107,8 @@ const Header = () => {
                       aria-label={link.title}
                     >
                       <div
-                        className={`hidden font-medium ${
-                          isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                        } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                        className={`hidden font-medium ${isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
+                          } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
                       >
                         <span
                           ref={spanRef}
@@ -166,7 +165,7 @@ const Header = () => {
               </button>
             </div>
           </div>
-        </SectionContainer>
+        </section>
       </div>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
     </header>

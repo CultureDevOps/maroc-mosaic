@@ -2,7 +2,9 @@
 const siteMetadata = {
   title: 'Maroc Mosaic',
   author: 'Maroc Mosaic',
-  headerTitle: 'MAROC MOSAIC فسيفساء المغرب',
+  // headerTitle: 'MAROC MOSAIC فسيفساء المغرب',
+  headerTitle: 'MAROC MOSAIC',
+  headerSubTitle: 'فسيفساء المغرب',
   description: 'A blog created with Next.js, i18n and Tailwind.css',
   language: 'fr',
   theme: process.env.NEXT_PUBLIC_SITE_THEME, // system, dark or light
