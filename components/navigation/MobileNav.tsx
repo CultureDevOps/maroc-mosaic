@@ -40,7 +40,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false)
 
   const posts = useMemo(() => {
-    const filteredPosts = allBlogs.filter((a) => a.language === locale)
+    const filteredPosts = allBlogs.filter((a) => a.language === locale && a.featured)
     const sortedPosts = sortByDate(filteredPosts)
     return sortedPosts
   }, [locale]) as Blog[]
@@ -59,9 +59,8 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${
-          navShow ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${navShow ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-end">
           <button
@@ -128,20 +127,10 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
                       onKeyDown={handleKeyDown}
                       tabIndex={0}
                     >
-                      {/* <div className="mr-2">
-                          <Image
-                            className="rounded-full w-auto h-auto"
-                            src={post.banner ?? ''}
-                            title="banner"
-                            alt="banner"
-                            width={40}
-                            height={40}
-                          />
-                        </div> */}
                       <Link
                         href={`/${locale}/blog/${slug}`}
                         onClick={onToggleNav}
-                        className="text-left text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                        className="text-left text-md font-bold tracking-widest text-gray-900 dark:text-gray-100"
                       >
                         {title}
                       </Link>
@@ -151,6 +140,19 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
                 return null
               })}
             </motion.div>
+            <div className="px-12 py-4 text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100">
+              {mainAuthor.map((author) => {
+                const { name, language, slug } = author
+                if (language === locale) {
+                  return (
+                    <Link href={`/${locale}/about/${slug}`} onClick={onToggleNav} key={name}>
+                      {t('about')}
+                    </Link>
+                  )
+                }
+                return null
+              })}
+            </div>
           </>
         </nav>
       </div>
