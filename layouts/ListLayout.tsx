@@ -28,21 +28,6 @@ interface ListLayoutProps {
   pagination?: PaginationProps
 }
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, x: -25, y: 0 },
-  show: { opacity: 1, x: 0, y: 0 },
-}
-
 export default function ListLayoutWithTags({ params: { locale }, posts, title }: ListLayoutProps) {
   const { t } = useTranslation(locale, "home")
   const [currentPage, setCurrentPage] = useState(1)
@@ -108,11 +93,10 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
           }}
         >
           <h3
-            className={`inline px-3 py-2 text-sm font-medium uppercase ${
-              useTagStore.getState().selectedTag === postTag
+            className={`inline px-3 py-2 text-sm font-medium uppercase ${useTagStore.getState().selectedTag === postTag
                 ? "text-heading-800 dark:text-heading-300"
                 : "hover:text-heading-800 dark:hover:text-heading-300 text-gray-600 dark:text-gray-300"
-            }`}
+              }`}
           >
             {" "}
             {postTag} ({tagCountMap[postTag]})
@@ -127,16 +111,15 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
       <div className="flex space-x-6 lg:space-x-8">
         <div
           className="dark:via-primary-950/30 hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-2xl border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 pt-5 shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950 sm:flex"
-          // style={{ position: 'fixed', top: '5rem', left: '1rem', maxHeight: 'calc(100vh - 5rem)' }}
+        // style={{ position: 'fixed', top: '5rem', left: '1rem', maxHeight: 'calc(100vh - 5rem)' }}
         >
           <div className="px-6 py-4">
             <button
               onClick={() => setSelectedTag("")}
-              className={`${
-                useTagStore.getState().selectedTag === ""
+              className={`${useTagStore.getState().selectedTag === ""
                   ? "text-primary-600 dark:text-primary-300" /* Couleur de texte plus douce */
                   : "text-gray-900 dark:text-gray-200"
-              } text-shadow font-headings font-bold uppercase antialiased transition-colors duration-300 text-shadow-gray-400/80 dark:text-shadow-black`}
+                } text-shadow font-headings font-bold uppercase antialiased transition-colors duration-300 text-shadow-gray-400/80 dark:text-shadow-black`}
             >
               {t("all")}
             </button>
@@ -213,11 +196,10 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                                     handleTagClick(t)
                                   }
                                 }}
-                                className={`${
-                                  useTagStore.getState().selectedTag === t
+                                className={`${useTagStore.getState().selectedTag === t
                                     ? "text-heading-700 dark:text-heading-400"
                                     : "text-primary-700 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-500"
-                                } mr-3 cursor-pointer py-0.5 text-sm font-medium uppercase`}
+                                  } mr-3 cursor-pointer py-0.5 text-sm font-medium uppercase`}
                                 aria-label={`View posts tagged ${t}`}
                               >
                                 {`${t}`}

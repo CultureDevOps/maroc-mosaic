@@ -1,3 +1,4 @@
+"use client"
 import { ReactNode } from "react"
 import type { Authors } from "contentlayer/generated"
 import SocialIcon from "@/components/social-icons"
@@ -5,6 +6,10 @@ import Image from "@/components/mdxcomponents/Image"
 
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import { createTranslation } from "app/[locale]/i18n/server"
+import siteMetadata from "@/data/siteMetadata"
+
+import { useContactModal } from "@/components/formspree/store"
+import { useTranslation } from "app/[locale]/i18n/client"
 
 interface AuthorLayoutProps {
   children: ReactNode
@@ -12,10 +17,18 @@ interface AuthorLayoutProps {
   params: { locale: LocaleTypes }
 }
 
-export default async function AuthorLayout({ children, content, params }: AuthorLayoutProps) {
+export default function AuthorLayout({ children, content, params: { locale } }: AuthorLayoutProps) {
   const { name, avatar, occupation, company, email, instagram, facebook } = content
-  const { locale } = await params
-  const { t } = await createTranslation(locale, "about")
+  // const { locale } = await params
+  const { t } = useTranslation(locale, "about")
+  const contactModal = useContactModal()
+
+  const handleContactClick = (): void => {
+    contactModal.onOpen()
+  }
+  function ContactClick(): void {
+    handleContactClick()
+  }
 
   return (
     <>
@@ -44,7 +57,13 @@ export default async function AuthorLayout({ children, content, params }: Author
             <div className="text-gray-600 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-600 dark:text-gray-400">{company}</div>
             <div className="flex space-x-3 pt-6">
-              <SocialIcon kind="mail" href={`mailto:${email}`} size={6} />
+              {siteMetadata.formspree === false ? (
+                <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
+              ) : (
+                <button className="flex items-center focus:outline-none" onClick={ContactClick}>
+                  <SocialIcon kind="mail" size={6} />
+                </button>
+              )}
               <SocialIcon kind="instagram" href={instagram} size={6} />
               <SocialIcon kind="facebook" href={facebook} size={6} />
             </div>
