@@ -1,10 +1,8 @@
 import { Metadata } from "next"
 import { createTranslation } from "../i18n/server"
 import { LocaleTypes } from "../i18n/settings"
-import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
 import { genPageMetadata } from "app/[locale]/seo"
-import dynamic from "next/dynamic"
-import Map from "@/components/maps/Map"
+import MapLayout from "@/layouts/MapLayout"
 
 interface PageProps {
   params: Promise<{
@@ -13,17 +11,16 @@ interface PageProps {
 }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (await params).locale
-  const { t } = await createTranslation(locale, "hero")
+  const { t } = await createTranslation(locale, "common")
   return genPageMetadata({
-    title: t("title"),
+    title: t("references"),
     params: { locale: locale },
   })
 }
 
 export default async function MapPage({ params }: PageProps) {
+  const locale = (await params).locale
   return (
-    <section className="mx-auto mt-7 max-w-5xl px-4 sm:px-6 xl:max-w-full xl:px-20">
-      <Map />
-    </section>
+    <MapLayout params={{ locale }} />
   )
 }
