@@ -4,22 +4,40 @@ import "leaflet/dist/leaflet.css"
 import L from "leaflet"
 import "leaflet-defaulticon-compatibility"
 import { Locations } from "@/data/locationsData"
-import { FC } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 
 interface MapProps {
-  data: Locations[];
+  data: Locations[]
+  focusedLocation: Locations | null
 }
 
-const Map: FC<MapProps> = ({ data }) => {
+const Map: FC<MapProps> = ({ data, focusedLocation }) => {
   // Définir les hubs et les tracés (par exemple, les points de départ des voyages)
   const locations = data
+
+  const mapRef = useRef<L.Map | null>(null)
+  const [map, setMap] = useState<L.Map | null>(null)
+
+  useEffect(() => {
+    if (map && focusedLocation) {
+      const { coords } = focusedLocation
+      map.setView(L.latLng(coords[0], coords[1]), 10)
+      // Remonter la scrollbar pour centrer la carte à l'écran
+      const mapElement = document.querySelector(".leaflet-container")
+      if (mapElement) {
+        mapElement.scrollIntoView({ behavior: "smooth", block: "center" })
+      }
+    }
+  }, [map, focusedLocation])
 
   return (
     <div className="h-full w-full">
       <MapContainer
         center={[31.791702, -7.09262]} // Centre par défaut sur le Maroc
         zoom={4}
-        style={{ height: "70vh", width: "100%" }}
+        style={{ height: "65vh", width: "90%" }}
+        className="mx-auto"
+        ref={setMap} // Passe la carte à l'état
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

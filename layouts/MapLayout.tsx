@@ -1,5 +1,5 @@
 "use client"
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 import type { Authors } from "contentlayer/generated"
 import SocialIcon from "@/components/social-icons"
 import Image from "@/components/mdxcomponents/Image"
@@ -12,6 +12,7 @@ import { useContactModal } from "@/components/formspree/store"
 import { useTranslation } from "app/[locale]/i18n/client"
 import { Locations } from "@/data/locationsData"
 import dynamic from "next/dynamic"
+import TailwindTable from "@/components/table/TailwindTable"
 
 const Map = dynamic(() => import("@/components/maps/MapComponent"), {
   ssr: false, // Désactive le SSR pour ce composant
@@ -24,17 +25,31 @@ interface MapLayoutProps {
 
 export default function MapLayout({ params: { locale }, data }: MapLayoutProps) {
   const { t } = useTranslation(locale, "common")
+  const [focusedLocation, setFocusedLocation] = useState<Locations | null>(null)
 
   return (
     <section className="mx-auto mt-5 max-w-5xl px-4 sm:px-6 xl:max-w-full xl:px-20">
-      <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+      {/* Titre */}
+      <div className="space-y-2 pb-8 pt-4 md:space-y-5">
         <h1 className="text-heading-700 text-shadow font-headings text-3xl 
           font-extrabold leading-9 tracking-tight antialiased text-shadow-gray-400/80 
           dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           {t("references")}
         </h1>
       </div>
-      <Map data={data} />
+
+      {/* Carte */}
+      <div className="mb-10">
+        <Map data={data} focusedLocation={focusedLocation} />
+      </div>
+
+      {/* Tableau */}
+      <div>
+        <h2 className="text-xl font-semibold mb-4 text-center font-headings text-heading dark:text-heading-dark">
+          {t("table_section_title", { defaultValue: "Principaux chantiers de revêtement en mosaïque réalisés entre 1986 et 2023" })}
+        </h2>
+        <TailwindTable data={data} onRowClick={(location) => setFocusedLocation(location)} />
+      </div>
     </section>
   )
 }
