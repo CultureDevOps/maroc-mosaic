@@ -77,11 +77,11 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
         </tbody>
       </table>
       {/* Pagination Controls */}
-      <div className="flex items-center justify-between mt-4">
+      <div className="flex items-center justify-center mt-4">
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 bg-gray-200 text-gray-700 rounded-lg ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}
+          className={`mx-8 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}
         >
           Précédent
         </button>
@@ -91,7 +91,7 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 bg-gray-200 text-gray-700 rounded-lg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}
+          className={`mx-8 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}
         >
           Suivant
         </button>

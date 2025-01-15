@@ -28,7 +28,7 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
   const [focusedLocation, setFocusedLocation] = useState<Locations | null>(null)
 
   return (
-    <section className="mx-auto mt-5 max-w-5xl px-4 sm:px-6 xl:max-w-full xl:px-20">
+    <section className="mx-auto max-w-5xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
       {/* Titre */}
       <div className="space-y-2 pb-8 pt-4 md:space-y-5">
         <h1 className="text-heading-700 text-shadow font-headings text-3xl 

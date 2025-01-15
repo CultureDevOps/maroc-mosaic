@@ -34,8 +34,8 @@ const Map: FC<MapProps> = ({ data, focusedLocation }) => {
     <div className="h-full w-full">
       <MapContainer
         center={[31.791702, -7.09262]} // Centre par défaut sur le Maroc
-        zoom={4}
-        style={{ height: "65vh", width: "90%" }}
+        zoom={3}
+        style={{ height: "65vh", width: "100%" }}
         className="mx-auto"
         ref={setMap} // Passe la carte à l'état
       >
