@@ -10,13 +10,19 @@ import siteMetadata from "@/data/siteMetadata"
 
 import { useContactModal } from "@/components/formspree/store"
 import { useTranslation } from "app/[locale]/i18n/client"
-import Map from "@/components/maps/Map"
+import { Locations } from "@/data/locationsData"
+import dynamic from "next/dynamic"
+
+const Map = dynamic(() => import("@/components/maps/MapComponent"), {
+  ssr: false, // Désactive le SSR pour ce composant
+})
 
 interface MapLayoutProps {
   params: { locale: LocaleTypes }
+  data: Locations[]
 }
 
-export default function MapLayout({ params: { locale } }: MapLayoutProps) {
+export default function MapLayout({ params: { locale }, data }: MapLayoutProps) {
   const { t } = useTranslation(locale, "common")
 
   return (
@@ -28,7 +34,7 @@ export default function MapLayout({ params: { locale } }: MapLayoutProps) {
           {t("references")}
         </h1>
       </div>
-      <Map />
+      <Map data={data} />
     </section>
   )
 }
