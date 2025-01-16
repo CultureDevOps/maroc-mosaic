@@ -19,11 +19,6 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 })
-// const GLOBALS_BROWSER_FIX = Object.assign({}, globals.browser, {
-//   AudioWorkletGlobalScope: globals.browser['AudioWorkletGlobalScope ']
-// });
-
-// delete GLOBALS_BROWSER_FIX['AudioWorkletGlobalScope '];
 
 const eslintConfig = [
   {
@@ -40,7 +35,6 @@ const eslintConfig = [
     "next",
     "next/core-web-vitals"
   ),
-  // js.configs.recommended,  // Ceci équivaut à "extends": "eslint:recommended"
   eslintConfigPrettier,
   ...tailwind.configs["flat/recommended"],
   {
