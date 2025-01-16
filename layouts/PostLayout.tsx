@@ -51,11 +51,7 @@ export default async function PostLayout({
     <>
       <ScrollTopAndComment />
       {/* <Sidetoc toc={tableOfContents} /> */}
-      <div className="dark:via-primary-950/30 mb-6 h-fit rounded-lg backdrop-blur-sm 
-                      border border-white/20 dark:border-gray-700/20 
-                      bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 p-8 shadow-xl shadow-gray-400                       
-                      dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 
-                      dark:shadow-gray-950">
+      <div className="dark:via-primary-950/30 mb-6 h-fit rounded-lg border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 p-8 shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950">
         <FancyboxWrapper>
           <article>
             <div className="xl:divide-y xl:divide-gray-300 xl:dark:divide-gray-700">

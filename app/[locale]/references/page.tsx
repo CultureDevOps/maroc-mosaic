@@ -3,7 +3,7 @@ import { createTranslation } from "../i18n/server"
 import { LocaleTypes } from "../i18n/settings"
 import { genPageMetadata } from "app/[locale]/seo"
 import MapLayout from "@/layouts/MapLayout"
-import { locationsData, Locations } from "@/data/locationsData";
+import { locationsData, Locations } from "@/data/locationsData"
 
 interface PageProps {
   params: Promise<{
@@ -22,7 +22,5 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function MapPage({ params }: PageProps) {
   const locale = (await params).locale
   const locations: Locations[] = locationsData[locale]
-  return (
-    <MapLayout params={{ locale }} data={locations} />
-  )
+  return <MapLayout params={{ locale }} data={locations} />
 }

@@ -65,10 +65,11 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             <Link
               href={`/${locale}/blog/${slug}`}
               onClick={closeMenu}
-              className={`${focus
-                ? "bg-primary-400/50 dark:bg-primary-500/50"
-                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/50"
-                } group flex w-full items-start gap-1 rounded-md p-4 hover:backdrop-blur-sm`}
+              className={`${
+                focus
+                  ? "bg-primary-400/50 dark:bg-primary-500/50"
+                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/50"
+              } group flex w-full items-start gap-1 rounded-md p-4 hover:backdrop-blur-sm`}
             >
               <div className="h-[56px] min-w-[100px]">
                 <Image
@@ -101,8 +102,9 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               onClick={toggleMenu}
             >
               <div
-                className={`hidden font-medium ${isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                  } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                className={`hidden font-medium ${
+                  isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
+                } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
               >
                 <span className="text-shadow relative z-10 font-bold text-shadow-black">
                   {t("menu")}
@@ -128,10 +130,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
           >
             <div>
               <MenuItems
-                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md 
-                origin-top-right -translate-x-1/2 transform flex-col gap-1 
-                divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black 
-                ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md origin-top-right -translate-x-1/2 transform flex-col gap-1 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
                 as="div"
                 modal={false}
               >

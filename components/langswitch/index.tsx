@@ -98,10 +98,11 @@ const LangSwitch = () => {
                           {({ focus }) => (
                             <button
                               onClick={() => handleLinkClick(newLocale)}
-                              className={`${focus
-                                ? "bg-primary-400/50 dark:bg-primary-500/30"
-                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
+                              className={`${
+                                focus
+                                  ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
                               role="menuitem"
                             >
                               <Flag locale={newLocale} />

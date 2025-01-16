@@ -59,8 +59,9 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${navShow ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${
+          navShow ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-end">
           <button
@@ -130,7 +131,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
                       <Link
                         href={`/${locale}/blog/${slug}`}
                         onClick={onToggleNav}
-                        className="text-left text-md font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                        className="text-md text-left font-bold tracking-widest text-gray-900 dark:text-gray-100"
                       >
                         {title}
                       </Link>
@@ -146,7 +147,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
                 if (language === locale) {
                   return (
                     <Link href={`/${locale}/about/${slug}`} onClick={onToggleNav} key={name}>
-                      {t('about')}
+                      {t("about")}
                     </Link>
                   )
                 }

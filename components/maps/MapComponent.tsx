@@ -35,12 +35,12 @@ const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   const getTileUrl = (locale: LocaleTypes) => {
     switch (locale) {
       case "fr":
-        return "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png";
+        return "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
       case "en":
       default:
-        return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     }
-  };
+  }
 
   return (
     <div className="h-full w-full">
@@ -48,13 +48,10 @@ const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
         center={[31.791702, -7.09262]} // Centre par défaut sur le Maroc
         zoom={3}
         // style={{ height: "65vh", width: "100%" }}
-        className="mx-auto w-full h-[50vh] md:h-[65vh]"
+        className="mx-auto h-[50vh] w-full md:h-[65vh]"
         ref={setMap} // Passe la carte à l'état
       >
-        <TileLayer
-          url={getTileUrl(locale)}
-          attribution="&copy; OpenStreetMap contributors"
-        />
+        <TileLayer url={getTileUrl(locale)} attribution="&copy; OpenStreetMap contributors" />
 
         {locations.map((location, index) => (
           <Marker

@@ -51,10 +51,7 @@ const ThemeSwitch = () => {
       <Menu as="div" className="relative mt-1 inline-block text-left">
         {({ open }) => (
           <div>
-            <MenuButton
-              aria-label={t("theme")}
-              aria-expanded={open}
-            >
+            <MenuButton aria-label={t("theme")} aria-expanded={open}>
               <DarkModeSwitch
                 checked={darkModeChecked}
                 onChange={(isChecked) => setDarkModeChecked(isChecked)}
@@ -84,10 +81,11 @@ const ThemeSwitch = () => {
                           {({ focus }) => (
                             <button
                               onClick={() => handleThemeChange("light")}
-                              className={`${focus
-                                ? "bg-primary-400/50 dark:bg-primary-500/30"
-                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
+                              className={`${
+                                focus
+                                  ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
                             >
                               <Sun className="h-6 w-6" />
                               <span className="ml-2">{t("light")}</span>
@@ -100,10 +98,11 @@ const ThemeSwitch = () => {
                           {({ focus }) => (
                             <button
                               onClick={() => handleThemeChange("dark")}
-                              className={`${focus
-                                ? "bg-primary-400/50 dark:bg-primary-500/30"
-                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                              className={`${
+                                focus
+                                  ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                             >
                               <Moon className="h-6 w-6" />
                               <span className="ml-2">{t("dark")}</span>
@@ -116,10 +115,11 @@ const ThemeSwitch = () => {
                           {({ focus }) => (
                             <button
                               onClick={() => handleThemeChange("system")}
-                              className={`${focus
-                                ? "bg-primary-400/50 dark:bg-primary-500/30"
-                                : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                                } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                              className={`${
+                                focus
+                                  ? "bg-primary-400/50 dark:bg-primary-500/30"
+                                  : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
+                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                               role="menuitem"
                             >
                               <Monitor className="h-6 w-6" />

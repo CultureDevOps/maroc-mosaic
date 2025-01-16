@@ -1,7 +1,7 @@
 "use client"
-import React from "react";
-import { ModalBody } from "@/components/formspree/CBody";
-import { useContactForm } from "@/components/formspree/useContactForm";
+import React from "react"
+import { ModalBody } from "@/components/formspree/CBody"
+import { useContactForm } from "@/components/formspree/useContactForm"
 
 const ContactFormWrapper = () => {
   const {
@@ -16,7 +16,7 @@ const ContactFormWrapper = () => {
     handleMessageChange,
     handleAddressChange,
     t,
-  } = useContactForm();
+  } = useContactForm()
 
   return (
     <div className="rounded-md">
@@ -35,7 +35,7 @@ const ContactFormWrapper = () => {
         t={t}
       />
     </div>
-  );
-};
+  )
+}
 
 export default ContactFormWrapper
