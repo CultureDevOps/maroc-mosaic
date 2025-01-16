@@ -40,7 +40,7 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
         <h2 className="text-xl font-semibold mb-4 text-center font-headings text-heading dark:text-heading-dark">
           {t("table_section_title", { defaultValue: "Principaux chantiers de revêtement en mosaïque réalisés entre 1986 et 2023" })}
         </h2>
-        <TailwindTable data={data} onRowClick={(location) => setFocusedLocation(location)} />
+        <TailwindTable data={data} locale={locale} onRowClick={(location) => setFocusedLocation(location)} />
       </div>
     </section>
   )

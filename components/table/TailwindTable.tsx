@@ -1,22 +1,26 @@
 import { useState } from 'react'
 import { Locations } from "@/data/locationsData"
 import { FC } from "react"
-import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import { ChevronUpIcon, ChevronDownIcon, ViewfinderCircleIcon } from '@heroicons/react/24/solid'
+import { LocaleTypes } from "app/[locale]/i18n/settings"
+import { useTranslation } from "app/[locale]/i18n/client"
 
 interface TailwindTableProps {
+  locale: LocaleTypes
   data: Locations[];
+   
   onRowClick: (location: Locations) => void
 }
 
 
-const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
+const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick , locale}) => {
   const [sortBy, setSortBy] = useState<'name' | 'country'>('name')
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInfo, setSearchInfo] = useState("");
   const [isSearching, setIsSearching] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
-
+  const { t } = useTranslation(locale,"references")
+  
   const filteredData = data.filter(
     (row) =>
       (searchTerm.length < 2 || row.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
@@ -69,13 +73,13 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
             >
               <div className="flex items-center">
                 <div className="flex items-center">
-                  <span className="font-headings text-xl">Nom</span>
+                  <span className="font-headings text-xl">{t("project")}</span>
                   <div className="flex flex-col items-center ml-2">
                     <ChevronUpIcon
-                      className={`w-4 h-4 ${sortBy === 'name' && sortOrder === 'asc' ? 'text-secondary-500' : 'text-gray-200'}`}
+                      className={`size-4 ${sortBy === 'name' && sortOrder === 'asc' ? 'text-secondary-500' : 'text-gray-200'}`}
                     />
                     <ChevronDownIcon
-                      className={`w-4 h-4 ${sortBy === 'name' && sortOrder === 'desc' ? 'text-secondary-500' : 'text-gray-200'}`}
+                      className={`size-4 ${sortBy === 'name' && sortOrder === 'desc' ? 'text-secondary-500' : 'text-gray-200'}`}
                     />
                   </div>
                 </div>
@@ -92,10 +96,10 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
             <th
               className="py-3 px-6 cursor-pointer hidden lg:table-cell font-headings text-xl"
             >
-              Coordonnées
+              {t("viewOnMap")}
             </th>
             <th className="py-3 px-6 hidden lg:table-cell font-headings text-xl">
-              Info
+              {t("description")}
               <input
                 type="text"
                 value={searchInfo}
@@ -110,13 +114,13 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
               onClick={() => handleSort('country')}
             >
               <div className="flex items-center font-headings">
-                Pays
+                {t("country")}
                 <div className="flex flex-col items-center ml-2">
                   <ChevronUpIcon
-                    className={`w-4 h-4 ${sortBy === 'country' && sortOrder === 'asc' ? 'text-secondary-500' : 'text-gray-200'}`}
+                    className={`size-4 ${sortBy === 'country' && sortOrder === 'asc' ? 'text-secondary-500' : 'text-gray-200'}`}
                   />
                   <ChevronDownIcon
-                    className={`w-4 h-4 ${sortBy === 'country' && sortOrder === 'desc' ? 'text-secondary-500' : 'text-gray-200'}`}
+                    className={`size-4 ${sortBy === 'country' && sortOrder === 'desc' ? 'text-secondary-500' : 'text-gray-200'}`}
                   />
                 </div>
               </div>
@@ -137,7 +141,7 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
                   onClick={() => onRowClick(row)}
                   className="text-link underline text-sm mt-2"
                 >
-                  Voir sur la carte
+                  <ViewfinderCircleIcon />
                 </button>
               </td>
 
@@ -148,7 +152,7 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick }) => {
                   onClick={() => onRowClick(row)}
                   className="text-link underline"
                 >
-                  Voir sur la carte
+                  <ViewfinderCircleIcon />
                 </button>
               </td>
               <td className={`py-3 px-6 hidden lg:table-cell`}>
