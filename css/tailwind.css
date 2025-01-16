@@ -4,10 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.leaflet-pane {
-  z-index: 10 !important;
+.leaflet-control-attribution.leaflet-control a .leaflet-attribution-flag {
+  display: none !important;
 }
-.leaflet-control{
+.leaflet-pane, .leaflet-top, .leaflet-control, .leaflet-bottom{
   z-index: 10 !important;
 }
 
