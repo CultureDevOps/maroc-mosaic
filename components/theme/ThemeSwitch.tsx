@@ -72,7 +72,7 @@ const ThemeSwitch = () => {
               <div>
                 <MenuItems
                   modal={false}
-                  className="z-60 absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                  className="z-60 absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 backdrop-blur-sm focus:outline-none"
                 >
                   <RadioGroup value={theme} onChange={handleThemeChange}>
                     <div className="rounded-md bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95 p-1 shadow-xl shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95 dark:to-gray-900/95 dark:shadow-gray-950">
@@ -85,9 +85,9 @@ const ThemeSwitch = () => {
                                 focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-white text-shadow-black hover:text-secondary-500 hover:backdrop-blur-sm`}
                             >
-                              <Sun className="h-6 w-6" />
+                              <Sun className="size-6" />
                               <span className="ml-2">{t("light")}</span>
                             </button>
                           )}
@@ -102,9 +102,9 @@ const ThemeSwitch = () => {
                                 focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                             >
-                              <Moon className="h-6 w-6" />
+                              <Moon className="size-6" />
                               <span className="ml-2">{t("dark")}</span>
                             </button>
                           )}
@@ -119,10 +119,10 @@ const ThemeSwitch = () => {
                                 focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700 text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black dark:hover:text-primary-500`}
                               role="menuitem"
                             >
-                              <Monitor className="h-6 w-6" />
+                              <Monitor className="size-6" />
                               <span className="ml-2">{t("system")}</span>
                             </button>
                           )}

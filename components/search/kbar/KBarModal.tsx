@@ -115,7 +115,7 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
                 ) : (
                   <KBarSearch
                     defaultPlaceholder={t("kbarplaceholder")}
-                    className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500"
+                    className="h-8 w-full bg-transparent text-gray-600 placeholder:text-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder:text-gray-500"
                   />
                 )}
                 <kbd className="inline-block whitespace-nowrap rounded border border-gray-400 px-1.5 align-middle text-xs font-medium leading-4 tracking-wide text-gray-400">

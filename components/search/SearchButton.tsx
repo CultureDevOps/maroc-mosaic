@@ -13,7 +13,7 @@ const SearchButton = () => {
 
     return (
       <SearchButtonWrapper aria-label="Search">
-        <SearchIcon className="h-6 w-6 text-white" />
+        <SearchIcon className="size-6 text-white" />
       </SearchButtonWrapper>
     )
   }

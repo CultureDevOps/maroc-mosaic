@@ -104,7 +104,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               <div
                 className={`hidden font-medium ${
                   isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                } relative rounded-md p-2 font-medium transition-colors sm:block`}
               >
                 <span className="text-shadow relative z-10 font-bold text-shadow-black">
                   {t("menu")}
@@ -113,7 +113,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
                   <motion.span
                     layoutId="tab"
                     transition={{ type: "spring", duration: 0.4 }}
-                    className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-md shadow-gray-950"
+                    className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-gray-950"
                   ></motion.span>
                 )}
               </div>
@@ -130,7 +130,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
           >
             <div>
               <MenuItems
-                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md origin-top-right -translate-x-1/2 transform flex-col gap-1 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md origin-top-right -translate-x-1/2 flex-col gap-1 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 backdrop-blur-sm focus:outline-none"
                 as="div"
                 modal={false}
               >

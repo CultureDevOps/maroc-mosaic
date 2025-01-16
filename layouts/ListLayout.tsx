@@ -128,7 +128,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
             <ul className="mt-4 space-y-2">{filteredTags}</ul>
           </div>
         </div>
-        <ul className="w-full flex-grow">
+        <ul className="w-full grow">
           {displayPosts.map((post) => {
             const { slug, date, title, summary, tags, language } = post
             if (language === locale) {
@@ -137,7 +137,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                   key={slug}
                   className="dark:via-primary-950/30 w-full bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30"
                 >
-                  <div className="group mb-6 w-full rounded-2xl border border-white/20 p-5 shadow-md shadow-xl shadow-gray-400 hover:border hover:border-white/20 hover:bg-gradient-to-tr hover:from-white/20 hover:via-primary-300/30 hover:to-white/20 hover:shadow-xl hover:shadow-gray-400 dark:border-gray-700/20 dark:shadow-gray-950 dark:hover:border-gray-600/40 dark:hover:bg-gradient-to-tr dark:hover:from-gray-900/20 dark:hover:via-primary-800/30 dark:hover:via-primary-900/30 dark:hover:to-gray-800/20 dark:hover:shadow-gray-950">
+                  <div className="group mb-6 w-full rounded-2xl border border-white/20 p-5 shadow-xl shadow-gray-400 hover:border hover:border-white/20 hover:bg-gradient-to-tr hover:from-white/20 hover:via-primary-300/30 hover:to-white/20 hover:shadow-xl hover:shadow-gray-400 dark:border-gray-700/20 dark:shadow-gray-950 dark:hover:border-gray-600/40 dark:hover:bg-gradient-to-tr dark:hover:from-gray-900/20 dark:hover:via-primary-800/30 dark:hover:via-primary-900/30 dark:hover:to-gray-800/20 dark:hover:shadow-gray-950">
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <Link
                         href={`/${locale}/blog/${slug}`}

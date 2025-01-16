@@ -47,7 +47,7 @@ export default function AuthorLayout({ children, content, params: { locale } }: 
                 title="avatar"
                 width={192}
                 height={192}
-                className="h-48 w-48 rounded-full"
+                className="size-48 rounded-full"
                 quality={80}
               />
             )}
@@ -68,9 +68,7 @@ export default function AuthorLayout({ children, content, params: { locale } }: 
               <SocialIcon kind="facebook" href={facebook} size={6} />
             </div>
           </div>
-          <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
-            {children}
-          </div>
+          <div className="prose max-w-none py-8 dark:prose-invert xl:col-span-2">{children}</div>
         </div>
       </div>
     </>

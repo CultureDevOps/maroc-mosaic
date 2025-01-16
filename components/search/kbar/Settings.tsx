@@ -12,9 +12,9 @@ interface SettingsProps {
 
 const Settings: React.FC<SettingsProps> = ({ t, handleThemeChange, handleLinkClick }) => (
   <>
-    <div className="text-heading-400 mb-5 ml-4 mt-5 flex flex-row items-center text-3xl font-semibold">
+    <div className="text-heading-400 my-5 ml-4 flex flex-row items-center text-3xl font-semibold">
       <span>
-        <SettingsIcon className="mr-1 h-6 w-6" />
+        <SettingsIcon className="mr-1 size-6" />
       </span>
       <div>{t("settings")}</div>
     </div>

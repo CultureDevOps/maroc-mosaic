@@ -12,7 +12,7 @@ const Button = () => {
         aria-label="sidebar-button"
       >
         <ArrowRightIcon
-          className={`h-5 w-5 transform transition-transform ${sidebarOpen ? "rotate-180" : ""}`}
+          className={`size-5 transition-transform${sidebarOpen ? "rotate-180" : ""}`}
         />
       </button>
     </div>

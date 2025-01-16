@@ -9,7 +9,7 @@ import { formatDate } from "pliny/utils/formatDate"
 export interface KBarSearchProps {
   searchDocumentsPath: string | false
   defaultActions?: Action[]
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   onSearchDocumentsLoad?: (json: any) => Action[]
 }
 

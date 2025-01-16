@@ -44,7 +44,7 @@ export default function WalineComments() {
           {t("comment")}
         </button>
       )}
-      {loadComments && <div className="mb-6 mt-6" id="waline" />}
+      {loadComments && <div className="my-6" id="waline" />}
     </>
   )
 }

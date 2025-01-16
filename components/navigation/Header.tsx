@@ -68,9 +68,9 @@ const Header = () => {
             <Link
               href={`/${locale}/`}
               aria-label={siteMetadata.headerTitle}
-              className="mr-4 flex w-full flex-grow items-center space-x-2"
+              className="mr-4 flex w-full grow items-center space-x-2"
             >
-              <div className="block flex-shrink-0 sm:hidden xl:block">
+              <div className="block shrink-0 sm:hidden xl:block">
                 <Image
                   alt="logo"
                   src={siteMetadata.siteLogo ?? ""}
@@ -110,7 +110,7 @@ const Header = () => {
                       <div
                         className={`hidden font-medium ${
                           isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                        } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                        } relative rounded-md p-2 font-medium transition-colors sm:block`}
                       >
                         <span
                           ref={spanRef}
@@ -128,7 +128,7 @@ const Header = () => {
                             damping: 25,
                             stiffness: 300,
                           }}
-                          className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-md shadow-gray-950"
+                          className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-gray-950"
                         ></motion.div>
                       )}
                     </Link>
@@ -140,7 +140,7 @@ const Header = () => {
               <SearchButton />
               {/* Espace réservé si React n'est pas encore monté */}
               {!mounted ? (
-                <div className="h-6 w-6 rounded-full"></div> // Placeholder
+                <div className="size-6 rounded-full"></div> // Placeholder
               ) : (
                 <ThemeSwitch />
               )}
@@ -156,7 +156,7 @@ const Header = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="white"
-                  className="h-8 w-8"
+                  className="size-8"
                 >
                   <path
                     fillRule="evenodd"

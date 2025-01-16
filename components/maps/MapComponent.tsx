@@ -43,7 +43,7 @@ const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   }
 
   return (
-    <div className="h-full w-full">
+    <div className="size-full">
       <MapContainer
         center={[31.791702, -7.09262]} // Centre par défaut sur le Maroc
         zoom={3}

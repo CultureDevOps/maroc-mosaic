@@ -69,7 +69,7 @@ export default async function PostLayout({
               <div className="divide-y divide-gray-300 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
                 <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
                 <Share title={title} slug={slug} />
-                <div className="pb-6 pt-6">
+                <div className="py-6">
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-700 dark:text-gray-300">
                     <Link
                       href={discussUrl(path)}

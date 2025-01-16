@@ -40,7 +40,7 @@ const TocBody = ({ toc }: TocBodyProps) => {
   return (
     <div className="fixed left-0 top-0 z-50 h-screen md:flex">
       <div className="sticky left-0 top-0 z-50 flex h-screen w-64 flex-col overflow-y-auto bg-gray-100 px-2 py-4 dark:bg-gray-800">
-        <div className="mb-20 mt-20">
+        <div className="my-20">
           <div className="text-heading-400 text-xl font-bold">{t("sidetoc")}</div>
           <div className="my-auto mt-5 overflow-y-auto">
             <TOCInline

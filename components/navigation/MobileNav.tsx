@@ -59,13 +59,13 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white bg-opacity-90 transition-transform duration-300 ease-in-out dark:bg-gray-950 dark:bg-opacity-95 ${
+        className={`fixed left-0 top-0 z-50 size-full overflow-y-auto bg-white/90 transition-transform duration-300 ease-in-out dark:bg-gray-950/95 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex justify-end">
           <button
-            className="mr-8 mt-11 h-8 w-8"
+            className="mr-8 mt-11 size-8"
             aria-label="Toggle Menu"
             onClick={onToggleNav}
             onKeyDown={handleKeyDown}
@@ -109,7 +109,7 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
                 animate={{ rotate: accordionOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDownIcon className={`h-5 w-5 ${accordionOpen ? "text-primary-500" : ""}`} />
+                <ChevronDownIcon className={`size-5 ${accordionOpen ? "text-primary-500" : ""}`} />
               </motion.div>
             </div>
             <motion.div

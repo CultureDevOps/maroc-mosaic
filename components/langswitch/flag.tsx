@@ -7,8 +7,8 @@ type FlagProps = {
 }
 
 const flags = [
-  { locale: "en", icon: <FlagEn className="h-5 w-5" /> },
-  { locale: "fr", icon: <FlagFr className="h-5 w-5" /> },
+  { locale: "en", icon: <FlagEn className="size-5" /> },
+  { locale: "fr", icon: <FlagFr className="size-5" /> },
 ]
 
 const Flag: React.FC<FlagProps> = ({ locale }) => {

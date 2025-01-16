@@ -72,7 +72,7 @@ const ScrollTopAndComment = () => {
       >
         <SearchButtonWrapper aria-label="Search">
           <div className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">
-            <SearchIcon className="h-5 w-5" />
+            <SearchIcon className="size-5" />
           </div>
         </SearchButtonWrapper>
         {siteMetadata.comments?.provider && (
@@ -81,7 +81,7 @@ const ScrollTopAndComment = () => {
             onClick={handleScrollToComment}
             className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
           >
-            <CommentsIcon className="h-5 w-5" />
+            <CommentsIcon className="size-5" />
           </button>
         )}
         <button
@@ -89,7 +89,7 @@ const ScrollTopAndComment = () => {
           onClick={handleScrollTop}
           className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
         >
-          <ArrowTopIcon className="h-5 w-5" />
+          <ArrowTopIcon className="size-5" />
         </button>
       </div>
     )

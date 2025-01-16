@@ -80,7 +80,7 @@ const NewsletterForm = ({ apiUrl = "/api/newsletter" }: NewsletterFormProps) => 
             <span className="relative z-50 text-lg text-white">
               {subscribed ? t("buttonSuccess") : t("buttonDefault")}
             </span>
-            <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-13deg)_translateX(100%)]">
+            <div className="absolute inset-0 flex size-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-13deg)_translateX(100%)]">
               <div className="relative h-full w-8 bg-white/20" />
             </div>
           </button>

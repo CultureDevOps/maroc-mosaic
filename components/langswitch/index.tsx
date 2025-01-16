@@ -73,7 +73,7 @@ const LangSwitch = () => {
               {/* {currentLocale} */}
               <Flag locale={currentLocale} />
               <ChevronDownIcon
-                className={`ml-1 mt-1 transform transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"}`}
+                className={`ml-1 mt-1 transition-transform duration-300${open ? "rotate-180" : "rotate-0"}`}
               />
             </MenuButton>
             <Transition
@@ -87,7 +87,7 @@ const LangSwitch = () => {
             >
               <MenuItems
                 modal={false}
-                className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 backdrop-blur-sm focus:outline-none"
+                className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 backdrop-blur-sm focus:outline-none"
                 aria-orientation="vertical"
               >
                 <RadioGroup>
@@ -102,7 +102,7 @@ const LangSwitch = () => {
                                 focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md px-2 py-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm font-bold text-white text-shadow-black hover:text-secondary-500`}
                               role="menuitem"
                             >
                               <Flag locale={newLocale} />

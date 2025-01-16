@@ -69,7 +69,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
             <div
               className={`${
                 focus ? "bg-gray-100 dark:bg-gray-600" : "hover:bg-gray-100 dark:hover:bg-gray-600"
-              } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
+              } group flex w-full items-center rounded-md p-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
             >
               <div className="mr-2">
                 <Image
@@ -130,7 +130,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
             >
               <div>
                 <MenuItems
-                  className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800"
+                  className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-gray-800"
                   as="div"
                 >
                   <RadioGroup>
@@ -160,7 +160,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
                 <div
                   className={`hidden font-medium ${
                     isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                  } relative rounded-md px-2 py-2 font-medium transition-colors sm:block`}
+                  } relative rounded-md p-2 font-medium transition-colors sm:block`}
                 >
                   <span className="text-shadow relative z-10 font-bold text-shadow-black">
                     {t("about")}
@@ -174,7 +174,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
                         damping: 25,
                         stiffness: 300,
                       }}
-                      className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-md shadow-gray-950"
+                      className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-gray-950"
                     ></motion.div>
                   )}
                 </div>
