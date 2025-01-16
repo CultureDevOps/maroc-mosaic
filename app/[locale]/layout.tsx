@@ -135,11 +135,13 @@ export default async function RootLayout({
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className="dark:via-primary-950 h-screen overflow-y-auto bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 text-black antialiased dark:from-primary-800/90 dark:via-gold-950/60 dark:via-60% dark:via-75% dark:to-primary-900 dark:text-white">
+      <body className="bg-gradient-to-r from-primary-300 via-primary-200 via-20% to-gray-100 
+                      text-black antialiased dark:from-primary-800/90 dark:via-gold-950/60 dark:via-60% 
+                      dark:via-primary-950 dark:via-75% dark:to-primary-900 dark:text-white">
         <ThemeProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
-            <div className="w-full">
+            <div id="background" className="h-screen w-full overflow-y-auto">
               <div className="sticky top-0 z-50 flex flex-col justify-between font-sans">
                 <Header />
               </div>

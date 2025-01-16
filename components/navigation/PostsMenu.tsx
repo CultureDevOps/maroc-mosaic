@@ -50,7 +50,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
   const isSelected = posts.some((post) => post.slug.includes(lastSection)) && filterSections
 
   useEffect(() => {
-    const backgroundElement = document.body
+    const backgroundElement = document.getElementById("background")
     if (backgroundElement) {
       backgroundElement.style.overflow = isOpen ? "hidden" : "auto"
     }

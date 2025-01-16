@@ -7,6 +7,9 @@
 .leaflet-pane {
   z-index: 10 !important;
 }
+.leaflet-control{
+  z-index: 10 !important;
+}
 
 /* Lorsque l'élément est ciblé via une ancre (#) */
 :target::before {
@@ -16,7 +19,7 @@
   margin-top: -80px;
 }
 
-#background-image {
+#background {
   scrollbar-gutter: stable;
   width: 100vw; /* Fixe la largeur du conteneur */
   max-width: 100%; /* Assure que le conteneur ne dépasse pas la largeur de la fenêtre */
@@ -26,6 +29,10 @@
 :root {
   --background-color-light: #f5f5f4; /* Fond clair gray-100 */
   --background-color-dark: #0f172a; /* Fond sombre gray-900 */
+}
+
+html {
+  overflow-y: hidden;
 }
 
 body {

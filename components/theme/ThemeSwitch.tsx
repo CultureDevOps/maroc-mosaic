@@ -38,7 +38,7 @@ const ThemeSwitch = () => {
   }
 
   useEffect(() => {
-    const backgroundElement = document.body
+    const backgroundElement = document.getElementById("background")
     if (backgroundElement) {
       backgroundElement.style.overflow = menuOpen ? "hidden" : "auto"
     }
