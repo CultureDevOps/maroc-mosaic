@@ -1,14 +1,6 @@
 "use client"
-import { ReactNode, useState } from "react"
-import type { Authors } from "contentlayer/generated"
-import SocialIcon from "@/components/social-icons"
-import Image from "@/components/mdxcomponents/Image"
-
+import { useState } from "react"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
-import { createTranslation } from "app/[locale]/i18n/server"
-import siteMetadata from "@/data/siteMetadata"
-
-import { useContactModal } from "@/components/formspree/store"
 import { useTranslation } from "app/[locale]/i18n/client"
 import { Locations } from "@/data/locationsData"
 import dynamic from "next/dynamic"
@@ -40,7 +32,7 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
 
       {/* Carte */}
       <div className="mb-10">
-        <Map data={data} focusedLocation={focusedLocation} />
+        <Map data={data} focusedLocation={focusedLocation} locale={locale} />
       </div>
 
       {/* Tableau */}

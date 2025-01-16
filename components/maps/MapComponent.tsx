@@ -5,13 +5,15 @@ import L from "leaflet"
 import "leaflet-defaulticon-compatibility"
 import { Locations } from "@/data/locationsData"
 import { FC, useEffect, useRef, useState } from "react"
+import { LocaleTypes } from "app/[locale]/i18n/settings"
 
 interface MapProps {
+  locale: LocaleTypes
   data: Locations[]
   focusedLocation: Locations | null
 }
 
-const Map: FC<MapProps> = ({ data, focusedLocation }) => {
+const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   // Définir les hubs et les tracés (par exemple, les points de départ des voyages)
   const locations = data
 
@@ -30,17 +32,27 @@ const Map: FC<MapProps> = ({ data, focusedLocation }) => {
     }
   }, [map, focusedLocation])
 
+  const getTileUrl = (locale: LocaleTypes) => {
+    switch (locale) {
+      case "fr":
+        return "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png";
+      case "en":
+      default:
+        return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    }
+  };
+
   return (
     <div className="h-full w-full">
       <MapContainer
         center={[31.791702, -7.09262]} // Centre par défaut sur le Maroc
         zoom={3}
-        style={{ height: "65vh", width: "100%" }}
-        className="mx-auto"
+        // style={{ height: "65vh", width: "100%" }}
+        className="mx-auto w-full h-[50vh] md:h-[65vh]"
         ref={setMap} // Passe la carte à l'état
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url={getTileUrl(locale)}
           attribution="&copy; OpenStreetMap contributors"
         />
 
