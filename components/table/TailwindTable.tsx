@@ -4,6 +4,8 @@ import { FC } from "react"
 import { ChevronUpIcon, ChevronDownIcon, ViewfinderCircleIcon } from "@heroicons/react/24/solid"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import { useTranslation } from "app/[locale]/i18n/client"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 interface TailwindTableProps {
   locale: LocaleTypes
@@ -140,15 +142,15 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   onClick={() => onRowClick(row)}
                   className="mt-2 text-sm text-link underline"
                 >
-                  <ViewfinderCircleIcon />
+                  <FontAwesomeIcon icon={faLocationDot} className="size-6"/> {t("view_on_map")}
                 </button>
               </td>
 
               {/* Sur les grands écrans, garder l'affichage du tableau classique */}
               <td className="hidden px-6 py-3 lg:table-cell">{row.name}</td>
-              <td className="hidden px-6 py-3 lg:table-cell">
-                <button onClick={() => onRowClick(row)} className="text-link underline">
-                  <ViewfinderCircleIcon />
+              <td className="hidden px-6 py-3 lg:table-cell text-center">
+                <button onClick={() => onRowClick(row)} className="text-link underline flex justify-center items-center mx-auto">
+                  <FontAwesomeIcon icon={faLocationDot} className="size-6" />
                 </button>
               </td>
               <td className={"hidden px-6 py-3 lg:table-cell"}>{row.info}</td>
