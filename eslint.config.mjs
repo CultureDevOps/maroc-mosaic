@@ -52,7 +52,7 @@ const eslintConfig = [
       },
     },
     plugins: {
-      "jsx-a11y": jsxA11y,
+      jsxA11y: jsxA11y,
       react: react,
       typescriptEslint: typescriptEslint,
     },

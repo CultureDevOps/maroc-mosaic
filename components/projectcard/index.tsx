@@ -38,14 +38,15 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
           alt={title}
           title={title}
           src={imgSrc}
-          className="rounded-lg object-cover"
+          className="rounded-lg object-cover shadow-xl shadow-gray-400 dark:shadow-gray-950"
           width={544}
           height={306}
         />
         <div className="p-6">
           <h2
             className="mb-3 font-headings text-2xl font-bold leading-8 tracking-tight text-heading
-              group-hover:text-secondary-600 dark:text-heading-dark dark:group-hover:text-secondary-400"
+              group-hover:text-secondary-600 dark:text-heading-dark dark:group-hover:text-secondary-400
+              text-shadow text-shadow-gray-400/80 dark:text-shadow-black"
           >
             {title}
           </h2>

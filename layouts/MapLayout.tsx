@@ -16,7 +16,7 @@ interface MapLayoutProps {
 }
 
 export default function MapLayout({ params: { locale }, data }: MapLayoutProps) {
-  const { t } = useTranslation(locale, "common")
+  const { t } = useTranslation(locale, "references")
   const [focusedLocation, setFocusedLocation] = useState<Locations | null>(null)
 
   return (
@@ -40,10 +40,7 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
       {/* Tableau */}
       <div>
         <h2 className="mb-4 text-center font-headings text-xl font-semibold text-heading dark:text-heading-dark">
-          {t("table_section_title", {
-            defaultValue:
-              "Principaux chantiers de revêtement en mosaïque réalisés entre 1986 et 2023",
-          })}
+          {t("table_section_title")}
         </h2>
         <TailwindTable
           data={data}

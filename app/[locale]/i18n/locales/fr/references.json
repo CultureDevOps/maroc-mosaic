@@ -2,5 +2,7 @@
   "project": "Projets",
   "viewOnMap": "Carte",
   "description": "Description",
-  "country": "Pays"
+  "country": "Pays",
+  "table_section_title": "Principaux chantiers de revêtement en mosaïque réalisés entre 1986 et 2023",
+  "references": "Nos Références"
 }
