@@ -97,7 +97,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
               useTagStore.getState().selectedTag === postTag
                 ? "text-heading-800 dark:text-heading-300"
                 : "hover:text-heading-800 dark:hover:text-heading-300 text-gray-600 dark:text-gray-300"
-            }`}
+              }`}
           >
             {" "}
             {postTag} ({tagCountMap[postTag]})
@@ -111,7 +111,10 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
     <>
       <div className="flex space-x-6 lg:space-x-8">
         <div
-          className="dark:via-primary-950/30 hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded-2xl border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 pt-5 shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950 sm:flex"
+          className="dark:via-primary-950/30 hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap
+            overflow-auto rounded-2xl border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30
+            to-white/30 pt-5 shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20
+            dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950 sm:flex"
           // style={{ position: 'fixed', top: '5rem', left: '1rem', maxHeight: 'calc(100vh - 5rem)' }}
         >
           <div className="px-6 py-4">
@@ -121,7 +124,8 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                 useTagStore.getState().selectedTag === ""
                   ? "text-primary-600 dark:text-primary-300" /* Couleur de texte plus douce */
                   : "text-gray-900 dark:text-gray-200"
-              } text-shadow font-headings font-bold uppercase antialiased transition-colors duration-300 text-shadow-gray-400/80 dark:text-shadow-black`}
+                } text-shadow font-headings font-bold uppercase antialiased transition-colors duration-300
+                text-shadow-gray-400/80 dark:text-shadow-black`}
             >
               {t("all")}
             </button>
@@ -135,9 +139,17 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
               return (
                 <li
                   key={slug}
-                  className="dark:via-primary-950/30 w-full bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30"
+                  className="w-full bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 backdrop-blur-sm
+                    dark:bg-gradient-to-tr dark:from-gray-900/30 dark:via-primary-950/30 dark:to-gray-900/30"
                 >
-                  <div className="group mb-6 w-full rounded-2xl border border-white/20 p-5 shadow-xl shadow-gray-400 hover:border hover:border-white/20 hover:bg-gradient-to-tr hover:from-white/20 hover:via-primary-300/30 hover:to-white/20 hover:shadow-xl hover:shadow-gray-400 dark:border-gray-700/20 dark:shadow-gray-950 dark:hover:border-gray-600/40 dark:hover:bg-gradient-to-tr dark:hover:from-gray-900/20 dark:hover:via-primary-800/30 dark:hover:via-primary-900/30 dark:hover:to-gray-800/20 dark:hover:shadow-gray-950">
+                  <div
+                    className="group mb-6 w-full rounded-2xl border border-white/20 p-5 shadow-xl shadow-gray-400 hover:border
+                      hover:border-white/20 hover:bg-gradient-to-tr hover:from-white/20 hover:via-primary-300/30
+                      hover:to-white/20 hover:shadow-xl hover:shadow-gray-400 dark:border-gray-700/20 dark:shadow-gray-950
+                      dark:hover:border-gray-600/40 dark:hover:bg-gradient-to-tr dark:hover:from-gray-900/20
+                      dark:hover:via-primary-800/30 dark:hover:via-primary-900/30 dark:hover:to-gray-800/20
+                      dark:hover:shadow-gray-950"
+                  >
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <Link
                         href={`/${locale}/blog/${slug}`}
@@ -172,7 +184,11 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                         </dl>
 
                         <div className="space-y-3">
-                          <h2 className="text-shadow font-headings text-2xl font-bold leading-8 tracking-tight text-primary-700 antialiased text-shadow-gray-400/80 group-hover:text-secondary-600 dark:text-primary-300 dark:text-shadow-black dark:group-hover:text-secondary-400">
+                          <h2
+                            className="text-shadow font-headings text-2xl font-bold leading-8 tracking-tight text-primary-700 antialiased
+                              text-shadow-gray-400/80 group-hover:text-secondary-600 dark:text-primary-300 dark:text-shadow-black
+                              dark:group-hover:text-secondary-400"
+                          >
                             {title}
                           </h2>
                         </div>
@@ -199,7 +215,7 @@ export default function ListLayoutWithTags({ params: { locale }, posts, title }:
                                   }
                                 }}
                                 className={`${
-                                  useTagStore.getState().selectedTag === t
+                                useTagStore.getState().selectedTag === t
                                     ? "text-heading-700 dark:text-heading-400"
                                     : "text-primary-700 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-500"
                                 } mr-3 cursor-pointer py-0.5 text-sm font-medium uppercase`}

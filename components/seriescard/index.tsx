@@ -1,3 +1,4 @@
+         
 "use client"
 
 import Link from "next/link"
@@ -28,10 +29,14 @@ export const PostSeriesBox = ({ data }: PostSeriesProps) => {
           {data.posts.map((p) => (
             <li
               key={p.slug}
-              className={`relative my-3 list-none pl-7 text-sm before:absolute before:left-1 before:top-[9px] before:size-1.5 before:rounded-full ${
-                p.isCurrent
-                  ? "before:bg-accent-foreground/90 before:ring before:ring-purple-400/20 before:ring-offset-1 before:ring-offset-black/10"
-                  : "hover:before:bg-accent-foreground/90 font-bold before:bg-primary-500/30 hover:before:ring hover:before:ring-primary-500 hover:before:ring-offset-1 hover:before:ring-offset-black/10 dark:hover:before:ring-primary-500"
+              className={`relative my-3 list-none pl-7 text-sm before:absolute before:left-1 before:top-[9px] before:size-1.5
+              before:rounded-full ${
+              p.isCurrent
+                  ? `before:bg-accent-foreground/90 before:ring before:ring-purple-400/20 before:ring-offset-1
+                    before:ring-offset-black/10`
+                  : `hover:before:bg-accent-foreground/90 font-bold before:bg-primary-500/30 hover:before:ring
+                    hover:before:ring-primary-500 hover:before:ring-offset-1 hover:before:ring-offset-black/10
+                    dark:hover:before:ring-primary-500`
               }`}
             >
               {p.isCurrent ? (

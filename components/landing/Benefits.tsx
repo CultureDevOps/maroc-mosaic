@@ -46,7 +46,10 @@ function Benefits({ params: { locale }, posts }: Props) {
       <div className="divide-y">
         <Container className="mx-auto px-4 py-12">
           <div className="mx-auto mb-10">
-            <h1 className="text-shadow text-center font-logo text-3xl font-bold text-heading text-shadow-gray-400/80 dark:text-heading-dark dark:text-shadow-black lg:text-4xl">
+            <h1
+              className="text-shadow text-center font-logo text-3xl font-bold text-heading text-shadow-gray-400/80
+                dark:text-heading-dark dark:text-shadow-black lg:text-4xl"
+            >
               {t("title")} فسيفساء المغرب
             </h1>
             <p className="mt-4 text-lg font-medium text-gray-700 dark:text-primary-100 lg:text-xl">

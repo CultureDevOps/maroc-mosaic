@@ -29,7 +29,8 @@ const Tag = ({ text }: Props) => {
       <span
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className="mr-3 cursor-pointer py-2 text-sm font-medium uppercase text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400"
+        className="mr-3 cursor-pointer py-2 text-sm font-medium uppercase text-primary-700 hover:text-primary-600
+          dark:text-primary-300 dark:hover:text-primary-400"
         role="button" // Ajout du rôle de bouton
         tabIndex={0} // Rendre l'élément focusable
       >

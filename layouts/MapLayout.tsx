@@ -23,7 +23,11 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
     <section className="mx-auto max-w-5xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
       {/* Titre */}
       <div className="space-y-2 pb-8 pt-4 md:space-y-5">
-        <h1 className="text-heading-700 text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight antialiased text-shadow-gray-400/80 dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <h1
+          className="text-heading-700 text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight
+            antialiased text-shadow-gray-400/80 dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10
+            md:text-6xl md:leading-14"
+        >
           {t("references")}
         </h1>
       </div>

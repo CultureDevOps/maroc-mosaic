@@ -88,7 +88,8 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   value={searchTerm}
                   onChange={(e) => handleSearchChange("term", e.target.value)}
                   placeholder="Rechercher"
-                  className="focus:ring-3 ml-2 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none focus:ring-secondary-300"
+                  className="focus:ring-3 ml-2 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white
+                    outline-none focus:ring-secondary-300"
                 />
               </div>
             </th>
@@ -102,7 +103,8 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                 value={searchInfo}
                 onChange={(e) => handleSearchChange("info", e.target.value)}
                 placeholder="Rechercher"
-                className="focus:ring-3 ml-4 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none focus:ring-secondary-300"
+                className="focus:ring-3 ml-4 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white
+                  outline-none focus:ring-secondary-300"
               />
             </th>
             <th
@@ -149,7 +151,7 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   <ViewfinderCircleIcon />
                 </button>
               </td>
-              <td className={`hidden px-6 py-3 lg:table-cell`}>{row.info}</td>
+              <td className={"hidden px-6 py-3 lg:table-cell"}>{row.info}</td>
               <td className="hidden px-6 py-3 lg:table-cell">{row.country}</td>
             </tr>
           ))}

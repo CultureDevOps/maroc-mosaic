@@ -67,9 +67,8 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
         <MenuItem>
           {({ focus }) => (
             <div
-              className={`${
-                focus ? "bg-gray-100 dark:bg-gray-600" : "hover:bg-gray-100 dark:hover:bg-gray-600"
-              } group flex w-full items-center rounded-md p-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
+              className={`${focus ? "bg-gray-100 dark:bg-gray-600" : "hover:bg-gray-100 dark:hover:bg-gray-600"} group flex
+              w-full items-center rounded-md p-2 text-sm hover:text-primary-500 dark:hover:text-primary-500`}
             >
               <div className="mr-2">
                 <Image
@@ -106,7 +105,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
                     isSelected
                       ? "text-heading-500"
                       : "text-gray-600 hover:text-gray-900 dark:hover:text-gray-100"
-                  } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
+                    } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                 >
                   <span className="relative z-10">{t("about")}</span>
                   {isSelected && (
@@ -130,7 +129,8 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
             >
               <div>
                 <MenuItems
-                  className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-gray-800"
+                  className="absolute right-0 z-50 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white
+                    shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-gray-800"
                   as="div"
                 >
                   <RadioGroup>
@@ -154,13 +154,13 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
               <Link
                 href={`/${locale}/about/${slug}`}
                 key={name}
-                className="text-md flex transform-gpu items-center space-x-1 whitespace-nowrap font-medium transition-transform duration-300"
+                className="text-md flex transform-gpu items-center space-x-1 whitespace-nowrap font-medium transition-transform
+                  duration-300"
                 aria-label={name}
               >
                 <div
-                  className={`hidden font-medium ${
-                    isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"
-                  } relative rounded-md p-2 font-medium transition-colors sm:block`}
+                  className={`hidden font-medium ${isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"}
+                    relative rounded-md p-2 font-medium transition-colors sm:block`}
                 >
                   <span className="text-shadow relative z-10 font-bold text-shadow-black">
                     {t("about")}

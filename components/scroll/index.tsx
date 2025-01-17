@@ -71,7 +71,10 @@ const ScrollTopAndComment = () => {
         className={`fixed bottom-8 right-8 z-50 flex flex-col space-y-2 ${show ? "md:flex" : "md:hidden"} transition-all`}
       >
         <SearchButtonWrapper aria-label="Search">
-          <div className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600">
+          <div
+            className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all
+              hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+          >
             <SearchIcon className="size-5" />
           </div>
         </SearchButtonWrapper>
@@ -79,7 +82,8 @@ const ScrollTopAndComment = () => {
           <button
             aria-label={t("scrollcomment")}
             onClick={handleScrollToComment}
-            className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+            className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all
+              hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
           >
             <CommentsIcon className="size-5" />
           </button>
@@ -87,7 +91,8 @@ const ScrollTopAndComment = () => {
         <button
           aria-label={t("scrolltop")}
           onClick={handleScrollTop}
-          className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+          className="flex items-center justify-center rounded-full bg-gray-200 p-2 text-gray-600 transition-all
+            hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
         >
           <ArrowTopIcon className="size-5" />
         </button>

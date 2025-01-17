@@ -45,7 +45,12 @@ export default async function Page({ params }: PageProps) {
   return (
     <div className="pt-24">
       <SectionContainer>
-        <div className="dark:via-primary-950/30 mb-6 grow rounded-lg border border-white/20 bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 p-8 shadow-xl shadow-gray-400 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30 dark:shadow-gray-950">
+        <div
+          className="dark:via-primary-950/30 mb-6 grow rounded-lg border border-white/20 bg-gradient-to-tr from-white/40
+            via-primary-200/30 to-white/30 p-8 shadow-xl shadow-gray-400 backdrop-blur-sm
+            dark:border-gray-700/20 dark:bg-gradient-to-tr dark:from-gray-900/30 dark:to-gray-900/30
+            dark:shadow-gray-950"
+        >
           <AuthorLayout params={{ locale }} content={mainContent}>
             <MDXLayoutRenderer code={author.body.code} components={components} />
           </AuthorLayout>

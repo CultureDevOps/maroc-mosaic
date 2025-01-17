@@ -59,9 +59,8 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-50 size-full overflow-y-auto bg-white/90 transition-transform duration-300 ease-in-out dark:bg-gray-950/95 ${
-          navShow ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed left-0 top-0 z-50 size-full overflow-y-auto bg-white/90 transition-transform duration-300
+          ease-in-out dark:bg-gray-950/95 ${navShow ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end">
           <button
@@ -98,7 +97,8 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
           ))}
           <>
             <div
-              className="flex cursor-pointer items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+              className="flex cursor-pointer items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest
+                text-gray-900 dark:text-gray-100"
               onClick={toggleAccordion}
               onKeyDown={handleKeyDown}
               role="button"

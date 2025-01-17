@@ -5415,6 +5415,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff@npm:5.1.0":
+  version: 5.1.0
+  resolution: "diff@npm:5.1.0"
+  checksum: f4557032a98b2967fe27b1a91dfcf8ebb6b9a24b1afe616b5c2312465100b861e9b8d4da374be535f2d6b967ce2f53826d7f6edc2a0d32b2ab55abc96acc2f9d
+  languageName: node
+  linkType: hard
+
 "direction@npm:^2.0.0":
   version: 2.0.1
   resolution: "direction@npm:2.0.1"
@@ -10453,6 +10460,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-classnames@npm:^0.7.5":
+  version: 0.7.5
+  resolution: "prettier-plugin-classnames@npm:0.7.5"
+  peerDependencies:
+    prettier: ^2 || ^3
+    prettier-plugin-astro: "*"
+    prettier-plugin-svelte: "*"
+  peerDependenciesMeta:
+    prettier-plugin-astro:
+      optional: true
+    prettier-plugin-svelte:
+      optional: true
+  checksum: dc07448f7232f8c013f2e4de4e6d3c02528f13c0f3a7d6e4ad3a61987fb51c2a76707fb556ff464b637c788e1dceba805bdc8243f36189c17cb9177d7ac39041
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-merge@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "prettier-plugin-merge@npm:0.7.2"
+  dependencies:
+    diff: "npm:5.1.0"
+  peerDependencies:
+    prettier: ^2 || ^3
+  checksum: 0e4efb58ed0c28e73f2f898922d28c97d336341bd22811bbba525893af1e29329cb87e9ff5e70fa57aa0ae8454c783e976afaf072d69d0f3561f1d3b4261ae31
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-tailwindcss@npm:^0.6.9":
   version: 0.6.9
   resolution: "prettier-plugin-tailwindcss@npm:0.6.9"
@@ -12453,6 +12487,8 @@ __metadata:
     pliny: "npm:^0.4.0"
     postcss: "npm:^8.4.49"
     prettier: "npm:^3.4.2"
+    prettier-plugin-classnames: "npm:^0.7.5"
+    prettier-plugin-merge: "npm:^0.7.2"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
