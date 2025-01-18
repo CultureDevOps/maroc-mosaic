@@ -39,7 +39,10 @@ export default function MapLayout({ params: { locale }, data }: MapLayoutProps) 
 
       {/* Tableau */}
       <div>
-        <h2 className="mb-4 text-center font-headings text-xl font-semibold text-heading dark:text-heading-dark">
+        <h2
+          className="mb-4 text-center font-headings text-3xl font-semibold text-heading dark:text-heading-dark
+            text-shadow text-shadow-gray-400/80 dark:text-shadow-black"
+        >
           {t("table_section_title")}
         </h2>
         <TailwindTable

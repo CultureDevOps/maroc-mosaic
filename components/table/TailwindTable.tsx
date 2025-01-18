@@ -4,8 +4,8 @@ import { FC } from "react"
 import { ChevronUpIcon, ChevronDownIcon, ViewfinderCircleIcon } from "@heroicons/react/24/solid"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import { useTranslation } from "app/[locale]/i18n/client"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
 
 interface TailwindTableProps {
   locale: LocaleTypes
@@ -73,9 +73,11 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
               className="cursor-pointer overflow-hidden rounded-tl-lg px-6 py-3"
               onClick={() => handleSort("name")}
             >
-              <div className="flex items-center">
+              <div className="flex items-center gap-4">
                 <div className="flex items-center">
-                  <span className="font-headings text-xl">{t("project")}</span>
+                  <h2 className="font-headings text-xl text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+                    {t("project")}
+                  </h2>
                   <div className="ml-2 flex flex-col items-center">
                     <ChevronUpIcon
                       className={`size-4 ${sortBy === "name" && sortOrder === "asc" ? "text-secondary-500" : "text-gray-200"}`}
@@ -89,31 +91,40 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   type="text"
                   value={searchTerm}
                   onChange={(e) => handleSearchChange("term", e.target.value)}
-                  placeholder="Rechercher"
-                  className="focus:ring-3 ml-2 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white
-                    outline-none focus:ring-secondary-300"
+                  placeholder={t("search")}
+                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none
+                    placeholder:text-gray-600 placeholder:text-xs focus:ring-secondary-300"
                 />
               </div>
             </th>
-            <th className="hidden cursor-pointer px-6 py-3 font-headings text-xl lg:table-cell">
+
+            <th
+              className="hidden cursor-pointer px-6 py-3 font-headings text-xl lg:table-cell text-shadow
+                text-shadow-gray-400/80 dark:text-shadow-black"
+            >
               {t("viewOnMap")}
             </th>
-            <th className="hidden px-6 py-3 font-headings text-xl lg:table-cell">
-              {t("description")}
-              <input
-                type="text"
-                value={searchInfo}
-                onChange={(e) => handleSearchChange("info", e.target.value)}
-                placeholder="Rechercher"
-                className="focus:ring-3 ml-4 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white
-                  outline-none focus:ring-secondary-300"
-              />
+            <th className="hidden px-6 py-3 lg:table-cell">
+              <div className="flex items-center gap-4">
+                <h2 className="font-headings text-xl text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
+                  {t("description")}
+                </h2>
+                <input
+                  type="text"
+                  value={searchInfo}
+                  onChange={(e) => handleSearchChange("info", e.target.value)}
+                  placeholder={t("search")}
+                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none
+                    placeholder:text-gray-600 placeholder:text-xs focus:ring-secondary-300"
+                />
+              </div>
             </th>
+
             <th
               className="hidden cursor-pointer rounded-tr-lg px-6 py-3 text-xl lg:table-cell"
               onClick={() => handleSort("country")}
             >
-              <div className="flex items-center font-headings">
+              <div className="flex items-center font-headings text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
                 {t("country")}
                 <div className="ml-2 flex flex-col items-center">
                   <ChevronUpIcon
@@ -142,14 +153,17 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   onClick={() => onRowClick(row)}
                   className="mt-2 text-sm text-link underline"
                 >
-                  <FontAwesomeIcon icon={faLocationDot} className="size-6"/> {t("view_on_map")}
+                  <FontAwesomeIcon icon={faLocationDot} className="size-6" /> {t("view_on_map")}
                 </button>
               </td>
 
               {/* Sur les grands écrans, garder l'affichage du tableau classique */}
               <td className="hidden px-6 py-3 lg:table-cell">{row.name}</td>
               <td className="hidden px-6 py-3 lg:table-cell text-center">
-                <button onClick={() => onRowClick(row)} className="text-link underline flex justify-center items-center mx-auto">
+                <button
+                  onClick={() => onRowClick(row)}
+                  className="text-link underline flex justify-center items-center mx-auto"
+                >
                   <FontAwesomeIcon icon={faLocationDot} className="size-6" />
                 </button>
               </td>
