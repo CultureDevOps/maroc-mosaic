@@ -92,8 +92,8 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   value={searchTerm}
                   onChange={(e) => handleSearchChange("term", e.target.value)}
                   placeholder={t("search")}
-                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none
-                    placeholder:text-gray-600 placeholder:text-xs focus:ring-secondary-300"
+                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
+                    outline-none placeholder:text-gray-600 focus:ring-secondary-300"
                 />
               </div>
             </th>
@@ -114,8 +114,8 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   value={searchInfo}
                   onChange={(e) => handleSearchChange("info", e.target.value)}
                   placeholder={t("search")}
-                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-white outline-none
-                    placeholder:text-gray-600 placeholder:text-xs focus:ring-secondary-300"
+                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
+                    outline-none placeholder:text-gray-600 focus:ring-secondary-300"
                 />
               </div>
             </th>
