@@ -107,7 +107,7 @@ const Header = () => {
                     <Link
                       key={link.title}
                       href={`/${locale}${link.href}`}
-                      className="text-md flex transform-gpu items-center space-x-1 font-medium transition-transform duration-300"
+                      className="text-md flex transform-gpu items-center font-medium transition-transform duration-300"
                       aria-label={link.title}
                     >
                       <div
