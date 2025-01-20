@@ -118,7 +118,7 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
       "border",
       "border-gray-300",
       "rounded-md",
-      "px-2",
+      "px-4",
       "py-1",
       "focus:outline-none",
       "focus:ring-2",
@@ -127,6 +127,9 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
       "shadow-sm",
       "hover:cursor-pointer"
     )
+    styleSelect.addEventListener("change", () => {
+      styleSelect.blur() // Retire le focus après la sélection
+    })
 
     const styles = [
       { value: "STREETS", label: "Streets" },
