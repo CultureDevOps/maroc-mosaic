@@ -68,7 +68,7 @@ function Benefits({ params: { locale }, posts }: Props) {
                     : post.summary
                 }
                 imgSrc={post.banner}
-                href={`/${locale}/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
               />
             ))}
           </div>
