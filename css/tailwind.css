@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Style du contenu de la popup */
+.maplibregl-popup-content {
+  position: relative !important;
+  padding-right: 2rem !important; /* Espace à droite pour le bouton X */
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;  /* Espace en bas */
+}
+
+/* Style du bouton X */
 .maplibregl-popup-close-button {
   position: absolute;
   top: 2px; /* Réduit l'espace en haut à environ 2px */
@@ -23,9 +32,11 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
   transition: background 0.2s, transform 0.2s; /* Animation douce */
   margin-top: 2px; /* Ajoute une marge en haut de 2px */
-  margin-right: 2px; /* Ajoute une marge à droite de 2px */  
+  margin-right: 2px; /* Ajoute une marge à droite de 2px */
+  z-index: 1; /* S'assure que le bouton reste au-dessus du texte */
 }
 
+/* Effet de survol du bouton */
 .maplibregl-popup-close-button:hover {
   background: #f3f4f6; /* Fond gris clair au survol */
   transform: scale(1.1); /* Légère mise en relief */
