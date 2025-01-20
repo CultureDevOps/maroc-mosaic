@@ -53,7 +53,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
             keywords: "",
             shortcut: ["a"],
             section: locale === fallbackLng ? "Navigate" : "Naviguer",
-            perform: () => router.push(`/${locale}/about`),
+            perform: () => router.push(`/${locale}/about/contact`),
             icon: (
               <i>
                 <AboutIcon />

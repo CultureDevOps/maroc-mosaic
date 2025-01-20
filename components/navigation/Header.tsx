@@ -98,14 +98,13 @@ const Header = () => {
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
-                  const isSelected =
-                    (selectedPath === `/${locale}` || selectedPath === "/") &&
-                    link.href === "/landing"
-                      ? true
-                      : selectedPath?.includes(link.href as string)
+                  const isHome = selectedPath === `/${locale}` || selectedPath === "/"
+                  const isExactMatch = selectedPath === `/${locale}${link.href}` // Vérifie une correspondance exacte
+                  const isSelected = isExactMatch || (isHome && link.href === "/") // Assure que seule la bonne page est marquée
+
                   return (
                     <Link
-                      key={link.title}
+                      key={`${locale}-${link.title}`} // Clé unique pour le re-render après un changement de langue
                       href={`/${locale}${link.href}`}
                       className="text-md flex transform-gpu items-center font-medium transition-transform duration-300"
                       aria-label={link.title}
@@ -114,16 +113,13 @@ const Header = () => {
                         className={`hidden font-medium ${isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"}
                         relative rounded-md p-2 font-medium transition-colors sm:block`}
                       >
-                        <span
-                          ref={spanRef}
-                          className="text-shadow relative z-10 font-bold text-shadow-black"
-                        >
+                        <span className="text-shadow relative z-10 font-bold text-shadow-black">
                           {t(`${link.title.toLowerCase()}`)}
                         </span>
                       </div>
                       {isSelected && (
                         <motion.div
-                          layoutId="tab"
+                          layoutId="tab" // Animation liée à un ID unique
                           transition={{
                             type: "spring",
                             duration: 0.4,
