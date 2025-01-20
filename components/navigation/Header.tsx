@@ -98,9 +98,14 @@ const Header = () => {
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
-                  const isHome = selectedPath === `/${locale}` || selectedPath === "/"
-                  const isExactMatch = selectedPath === `/${locale}${link.href}` // Vérifie une correspondance exacte
-                  const isSelected = isExactMatch || (isHome && link.href === "/") // Assure que seule la bonne page est marquée
+                  // Normalise le chemin pour retirer le préfixe de langue, quelle que soit la langue
+                  const normalizedPath = selectedPath
+                    ? selectedPath.replace(`/${locale}`, "") || "/"
+                    : "/"
+
+                  const isHome = normalizedPath === "/" && link.href === "/"
+                  const isExactMatch = normalizedPath === link.href // Vérifie une correspondance exacte
+                  const isSelected = isExactMatch || isHome // Assure que seule la bonne page est marquée
 
                   return (
                     <Link
