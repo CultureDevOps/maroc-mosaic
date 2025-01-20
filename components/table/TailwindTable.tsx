@@ -15,8 +15,8 @@ interface TailwindTableProps {
 }
 
 const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => {
-  const [sortBy, setSortBy] = useState<"name" | "country">("name")
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
+  const [sortBy, setSortBy] = useState<"name" | "country" | null>(null)
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [searchInfo, setSearchInfo] = useState("")
   const [isSearching, setIsSearching] = useState(false)
@@ -29,11 +29,14 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
   )
 
   // Tri des données
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (a[sortBy] < b[sortBy]) return sortOrder === "asc" ? -1 : 1
-    if (a[sortBy] > b[sortBy]) return sortOrder === "asc" ? 1 : -1
-    return 0
-  })
+  const sortedData =
+    sortBy && sortOrder
+      ? [...filteredData].sort((a, b) => {
+          if (a[sortBy] < b[sortBy]) return sortOrder === "asc" ? -1 : 1
+          if (a[sortBy] > b[sortBy]) return sortOrder === "asc" ? 1 : -1
+          return 0
+        })
+      : filteredData // Si aucun tri n'est sélectionné, afficher les données filtrées sans tri
 
   const handleSearchChange = (field: "term" | "info", value: string) => {
     if (value.length > 1) {
