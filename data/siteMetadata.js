@@ -102,4 +102,4 @@ const siteMetadata = {
   walineServer: "",
 }
 
-export default siteMetadata
+module.exports = siteMetadata
