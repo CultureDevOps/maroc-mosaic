@@ -5,8 +5,7 @@ import { useTranslation } from "app/[locale]/i18n/client"
 import { Locations } from "@/data/locationsData"
 import dynamic from "next/dynamic"
 import TailwindTable from "@/components/table/TailwindTable"
-
-const Map = dynamic(() => import("@/components/maps/MapComponent"), {
+const Map = dynamic(() => import("@/components/maps/MapTiler"), {
   ssr: false, // Désactive le SSR pour ce composant
 })
 

@@ -13,7 +13,7 @@ interface MapProps {
   focusedLocation: Locations | null
 }
 
-const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
+const OpenStreetMap: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   // Définir les hubs et les tracés (par exemple, les points de départ des voyages)
   const locations = data
 
@@ -79,4 +79,4 @@ const Map: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   )
 }
 
-export default Map
+export default OpenStreetMap
