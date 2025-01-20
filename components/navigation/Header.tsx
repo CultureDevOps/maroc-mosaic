@@ -138,6 +138,45 @@ const Header = () => {
                   )
                 })}
               <PostsMenu /> {/* Intégration du menu déroulant */}
+              <Link
+                href={`/${locale}/references`}
+                className="text-md flex transform-gpu items-center font-medium transition-transform duration-300"
+                aria-label={"references"}
+              >
+                {/* Calculer isSelected pour le lien "references" */}
+                {(() => {
+                  // Vérification si la page "references" est sélectionnée
+                  const normalizedSelectedPath =
+                    (selectedPath || "").replace(`/${locale}`, "") || "/" // Retirer la locale si présente
+                  const isSelectedReferences = normalizedSelectedPath === "/references"
+
+                  return (
+                    <>
+                      <div
+                        className={`hidden font-medium
+                        ${isSelectedReferences ? "text-secondary-500" : "text-white hover:text-secondary-500"} relative
+                        rounded-md p-2 font-medium transition-colors sm:block`}
+                      >
+                        <span className="text-shadow relative z-10 font-bold text-shadow-black">
+                          {t("references")}
+                        </span>
+                      </div>
+                      {isSelectedReferences && (
+                        <motion.div
+                          layoutId="tab" // Animation spécifique pour "references"
+                          transition={{
+                            type: "spring",
+                            duration: 0.4,
+                            damping: 25,
+                            stiffness: 300,
+                          }}
+                          className="absolute inset-0 z-0 rounded-md border border-white/10 shadow-lg shadow-gray-950"
+                        ></motion.div>
+                      )}
+                    </>
+                  )
+                })()}
+              </Link>
               <AuthorsMenu className="hidden sm:block" />
               {/* <div className="hidden md:flex items-center space-x-4"> */}
               <SearchButton />
