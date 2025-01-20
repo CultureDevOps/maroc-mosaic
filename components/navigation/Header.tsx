@@ -63,7 +63,7 @@ const Header = () => {
   return (
     <header>
       <div className="border-b border-primary-900 bg-primary-800 shadow-xl shadow-gray-950 transition-shadow duration-300">
-        <section className="mx-auto max-w-4xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+        <section className="mx-auto max-w-5xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
           <div className="flex items-center justify-between py-2">
             <Link
               href={`/${locale}/`}
@@ -94,7 +94,7 @@ const Header = () => {
                 siteMetadata.headerTitle
               )}
             </Link>
-            <div className="flex items-center space-x-2 whitespace-nowrap font-headings leading-5 antialiased sm:space-x-4">
+            <div className="flex items-center space-x-2 whitespace-nowrap font-headings leading-5 antialiased lg:space-x-4">
               {headerNavLinks
                 .filter((link) => !!link.href) // Vérifie que `link.href` est défini
                 .map((link) => {
