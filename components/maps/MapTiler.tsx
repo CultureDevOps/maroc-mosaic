@@ -56,7 +56,7 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
           // Vérifiez que l'attribut existe avant d'y accéder
           const lat = parseFloat(target.getAttribute("data-lat") || "")
           const lng = parseFloat(target.getAttribute("data-lng") || "")
-          const zoomLevel = 12 // Définissez le niveau de zoom souhaité
+          const zoomLevel = 15 // Définissez le niveau de zoom souhaité
 
           console.log(`Zooming to [${lat}, ${lng}] at level ${zoomLevel}`)
 
@@ -83,9 +83,10 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
     }
 
     // Création de l'instance de la carte
+    const defaultStyle = "OUTDOOR"
     const mapInstance = new maptilerSdk.Map({
       container: mapContainerRef.current!,
-      style: maptilerSdk.MapStyle.OUTDOOR,
+      style: maptilerSdk.MapStyle[defaultStyle],
       center: [-7.09262, 31.791702], // Coordonnées du Maroc
       zoom: 2,
       apiKey,
@@ -106,10 +107,66 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
 
     setMap(mapInstance)
 
+    const styleSelect = document.createElement("select")
+    styleSelect.classList.add(
+      "absolute",
+      "top-2",
+      "right-12",
+      "z-10",
+      "text-black",
+      "bg-white",
+      "border",
+      "border-gray-300",
+      "rounded-md",
+      "px-2",
+      "py-1",
+      "focus:outline-none",
+      "focus:ring-2",
+      "focus:ring-secondary-500",
+      "focus:border-secondary-500",
+      "shadow-sm",
+      "hover:cursor-pointer"
+    )
+
+    const styles = [
+      { value: "STREETS", label: "Streets" },
+      { value: "STREETS.DARK", label: "Streets Dark" },
+      { value: "STREETS.LIGHT", label: "Streets Light" },
+      { value: "SATELLITE", label: "Satellite" },
+      { value: "OUTDOOR", label: "Outdoor" },
+      { value: "HYBRID", label: "Hybrid" },
+    ]
+
+    styles.forEach((style) => {
+      const option = document.createElement("option")
+      option.value = style.value
+      option.innerText = style.label
+      if (style.value === defaultStyle) {
+        option.selected = true
+      }
+      styleSelect.appendChild(option)
+    })
+
+    // Ajouter le sélecteur au DOM
+    mapContainerRef.current.appendChild(styleSelect)
+
+    // Ajouter un gestionnaire d'événement pour changer de style
+    styleSelect.addEventListener("change", (e) => {
+      const selectedStyle = (e.target as HTMLSelectElement).value.split(".")
+      if (selectedStyle.length === 2) {
+        // Pour les styles comme "STREETS.DARK", on utilise la notation imbriquée
+        mapInstance.setStyle(maptilerSdk.MapStyle[selectedStyle[0]][selectedStyle[1]])
+      } else {
+        // Pour les autres styles comme "SATELLITE" ou "OUTDOOR", on les applique directement
+        mapInstance.setStyle(maptilerSdk.MapStyle[selectedStyle[0]] || selectedStyle[0])
+      }
+    })
+
     return () => {
-      mapInstance.remove()
+      // Nettoyage du DOM si nécessaire
+      mapContainerRef.current?.removeChild(styleSelect)
     }
-  }, [locale])
+  }, [])
 
   useEffect(() => {
     if (!map || !focusedLocation) return
