@@ -4,6 +4,7 @@ import { Locations } from "@/data/locationsData"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import * as maptilerSdk from "@maptiler/sdk"
 import "@maptiler/sdk/dist/maptiler-sdk.css"
+import { MagnifyingGlassPlusIcon } from "@heroicons/react/20/solid"
 
 interface MapProps {
   locale: LocaleTypes
@@ -14,10 +15,63 @@ interface MapProps {
 const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const [map, setMap] = useState<maptilerSdk.Map | null>(null)
-  // const language = locale === "fr" ? maptilerSdk.Language.FRENCH : maptilerSdk.Language.ENGLISH
-  // if (language) {
-  //   maptilerSdk.config.primaryLanguage = language
-  // }
+  const [popups, setPopups] = useState<maptilerSdk.Popup[]>([])
+
+  const closeAllPopups = () => {
+    popups.forEach((popup) => popup.remove())
+    setPopups([]) // Réinitialiser la liste des popups
+  }
+
+  const createPopup = (location: Locations) => {
+    const [lat, lng] = location.coords
+
+    // Création de la popup avec un lien pour zoomer
+    const markerPopup = new maptilerSdk.Popup({
+      closeButton: true,
+      focusAfterOpen: false,
+      className: "text-black",
+    })
+      .setHTML(
+        `
+      <strong>${location.name}</strong><br />
+      <p>${location.info}</p>
+          
+      <a href="#" class="zoom-link flex items-center space-x-2 text-link" data-lat="${lat}" data-lng="${lng}" title="Zoom">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" />
+        </svg>
+      </a>
+    `
+      )
+      .setOffset([0, -30]) // Décale la popup vers le haut (ajustez cette valeur selon vos besoins)
+
+    // Ajouter l'événement après que le lien de la popup est inséré
+    markerPopup.on("open", () => {
+      const zoomLink = markerPopup.getElement()?.querySelector(".zoom-link")
+      if (zoomLink) {
+        zoomLink.addEventListener("click", (e) => {
+          e.preventDefault() // Empêche le comportement par défaut du lien
+          const target = e.currentTarget as HTMLAnchorElement
+
+          // Vérifiez que l'attribut existe avant d'y accéder
+          const lat = parseFloat(target.getAttribute("data-lat") || "")
+          const lng = parseFloat(target.getAttribute("data-lng") || "")
+          const zoomLevel = 12 // Définissez le niveau de zoom souhaité
+
+          console.log(`Zooming to [${lat}, ${lng}] at level ${zoomLevel}`)
+
+          // Centrer la carte et appliquer le zoom
+          map!.flyTo({
+            center: [lng, lat],
+            zoom: zoomLevel,
+            essential: true, // Animation instantanée
+          })
+        })
+      }
+    })
+
+    return markerPopup
+  }
 
   useEffect(() => {
     if (!mapContainerRef.current) return
@@ -35,6 +89,7 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
       center: [-7.09262, 31.791702], // Coordonnées du Maroc
       zoom: 2,
       apiKey,
+      geolocateControl: false,
     })
 
     mapInstance.on("load", () => {
@@ -60,29 +115,24 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
     if (!map || !focusedLocation) return
 
     const { coords } = focusedLocation
+    // Remonter la scrollbar pour centrer la carte à l'écran
+    const mapElement = document.querySelector(".maplibregl-map")
+    if (mapElement) {
+      mapElement.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+    closeAllPopups()
+
     map.flyTo({
       center: [coords[1], coords[0]], // Assurez-vous que l'ordre des coordonnées est correct
       zoom: 10,
       essential: true,
     })
 
-    // Remonter la scrollbar pour centrer la carte à l'écran
-    const mapElement = document.querySelector(".maplibregl-map")
-    if (mapElement) {
-      mapElement.scrollIntoView({ behavior: "smooth", block: "center" })
-    }
+    // Créez et ajoutez la popup du focusedLocation
+    const newPopup = createPopup(focusedLocation)
+    newPopup.setLngLat([coords[1], coords[0]]).addTo(map)
 
-    // Créez la popup avec un offset pour l'éloigner du marker
-    new maptilerSdk.Popup({ closeButton: false, className: "text-black" })
-      .setLngLat([coords[1], coords[0]]) // Position du marker
-      .setHTML(
-        `
-        <strong>${focusedLocation.name}</strong><br />
-        <p>${focusedLocation.info}</p>
-      `
-      )
-      .setOffset([0, -30]) // Décale la popup vers le haut (ajustez cette valeur selon vos besoins)
-      .addTo(map)
+    setPopups([newPopup])
   }, [map, focusedLocation])
 
   useEffect(() => {
@@ -90,7 +140,6 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
 
     // Ajout des markers
     data.forEach((location) => {
-      // Vérification des coordonnées
       const [lat, lng] = location.coords
       if (!lng || !lat) {
         console.warn(`Invalid coordinates for location: ${location.name}`)
@@ -100,13 +149,22 @@ const MapTiler: FC<MapProps> = ({ data, focusedLocation, locale }) => {
       // Création du marqueur avec l'icône personnalisée
       const marker = new maptilerSdk.Marker({ color: "#e77f5d" })
         .setLngLat([lng, lat]) // Assurez-vous que ce sont les bonnes coordonnées
-        .setPopup(
-          new maptilerSdk.Popup({ closeButton: false, className: "text-black" }).setHTML(`
-            <strong>${location.name}</strong><br />
-            <p>${location.info}</p>
-          `)
-        )
-        .addTo(map)
+        .addTo(map) // Ajouter le marqueur à la carte
+
+      // Créez et attachez la popup au marqueur
+      const markerPopup = createPopup(location)
+      marker.setPopup(markerPopup)
+      setPopups((prevPopups) => [...prevPopups, markerPopup])
+
+      // Changer le curseur en "pointer" au survol du marqueur
+      const markerElement = marker.getElement()
+      markerElement.style.cursor = "pointer"
+      markerElement.addEventListener("mouseenter", () => {
+        markerElement.style.cursor = "pointer"
+      })
+      markerElement.addEventListener("mouseleave", () => {
+        markerElement.style.cursor = ""
+      })
     })
   }, [map, data])
 
