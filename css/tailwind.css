@@ -4,6 +4,41 @@
 @tailwind components;
 @tailwind utilities;
 
+.maplibregl-popup-close-button {
+  position: absolute;
+  top: 2px; /* Réduit l'espace en haut à environ 2px */
+  right: 2px; /* Réduit l'espace à droite à environ 2px */
+  background: white; /* Fond blanc */
+  color: black; /* Couleur de la croix */
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 50%; /* Arrondi complet pour une forme circulaire */
+  padding: 0.25rem; /* Petit padding autour de la croix pour un petit espace */
+  font-size: 1.25rem; /* Taille réduite de la croix */
+  width: 1.75rem; /* Largeur plus petite */
+  height: 1.75rem; /* Hauteur plus petite, égale à la largeur */
+  display: flex;
+  justify-content: center; /* Centre la croix horizontalement */
+  align-items: center; /* Centre la croix verticalement */
+  cursor: pointer; /* Change le curseur au survol */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: background 0.2s, transform 0.2s; /* Animation douce */
+  margin-top: 2px; /* Ajoute une marge en haut de 2px */
+  margin-right: 2px; /* Ajoute une marge à droite de 2px */  
+}
+
+.maplibregl-popup-close-button:hover {
+  background: #f3f4f6; /* Fond gris clair au survol */
+  transform: scale(1.1); /* Légère mise en relief */
+}
+
+/* Empêche que la croix elle-même prenne la couleur de fond au survol */
+.maplibregl-popup-close-button span {
+  display: inline-block;
+  color: inherit; /* Utilise la couleur de texte du parent */
+  font-size: inherit; /* Utilise la même taille de police */
+  pointer-events: none; /* Ignore l'interaction avec la croix pour l'effet de survol */
+}
+
 .leaflet-control-attribution.leaflet-control a .leaflet-attribution-flag {
   display: none !important;
 }
