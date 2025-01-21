@@ -70,12 +70,12 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full text-left text-sm">
-        <thead className="font-headings text-xl bg-primary-600 dark:bg-primary-500 text-white text-shadow text-shadow-black">
+        <thead className="text-xl bg-primary-600 dark:bg-primary-500 text-white text-shadow text-shadow-black">
           <tr>
             <th className="cursor-pointer overflow-hidden rounded-tl-lg px-6 py-3">
               <div className="flex items-center gap-4">
                 <div className="flex items-center">
-                  <h2>{t("project")}</h2>
+                  <h2 className="font-headings">{t("project")}</h2>
                   <button
                     className="ml-2 flex flex-col items-center"
                     onClick={() => handleSort("name")}
@@ -99,10 +99,12 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
               </div>
             </th>
 
-            <th className="hidden cursor-pointer px-6 py-3 lg:table-cell">{t("viewOnMap")}</th>
+            <th className="hidden cursor-pointer px-6 py-3 lg:table-cell font-headings">
+              {t("viewOnMap")}
+            </th>
             <th className="hidden px-6 py-3 lg:table-cell">
               <div className="flex items-center gap-4">
-                <h2>{t("description")}</h2>
+                <h2 className="font-headings">{t("description")}</h2>
                 <input
                   type="text"
                   value={searchInfo}
@@ -116,7 +118,7 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
 
             <th className="hidden cursor-pointer rounded-tr-lg px-6 py-3 text-xl lg:table-cell">
               <div className="flex items-center">
-                {t("country")}
+                <h2 className="font-headings">{t("country")}</h2>
                 <button
                   className="ml-2 flex flex-col items-center"
                   onClick={() => handleSort("country")}
