@@ -18,21 +18,21 @@ It is a mosaic found in the Generalife of the Alhambra, throughout the Iberian P
     { src: "/static/images/pages/sols-mosaiques/sol-02.png", alt: "sol-02" },
     { src: "/static/images/pages/sols-mosaiques/sol-03.png", alt: "sol-03" },
     { src: "/static/images/pages/sols-mosaiques/sol-04.png", alt: "sol-04" },
-    { src: "/static/images/pages/sols-mosaiques/sol-05-croped.png", alt: "sol-05" },
+    { src: "/static/images/pages/sols-mosaiques/sol-05-croped.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-05.png", alt: "sol-05" },
     { src: "/static/images/pages/sols-mosaiques/sol-06.png", alt: "sol-06" },
     { src: "/static/images/pages/sols-mosaiques/sol-07-ar-16-9.png", alt: "sol-07" },
     { src: "/static/images/pages/sols-mosaiques/sol-08.png", alt: "sol-08" },
     { src: "/static/images/pages/sols-mosaiques/sol-09.png", alt: "sol-09" },
     { src: "/static/images/pages/sols-mosaiques/sol-10.png", alt: "sol-10" },
     { src: "/static/images/pages/sols-mosaiques/sol-11.png", alt: "sol-11" },
-    { src: "/static/images/pages/sols-mosaiques/sol-13-croped.png", alt: "sol-13" },
-    { src: "/static/images/pages/sols-mosaiques/sol-14-ar-16-9.png", alt: "sol-14" },
+    { src: "/static/images/pages/sols-mosaiques/sol-13-croped.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-13.png", alt: "sol-13" },
+    { src: "/static/images/pages/sols-mosaiques/sol-14-ar-16-9.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-14.png", alt: "sol-14" },
     { src: "/static/images/pages/sols-mosaiques/sol-15.png", alt: "sol-15" },
-    { src: "/static/images/pages/sols-mosaiques/sol-16-croped.png", alt: "sol-16" },
-    { src: "/static/images/pages/sols-mosaiques/sol-17-croped.png", alt: "sol-17" },
+    { src: "/static/images/pages/sols-mosaiques/sol-16-croped.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-16.png", alt: "sol-16" },
+    { src: "/static/images/pages/sols-mosaiques/sol-17-croped.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-17.png", alt: "sol-17" },
     { src: "/static/images/pages/sols-mosaiques/sol-18.png", alt: "sol-18" },
     { src: "/static/images/pages/sols-mosaiques/sol-19.png", alt: "sol-19" },
-    { src: "/static/images/pages/sols-mosaiques/sol-20-croped.png", alt: "sol-20" },
+    { src: "/static/images/pages/sols-mosaiques/sol-20-croped.png", imgSrc: "/static/images/pages/sols-mosaiques/sol-20.png", alt: "sol-20" },
     { src: "/static/images/pages/sols-mosaiques/chantier-01.png", alt: "chantier-01" },
     { src: "/static/images/pages/sols-mosaiques/chantier-02.png", alt: "chantier-02" },
     { src: "/static/images/pages/sols-mosaiques/chantier-03.png", alt: "chantier-03" },
@@ -42,6 +42,7 @@ It is a mosaic found in the Generalife of the Alhambra, throughout the Iberian P
       <FancyBoxImage
         src={image.src}
         alt={image.alt}
+        {...(image.imgSrc && { imgSrc: image.imgSrc })}
         width={2912}
         height={1632}
         className="w-full h-full object-cover"

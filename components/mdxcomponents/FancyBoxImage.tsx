@@ -6,9 +6,10 @@ interface ImageWithFancyboxProps extends ImageProps {
   src: string // Source obligatoire
   alt: string // Texte alternatif obligatoire
   noShadow?: boolean
+  imgSrc?: string // Image source si differente
 }
 
-const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) => {
+const FancyBoxImage = ({ alt, src, noShadow, imgSrc, ...rest }: ImageWithFancyboxProps) => {
   const isExternal = src.startsWith("http") // Vérifie si l'URL est externe
 
   // // Génère une URL optimisée pour les images internes
@@ -21,9 +22,10 @@ const FancyBoxImage = ({ alt, src, noShadow, ...rest }: ImageWithFancyboxProps) 
 
   // // Génère la source optimisée pour FancyBox
   // const optimizedSrc = generateOptimizedSrc(src);
-
   const cloudFrontUrl = process.env.CLOUD_FRONT_URL
-  let optimizedSrc = isExternal ? src : `${cloudFrontUrl}${src}`
+  const baseSrc = imgSrc || src // Utilise `imgSrc` si défini, sinon `src`
+  let optimizedSrc = isExternal ? baseSrc : `${cloudFrontUrl}${baseSrc}`
+
   if (!isExternal && !optimizedSrc.includes("?format=")) {
     optimizedSrc += "?format=auto"
     if (!optimizedSrc.includes("width=")) {
