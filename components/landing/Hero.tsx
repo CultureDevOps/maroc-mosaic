@@ -6,7 +6,7 @@ type Props = {
   params: { locale: LocaleTypes }
 }
 
-const heroBackgroundImg = "/static/images/assets/fontaine-02-enhanced-2.png"
+const heroBackgroundImg = "/static/images/assets/fontaine-08.png"
 
 export default async function Hero({ params: { locale } }: Props) {
   const { t } = await createTranslation(locale, "hero")
