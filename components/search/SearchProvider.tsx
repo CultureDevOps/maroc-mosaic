@@ -10,7 +10,7 @@ import { Blog } from "contentlayer/generated"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import { useTranslation } from "app/[locale]/i18n/client"
 import { fallbackLng } from "app/[locale]/i18n/locales"
-import { HomeIcon, BlogIcon, TagsIcon, ProjectsIcon, AboutIcon } from "./icons"
+import { HomeIcon, AboutIcon } from "./icons"
 
 interface SearchProviderProps {
   children: ReactNode
@@ -23,6 +23,9 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
   const authors = allAuthors
     .filter((a) => a.language === locale)
     .sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1)) as Authors[]
+  const section_about = t("about")
+  const navigationSection = t("navigate")
+  const section_home = t("home")
 
   const authorSearchItems = authors.map((author) => {
     const { name, slug } = author
@@ -31,7 +34,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       name: name,
       keywords: "",
       shortcut: [],
-      section: locale === fallbackLng ? "Authors" : "Auteurs",
+      section: section_about,
       perform: () => router.push(`/${locale}/about/${slug}`),
       icon: (
         <i>
@@ -49,10 +52,10 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
       : [
           {
             id: "about",
-            name: locale === fallbackLng ? "About" : "À propos",
+            name: section_about,
             keywords: "",
             shortcut: ["a"],
-            section: locale === fallbackLng ? "Navigate" : "Naviguer",
+            section: navigationSection,
             perform: () => router.push(`/${locale}/about/contact`),
             icon: (
               <i>
@@ -62,17 +65,14 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
           },
         ]),
   ]
-  /* issue when using regular translations, this is a workaround to show how to implement section titles */
-  const navigationSection = locale === fallbackLng ? "Navigate" : "Naviguer"
   return (
     <KBarSearchProvider
       kbarConfig={{
         searchDocumentsPath: "search.json",
-        /* issue when using regular translations, this is a workaround to show how to implement translated menu titles */
         defaultActions: [
           {
             id: "home",
-            name: locale === fallbackLng ? "Home" : "Accueil",
+            name: section_home,
             keywords: "",
             shortcut: ["h"],
             section: navigationSection,
@@ -83,45 +83,6 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
               </i>
             ),
           },
-          // {
-          //   id: 'blog',
-          //   name: locale === fallbackLng ? 'Blog' : 'Blog',
-          //   keywords: '',
-          //   shortcut: ['b'],
-          //   section: navigationSection,
-          //   perform: () => router.push(`/${locale}/blog`),
-          //   icon: (
-          //     <i>
-          //       <BlogIcon />
-          //     </i>
-          //   ),
-          // },
-          // {
-          //   id: 'tags',
-          //   name: locale === fallbackLng ? 'Tags' : 'Tags',
-          //   keywords: '',
-          //   shortcut: ['t'],
-          //   section: navigationSection,
-          //   perform: () => router.push(`/${locale}/tags`),
-          //   icon: (
-          //     <i>
-          //       <TagsIcon />
-          //     </i>
-          //   ),
-          // },
-          // {
-          //   id: 'projects',
-          //   name: locale === fallbackLng ? 'Projects' : 'Projets',
-          //   keywords: '',
-          //   shortcut: ['p'],
-          //   section: navigationSection,
-          //   perform: () => router.push(`/${locale}/projects`),
-          //   icon: (
-          //     <i>
-          //       <ProjectsIcon />
-          //     </i>
-          //   ),
-          // },
           ...authorsActions,
         ],
         onSearchDocumentsLoad(json) {
