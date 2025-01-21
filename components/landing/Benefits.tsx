@@ -82,7 +82,7 @@ function Benefits({ params: { locale }, posts }: Props) {
               className="text-shadow text-3xl font-headings font-bold text-center text-heading dark:text-heading-dark mb-8
                 text-shadow-gray-400/80 dark:text-shadow-black"
             >
-              Notre Catalogue
+              {t("catalog")}
             </h2>
 
             <div className="flex justify-center mb-6">
@@ -96,7 +96,7 @@ function Benefits({ params: { locale }, posts }: Props) {
                 className="inline-block bg-secondary-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-secondary-700
                   transition-all duration-200"
               >
-                Télécharger le catalogue
+                {t("dl_catalog")}
               </a>
             </div>
           </div>
