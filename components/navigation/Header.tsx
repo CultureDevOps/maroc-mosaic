@@ -75,7 +75,7 @@ const Header = () => {
                   alt="logo"
                   src={siteMetadata.siteLogo ?? ""}
                   width={40}
-                  height={40}
+                  height={29}
                   priority={true}
                   sizes="(min-width: 768px) 60px, 40px"
                   className="object-contain"
