@@ -133,8 +133,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             <div>
               <MenuItems
                 className="absolute left-1/2 z-50 mt-2 flex max-w-screen-md origin-top-right -translate-x-1/2 flex-col gap-1
-                  divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black/5 backdrop-blur-sm
-                  focus:outline-none"
+                  divide-y divide-gray-100 rounded-md shadow-lg backdrop-blur-sm focus:outline-none"
                 as="div"
                 modal={false}
               >
@@ -144,7 +143,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
                       rounded-md bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80 p-1 shadow-xl
                       shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80
                       dark:to-gray-900/80 dark:shadow-gray-950 sm:max-w-[300px] md:max-w-[900px] lg:max-w-[900px]
-                      xl:max-w-[1200px]"
+                      xl:max-w-[1200px] border border-gray-900/50"
                   >
                     {posts.map((post) => post.language === locale && renderBlogLink(post))}
                   </div>

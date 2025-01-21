@@ -88,14 +88,14 @@ const LangSwitch = () => {
               <MenuItems
                 modal={false}
                 className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg
-                  ring-1 ring-black/5 backdrop-blur-sm focus:outline-none"
+                  backdrop-blur-sm focus:outline-none"
                 aria-orientation="vertical"
               >
                 <RadioGroup>
                   <div
                     className="rounded-md bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80 p-1 shadow-xl
                       shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80
-                      dark:to-gray-900/80 dark:shadow-gray-950 shadow-xl"
+                      dark:to-gray-900/80 dark:shadow-gray-950 shadow-xl border border-gray-900/50"
                   >
                     {locales.map((newLocale: string) => (
                       <Radio key={newLocale} value={newLocale}>
