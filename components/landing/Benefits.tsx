@@ -1,19 +1,15 @@
 "use client"
 
-import React, { useMemo, useState, useEffect, useRef } from "react"
+import React, { useMemo, useState } from "react"
 import Container from "./Container"
-import Card from "../projectcard"
-import landingData from "@/data/landingData"
-import { createTranslation } from "app/[locale]/i18n/server"
+import Card from "@/components/projectcard"
 import { LocaleTypes } from "app/[locale]/i18n/settings"
 import { useTranslation } from "app/[locale]/i18n/client"
-import SectionContainer from "@/components/SectionContainer"
 import { CoreContent } from "pliny/utils/contentlayer"
 import { Blog } from "contentlayer/generated"
 import { POSTS_PER_PAGE } from "@/data/postsPerPage"
-import { sortByDate } from "../util/sortByDate"
+import { sortByDate } from "@/components/util/sortByDate"
 import Pagination from "@/layouts/Pagination"
-import siteMetadata from "@/data/siteMetadata"
 import PdfViewer from "@/components/pdf/PdfViewer"
 
 type Props = {
@@ -22,7 +18,6 @@ type Props = {
 }
 
 function Benefits({ params: { locale }, posts }: Props) {
-  const landingArray = landingData[locale]
   const { t } = useTranslation(locale, "hero")
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = POSTS_PER_PAGE
