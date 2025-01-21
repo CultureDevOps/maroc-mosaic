@@ -92,7 +92,11 @@ const LangSwitch = () => {
                 aria-orientation="vertical"
               >
                 <RadioGroup>
-                  <div className="rounded-md bg-primary-800 p-1 shadow-xl shadow-gray-950">
+                  <div
+                    className="rounded-md bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80 p-1 shadow-xl
+                      shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80
+                      dark:to-gray-900/80 dark:shadow-gray-950 shadow-xl"
+                  >
                     {locales.map((newLocale: string) => (
                       <Radio key={newLocale} value={newLocale}>
                         <MenuItem>

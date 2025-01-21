@@ -77,9 +77,9 @@ const ThemeSwitch = () => {
                 >
                   <RadioGroup value={theme} onChange={handleThemeChange}>
                     <div
-                      className="rounded-md bg-gradient-to-br from-gray-200/95 via-primary-200/95 to-gray-200/95 p-1 shadow-xl
-                        shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-primary-900/95
-                        dark:to-gray-900/95 dark:shadow-gray-950"
+                      className="rounded-md bg-gradient-to-br from-gray-200/80 via-primary-200/80 to-gray-200/80 p-1 shadow-xl
+                        shadow-gray-400 dark:bg-gradient-to-br dark:from-gray-900/80 dark:via-primary-900/80
+                        dark:to-gray-900/80 dark:shadow-gray-950"
                     >
                       <Radio value="light">
                         <MenuItem>
@@ -90,8 +90,8 @@ const ThemeSwitch = () => {
                               focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-white text-shadow-black
-                              hover:text-secondary-500 hover:backdrop-blur-sm`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-900 dark:text-gray-200
+                              text-shadow-black hover:text-secondary-500 dark:hover:text-secondary-500 hover:backdrop-blur-sm`}
                             >
                               <Sun className="size-6" />
                               <span className="ml-2">{t("light")}</span>
@@ -109,8 +109,8 @@ const ThemeSwitch = () => {
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                               } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700
-                              text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white
-                              dark:text-shadow-black dark:hover:text-primary-500`}
+                              text-shadow-gray-400/80 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black
+                              dark:text-shadow-black hover:text-secondary-500 dark:hover:text-secondary-500`}
                             >
                               <Moon className="size-6" />
                               <span className="ml-2">{t("dark")}</span>
@@ -128,8 +128,8 @@ const ThemeSwitch = () => {
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
                               } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700
-                              text-shadow-gray-400/80 hover:text-primary-500 hover:backdrop-blur-sm dark:text-white
-                              dark:text-shadow-black dark:hover:text-primary-500`}
+                              text-shadow-gray-400/80 hover:text-secondary-500 hover:backdrop-blur-sm dark:text-white
+                              dark:text-shadow-black dark:hover:text-secondary-500`}
                               role="menuitem"
                             >
                               <Monitor className="size-6" />
