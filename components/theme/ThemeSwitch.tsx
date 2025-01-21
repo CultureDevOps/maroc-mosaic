@@ -90,8 +90,9 @@ const ThemeSwitch = () => {
                               focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-900 dark:text-gray-200
-                              text-shadow-black hover:text-secondary-500 dark:hover:text-secondary-500 hover:backdrop-blur-sm`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-primary-700
+                              dark:text-gray-200 text-shadow-gray-400/80 dark:text-shadow-black hover:text-secondary-600
+                              dark:hover:text-secondary-500 hover:backdrop-blur-sm font-bold`}
                             >
                               <Sun className="size-6" />
                               <span className="ml-2">{t("light")}</span>
@@ -108,9 +109,9 @@ const ThemeSwitch = () => {
                               focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700
-                              text-shadow-gray-400/80 hover:backdrop-blur-sm dark:text-white dark:text-shadow-black
-                              dark:text-shadow-black hover:text-secondary-500 dark:hover:text-secondary-500`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-primary-700 dark:text-white
+                              text-shadow-gray-400/80 hover:backdrop-blur-sm dark:text-shadow-black dark:text-shadow-black
+                              hover:text-secondary-600 dark:hover:text-secondary-500 font-bold`}
                             >
                               <Moon className="size-6" />
                               <span className="ml-2">{t("dark")}</span>
@@ -127,9 +128,9 @@ const ThemeSwitch = () => {
                               focus
                                   ? "bg-primary-400/50 dark:bg-primary-500/30"
                                   : "hover:bg-primary-400/50 dark:hover:bg-gray-600/40"
-                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-gray-700
-                              text-shadow-gray-400/80 hover:text-secondary-500 hover:backdrop-blur-sm dark:text-white
-                              dark:text-shadow-black dark:hover:text-secondary-500`}
+                              } group text-shadow flex w-full items-center rounded-md p-2 text-sm text-primary-700 dark:text-white
+                              text-shadow-gray-400/80 hover:text-secondary-600 hover:backdrop-blur-sm dark:text-white
+                              dark:text-shadow-black dark:hover:text-secondary-500 font-bold`}
                               role="menuitem"
                             >
                               <Monitor className="size-6" />

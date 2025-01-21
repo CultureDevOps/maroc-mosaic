@@ -35,8 +35,8 @@ export default function AuthorLayout({ children, content, params: { locale } }: 
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1
-            className="text-heading-700 text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight
-              antialiased text-shadow-gray-400/80 dark:text-white dark:text-shadow-black sm:text-4xl sm:leading-10
+            className="text-heading text-shadow font-headings text-3xl font-extrabold leading-9 tracking-tight antialiased
+              text-shadow-gray-400/80 dark:text-heading-dark dark:text-shadow-black sm:text-4xl sm:leading-10
               md:text-6xl md:leading-14"
           >
             {t("about")}
@@ -56,8 +56,8 @@ export default function AuthorLayout({ children, content, params: { locale } }: 
               />
             )}
             <h2
-              className="text-shadow pb-2 pt-4 font-headings text-2xl font-bold leading-8 tracking-tight
-                text-shadow-gray-400/80 dark:text-shadow-black"
+              className="text-heading dark:text-heading-dark text-shadow pb-2 pt-4 font-headings text-2xl font-bold leading-8
+                tracking-tight text-shadow-gray-400/80 dark:text-shadow-black"
             >
               {name}
             </h2>

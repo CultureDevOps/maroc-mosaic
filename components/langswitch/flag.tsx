@@ -20,7 +20,7 @@ const Flag: React.FC<FlagProps> = ({ locale }) => {
   return (
     <div className="flex items-center space-x-2">
       {flag.icon}
-      <span className="text-sm">{flag.locale.toUpperCase()}</span>
+      <span className="text-sm font-bold">{flag.locale.toUpperCase()}</span>
     </div>
   )
 }

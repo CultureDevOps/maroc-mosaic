@@ -84,7 +84,8 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
               </div>
               <div
                 className="text-md text-shadow break-words font-headings font-bold text-primary-700 antialiased
-                  text-shadow-gray-400/80 group-hover:text-secondary-500 dark:text-white dark:text-shadow-black"
+                  text-shadow-gray-400/80 group-hover:text-secondary-600 dark:group-hover:text-secondary-500
+                  dark:text-white dark:text-shadow-black"
               >
                 {title}
               </div>

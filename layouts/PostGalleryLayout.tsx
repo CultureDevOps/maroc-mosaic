@@ -43,24 +43,19 @@ export default async function PostLayout({
   children,
   params: { locale },
 }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, language, series, toc } = content
-  const basePath = path.split("/")[0]
+  const { filePath, path, slug, title } = content
   const { t } = await createTranslation(locale, "home")
-  // const tableOfContents: Toc = toc as unknown as Toc
   return (
     <>
-      {/* <div className="mb-6
-                      bg-gradient-to-tr from-white/40 via-primary-200/30 to-white/30 
-                      dark:bg-gradient-to-tr dark:from-gray-900/30 dark:via-primary-950/30 dark:to-gray-900/30 
-                      backdrop-blur-sm rounded-lg p-8 shadow-lg 
-                      border border-white/20 dark:border-gray-700/20 h-fit
-                      shadow-xl shadow-gray-400 dark:shadow-gray-950"> */}
       <FancyboxWrapper>
         <article>
           <div className="xl:divide-y xl:divide-gray-300 xl:dark:divide-gray-700">
             <header className="pt-6 xl:pb-6">
               <div className="space-y-1 text-center">
-                <div className="text-shadow font-headings text-shadow-gray-400/80 dark:text-shadow-black">
+                <div
+                  className="text-heading dark:text-heading-dark text-shadow font-headings text-shadow-gray-400/80
+                    dark:text-shadow-black"
+                >
                   <PageTitle>{title}</PageTitle>
                 </div>
               </div>
@@ -96,48 +91,10 @@ export default async function PostLayout({
                   </div>
                 </div>
               </div>
-              {/* <footer>
-                  <div className="divide-gray-300 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                    {(next || prev) && (
-                      <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                        {prev && prev.slug && (
-                          <div>
-                            <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">
-                              {t('preva')}
-                            </p>
-                            <div className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400">
-                              <Link href={`/${locale}/blog/${prev.slug}`}>{prev.title}</Link>
-                            </div>
-                          </div>
-                        )}
-                        {next && next.slug && (
-                          <div>
-                            <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">
-                              {t('nexta')}
-                            </p>
-                            <div className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400">
-                              <Link href={`/${locale}/blog/${next.slug}`}>{next.title}</Link>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  <div className="pt-4 xl:pt-8">
-                    <Link
-                      href={`/${locale}/${basePath}`}
-                      className="text-primary-700 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400"
-                      aria-label="Back to the blog"
-                    >
-                      &larr;{t('back')}
-                    </Link>
-                  </div>
-                </footer> */}
             </div>
           </div>
         </article>
       </FancyboxWrapper>
-      {/* </div> */}
     </>
   )
 }

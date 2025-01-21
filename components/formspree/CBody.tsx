@@ -47,8 +47,9 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
           disabled={state.submitting || !name || !email || !message}
           data-te-ripple-init
           data-te-ripple-color="light"
-          className="text-md border-1 w-full rounded-full bg-primary-500 px-4 py-2 font-semibold text-white transition
-            hover:opacity-80"
+          className="text-md border-1 w-full rounded-full bg-primary-600 dark:bg-primary-500 px-4 py-2 font-semibold
+            text-white transition hover:bg-primary-700 dark:hover:bg-primary-600 hover:cursor-pointer
+            text-shadow text-shadow-black shadow-sm shadow-gray-950"
         >
           {t("button")}
         </button>

@@ -111,7 +111,10 @@ module.exports = {
           dark: colors.white,
         },
         text: customColors.gris[900],
-        link: customColors.terracotta[400],
+        link: {
+          DEFAULT: customColors.terracotta[600],
+          dark: customColors.terracotta[400],
+        },
         "button-primary": customColors.marron,
         "button-secondary": customColors.olive[300],
         accent: customColors.olive[400],

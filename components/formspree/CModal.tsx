@@ -56,7 +56,7 @@ export const CModal: React.FC<cModalProps> = ({
             focus:outline-none dark:bg-black lg:h-auto"
         >
           <div className="flex items-center justify-between p-6">
-            <div className="text-heading-400 ml-2 flex flex-row items-center text-3xl font-semibold">
+            <div className="text-heading ml-2 flex flex-row items-center text-3xl font-semibold">
               <span>
                 <MailIcon className="mr-2 size-6" />
               </span>

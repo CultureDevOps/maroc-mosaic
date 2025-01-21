@@ -103,7 +103,7 @@ const AuthorsMenu = ({ className }: AuthorsMenuProps) => {
                 <div
                   className={`hidden font-medium ${
                     isSelected
-                      ? "text-heading-500"
+                      ? "text-heading"
                       : "text-gray-600 hover:text-gray-900 dark:hover:text-gray-100"
                     } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                 >
