@@ -72,31 +72,31 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
       <table className="min-w-full text-left text-sm">
         <thead className="bg-primary-500">
           <tr>
-            <th
-              className="cursor-pointer overflow-hidden rounded-tl-lg px-6 py-3"
-              onClick={() => handleSort("name")}
-            >
+            <th className="cursor-pointer overflow-hidden rounded-tl-lg px-6 py-3">
               <div className="flex items-center gap-4">
                 <div className="flex items-center">
                   <h2 className="font-headings text-xl text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
                     {t("project")}
                   </h2>
-                  <div className="ml-2 flex flex-col items-center">
+                  <button
+                    className="ml-2 flex flex-col items-center"
+                    onClick={() => handleSort("name")}
+                  >
                     <ChevronUpIcon
                       className={`size-4 ${sortBy === "name" && sortOrder === "asc" ? "text-secondary-500" : "text-gray-200"}`}
                     />
                     <ChevronDownIcon
                       className={`size-4 ${sortBy === "name" && sortOrder === "desc" ? "text-secondary-500" : "text-gray-200"}`}
                     />
-                  </div>
+                  </button>
                 </div>
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => handleSearchChange("term", e.target.value)}
                   placeholder={t("search")}
-                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
-                    outline-none placeholder:text-gray-600 focus:ring-secondary-300"
+                  className="rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
+                    placeholder:text-gray-600 focus:border-secondary-500 focus:outline-none outline-none focus:ring-0"
                 />
               </div>
             </th>
@@ -117,26 +117,26 @@ const TailwindTable: FC<TailwindTableProps> = ({ data, onRowClick, locale }) => 
                   value={searchInfo}
                   onChange={(e) => handleSearchChange("info", e.target.value)}
                   placeholder={t("search")}
-                  className="focus:ring-3 rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
-                    outline-none placeholder:text-gray-600 focus:ring-secondary-300"
+                  className="rounded-lg border border-white/10 bg-primary-200/20 px-2 py-1 text-gray-700 text-xs
+                    placeholder:text-gray-600 focus:border-secondary-500 focus:outline-none outline-none focus:ring-0"
                 />
               </div>
             </th>
 
-            <th
-              className="hidden cursor-pointer rounded-tr-lg px-6 py-3 text-xl lg:table-cell"
-              onClick={() => handleSort("country")}
-            >
+            <th className="hidden cursor-pointer rounded-tr-lg px-6 py-3 text-xl lg:table-cell">
               <div className="flex items-center font-headings text-shadow text-shadow-gray-400/80 dark:text-shadow-black">
                 {t("country")}
-                <div className="ml-2 flex flex-col items-center">
+                <button
+                  className="ml-2 flex flex-col items-center"
+                  onClick={() => handleSort("country")}
+                >
                   <ChevronUpIcon
                     className={`size-4 ${sortBy === "country" && sortOrder === "asc" ? "text-secondary-500" : "text-gray-200"}`}
                   />
                   <ChevronDownIcon
                     className={`size-4 ${sortBy === "country" && sortOrder === "desc" ? "text-secondary-500" : "text-gray-200"}`}
                   />
-                </div>
+                </button>
               </div>
             </th>
           </tr>
