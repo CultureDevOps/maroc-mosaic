@@ -27,35 +27,34 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => {
       initial="hidden"
       animate="enter"
       transition={{ type: "linear" }}
-      className="w-full p-2"
+      className="w-full p-2 hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-gray-950 rounded-2xl
+        hover:outline hover:outline-1 hover:outline-white/20 dark:hover:outline-gray-950/20 mb-6"
     >
       <Link
         href={href.startsWith("http") ? href : `/${locale}${href}`}
         aria-label={`${t("linkto")}${title}`}
-        className={`${imgSrc && "h-full"} group overflow-hidden rounded-md`}
+        className={`${imgSrc && "h-full"} overflow-hidden rounded-md group`}
       >
         <Image
           alt={title}
           title={title}
           src={imgSrc}
-          className="rounded-lg object-cover shadow-xl shadow-gray-400 dark:shadow-gray-950"
+          className="rounded-lg object-cover shadow-lg shadow-gray-400 group-hover:shadow-gray-400 dark:shadow-gray-950
+            group-hover:dark:shadow-gray-950"
           width={544}
           height={306}
         />
         <div className="p-6">
           <h2
             className="mb-3 font-headings text-2xl font-bold leading-8 tracking-tight text-heading
-              group-hover:text-secondary-600 dark:text-heading-dark dark:group-hover:text-secondary-400
+              group-hover:text-secondary-600 dark:text-heading-dark dark:group-hover:text-secondary-500
               text-shadow text-shadow-gray-400/80 dark:text-shadow-black"
           >
             {title}
           </h2>
           <p className="prose mb-3 max-w-none text-gray-700 dark:text-gray-400">{description}</p>
 
-          <div
-            className="dark:dark-text-link text-base font-medium leading-6 text-link group-hover:text-secondary-600
-              dark:group-hover:text-secondary-400"
-          >
+          <div className="text-link dark:text-link-dark text-base font-medium leading-6">
             {t("read")} &rarr;
           </div>
         </div>

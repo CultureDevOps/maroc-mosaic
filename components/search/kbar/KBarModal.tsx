@@ -103,9 +103,9 @@ export const KBarModal: React.FC<KBarModalProps> = ({ actions, isLoading }) => {
           <KBarAnimator className="w-full max-w-xl">
             <motion.div
               style={{ zIndex: "100", transformOrigin: "center center" }}
-              className="dark:via-primary-950/50 overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b
-                from-white/70 via-primary-200/40 to-white/30 shadow-2xl backdrop-blur-lg dark:border-gray-800
-                dark:bg-gradient-to-b dark:from-gray-900/70 dark:to-gray-900/40 dark:shadow-gray-900/70"
+              className="overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-b from-white/70 via-primary-200/40
+                to-white/30 shadow-2xl backdrop-blur-lg dark:border-gray-800 dark:bg-gradient-to-b
+                dark:from-gray-900/70 dark:via-primary-950/50 dark:to-gray-900/40 dark:shadow-gray-900/70"
               {...animationProps}
             >
               <div className="flex items-center space-x-4 p-4">

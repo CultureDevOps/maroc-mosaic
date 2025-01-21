@@ -52,32 +52,40 @@ function Benefits({ params: { locale }, posts }: Props) {
               {t("title_description")}
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {displayPosts.map((post) => (
-              <Card
-                key={post.title}
-                title={post.title}
-                description={
-                  post.summary!.length > 149
-                    ? `${post.summary!.substring(0, 149)}...`
-                    : post.summary
-                }
-                imgSrc={post.banner}
-                href={`/blog/${post.slug}`}
-              />
-            ))}
-          </div>
-          {totalPages > 1 && (
-            <div className="mt-4 flex justify-center">
-              <Pagination
-                totalPages={totalPages}
-                currentPage={currentPage}
-                onPageChange={onPageChange}
-                params={{ locale: locale }}
-              />
+          <div className="mx-auto my-6">
+            <h2
+              className="text-shadow text-3xl font-headings font-bold text-center text-heading dark:text-heading-dark mb-8
+                text-shadow-gray-400/80 dark:text-shadow-black"
+            >
+              {t("mosaics")}
+            </h2>
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+              {displayPosts.map((post) => (
+                <Card
+                  key={post.title}
+                  title={post.title}
+                  description={
+                    post.summary!.length > 149
+                      ? `${post.summary!.substring(0, 149)}...`
+                      : post.summary
+                  }
+                  imgSrc={post.banner}
+                  href={`/blog/${post.slug}`}
+                />
+              ))}
             </div>
-          )}
-          <div className="mx-auto mb-12">
+            {totalPages > 1 && (
+              <div className="mt-4 flex justify-center">
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  onPageChange={onPageChange}
+                  params={{ locale: locale }}
+                />
+              </div>
+            )}
+          </div>
+          <div className="mx-auto my-6">
             <h2
               className="text-shadow text-3xl font-headings font-bold text-center text-heading dark:text-heading-dark mb-8
                 text-shadow-gray-400/80 dark:text-shadow-black"
@@ -93,8 +101,9 @@ function Benefits({ params: { locale }, posts }: Props) {
               <a
                 href="/static/pdf/catalogue_MAROC_MOSAIC.pdf"
                 download
-                className="inline-block bg-secondary-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-secondary-700
-                  transition-all duration-200"
+                className="inline-block bg-secondary-600 dark:bg-secondary-500 text-white py-3 px-6 rounded-lg shadow-md
+                  hover:bg-secondary-700 dark:hover:bg-secondary-600 transition-all duration-200 shadow-gray-400
+                  dark:shadow-gray-950"
               >
                 {t("dl_catalog")}
               </a>

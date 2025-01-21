@@ -113,7 +113,7 @@ module.exports = {
         text: customColors.gris[900],
         link: {
           DEFAULT: customColors.terracotta[600],
-          dark: customColors.terracotta[400],
+          dark: customColors.terracotta[500],
         },
         "button-primary": customColors.marron,
         "button-secondary": customColors.olive[300],

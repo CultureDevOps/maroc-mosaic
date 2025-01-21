@@ -225,6 +225,32 @@ html.dark .container-scrollbar-horizontal::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+div:has(#kbar-listbox)::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Pour mobile et écrans étroits */
+@media (max-width: 768px) {
+  div:has(#kbar-listbox)::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+div:has(#kbar-listbox)::-webkit-scrollbar-thumb {
+  background-color: rgba(40, 27, 22, 0.5);
+  border-radius: 5px;
+}
+
+html.dark div:has(#kbar-listbox)::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+div:has(#kbar-listbox)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
