@@ -84,6 +84,7 @@ html {
 body {
   background-color: var(--background-color-light);
   overflow-y: hidden;
+  margin-right: 0 !important;
 }
 
 html.dark body {
