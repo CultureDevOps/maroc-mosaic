@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "https://www.marocmosaic.com/:path*",
+      "destination": "https://marocmosaic.com/:path*",
+      "permanent": true
+    }
+  ]
+}
