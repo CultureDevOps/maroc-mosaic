@@ -53,6 +53,7 @@ export default function AuthorLayout({ children, content, params: { locale } }: 
                 height={192}
                 className="size-48 rounded-full"
                 quality={80}
+                sizes="192px"
               />
             )}
             <h2
