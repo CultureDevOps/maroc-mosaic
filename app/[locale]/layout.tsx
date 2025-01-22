@@ -17,6 +17,7 @@ import { LocaleTypes, locales } from "./i18n/settings"
 import TwSizeIndicator from "@/components/helper/TwSizeIndicator"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Script from "next/script"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -157,6 +158,7 @@ export default async function RootLayout({
           <TwSizeIndicator />
         </ThemeProvider>
         <SpeedInsights />
+        <VercelAnalytics />
       </body>
     </html>
   )
