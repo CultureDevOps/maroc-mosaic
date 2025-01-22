@@ -101,7 +101,7 @@ function Benefits({ params: { locale }, posts }: Props) {
               <a
                 href="/static/pdf/catalogue_MAROC_MOSAIC.pdf"
                 download
-                className="inline-block bg-secondary-600 dark:bg-secondary-500 text-white py-3 px-6 rounded-lg shadow-md
+                className="inline-block bg-primary-600 dark:bg-primary-600 text-white py-3 px-6 rounded-lg shadow-md
                   hover:bg-secondary-700 dark:hover:bg-secondary-600 transition-all duration-200 shadow-gray-400
                   dark:shadow-gray-950"
               >

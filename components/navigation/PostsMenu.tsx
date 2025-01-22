@@ -104,6 +104,7 @@ const BlogMenu = (/*{ className }: BlogMenuProps*/) => {
             <MenuButton
               className="flex transform-gpu items-center space-x-1 transition-transform duration-300"
               onClick={toggleMenu}
+              aria-label={t("menu")}
             >
               <div
                 className={`hidden font-medium ${isSelected ? "text-secondary-500" : "text-white hover:text-secondary-500"}
