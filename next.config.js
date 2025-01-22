@@ -14,7 +14,7 @@ const ContentSecurityPolicy = `
   media-src 'self' *.s3.amazonaws.com;
   connect-src * statichunt.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.vercel-scripts.com;
   font-src 'self';
-  frame-src giscus.app https://www.youtube.com/ https://www.youtube-nocookie.com/ https://*.vercel-scripts.com;
+  frame-src giscus.app https://www.youtube.com/ https://www.youtube-nocookie.com/ https://*.vercel-scripts.com https://vercel.live/;
   worker-src 'self' blob:;
 `
 
