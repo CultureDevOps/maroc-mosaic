@@ -29,11 +29,11 @@ const CookieConsentManager = () => {
         <p className="text-sm mr-2">{t("cookie_consent")}</p>
         <button
           onClick={() => setConsent(true)}
-          className="bg-green-500 px-3 py-1 text-sm rounded mx-2"
+          className="bg-green-700 px-3 py-1 text-sm rounded mx-2"
         >
           {t("cookie_consent_accept")}
         </button>
-        <button onClick={() => setConsent(false)} className="bg-red-500 px-3 py-1 text-sm rounded">
+        <button onClick={() => setConsent(false)} className="bg-red-700 px-3 py-1 text-sm rounded">
           {t("cookie_consent_decline")}
         </button>
       </div>
