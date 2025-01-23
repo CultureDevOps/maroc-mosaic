@@ -3902,6 +3902,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-cookie@npm:^3":
+  version: 3.0.6
+  resolution: "@types/js-cookie@npm:3.0.6"
+  checksum: 272d551687547445cb210213c73e72e0e5d58ad73e2e444a65d688b8ff9425529779ee0cd6492aaa1f070161916d4254ef2b1a76d64179100437f60749d094ef
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.15":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -8235,6 +8242,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-cookie@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "js-cookie@npm:2.2.1"
+  checksum: 4387f5f5691cb96ca9ff8852c589d3012b53f484fda68630a39e20cabc6c5b740f09225e23233ba56cd9de6ebe300a23d20b2c7315f10c309ad5a89fd8c4990b
+  languageName: node
+  linkType: hard
+
+"js-cookie@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "js-cookie@npm:3.0.5"
+  checksum: 366494b1630b9fb8abaef3659748db5dfd52c58c6fc3459b9f0a03b492593bc1b01c6dfcc066b46f6413c28edb3a00cc68fb61ea8cdf6991bedf1f100f8a389d
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -11106,6 +11127,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cookie-consent@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "react-cookie-consent@npm:9.0.0"
+  dependencies:
+    js-cookie: "npm:^2.2.1"
+  peerDependencies:
+    react: ">=16"
+  checksum: 74398466bd984314f07ebcf5fffb270e0c37508b93189effdbda0517d3f516a99b811f3f9bac4d46286eff863104a2c20fe91236ad0b3cff70edc499d8ef185a
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^19.0.0":
   version: 19.0.0
   resolution: "react-dom@npm:19.0.0"
@@ -12923,6 +12955,7 @@ __metadata:
     "@tailwindcss/forms": "npm:^0.5.9"
     "@tailwindcss/typography": "npm:^0.5.15"
     "@types/eslint-plugin-tailwindcss": "npm:^3"
+    "@types/js-cookie": "npm:^3"
     "@types/leaflet": "npm:^1"
     "@types/mdx": "npm:^2.0.13"
     "@types/react": "npm:^19.0.1"
@@ -12952,6 +12985,7 @@ __metadata:
     i18next-browser-languagedetector: "npm:^8.0.2"
     i18next-resources-to-backend: "npm:^1.2.1"
     image-size: "npm:^1.1.1"
+    js-cookie: "npm:^3.0.5"
     leaflet: "npm:^1.9.4"
     leaflet-defaulticon-compatibility: "npm:^0.1.2"
     lint-staged: "npm:^15.2.11"
@@ -12967,6 +13001,7 @@ __metadata:
     prettier-plugin-merge: "npm:^0.7.2"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
     react: "npm:^19.0.0"
+    react-cookie-consent: "npm:^9.0.0"
     react-dom: "npm:^19.0.0"
     react-h5-audio-player: "npm:^3.9.3"
     react-hot-toast: "npm:^2.4.1"

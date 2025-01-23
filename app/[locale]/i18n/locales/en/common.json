@@ -48,5 +48,8 @@
   "french": "French",
   "english": "English",
   "sidetoc": "On this page:",
-  "navigate": "Navigate"
+  "navigate": "Navigate",
+  "cookie_consent": "This site uses cookies to enhance your experience. Do you accept?",
+  "cookie_consent_accept": "Accept",
+  "cookie_consent_decline": "Decline"  
 }

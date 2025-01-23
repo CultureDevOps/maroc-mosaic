@@ -18,6 +18,8 @@ import TwSizeIndicator from "@/components/helper/TwSizeIndicator"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Script from "next/script"
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
+import { CookieConsentProvider } from "@/components/cookies/CookieConsentProvider"
+import ConditionalAnalytics from "@/components/cookies/ConditionalAnalytics"
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -141,24 +143,28 @@ export default async function RootLayout({
           dark:from-primary-800/90 dark:via-gold-950/60 dark:via-75% dark:to-primary-900 dark:text-white"
       >
         <ThemeProvider>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider>
-            <div id="background" className="h-screen w-full overflow-y-auto">
-              <div className="sticky top-0 z-50 flex flex-col justify-between font-sans">
-                <Header />
+            <CookieConsentProvider>
+              <ConditionalAnalytics />
+
+              <div id="background" className="h-screen w-full overflow-y-auto">
+                <div className="sticky top-0 z-50 flex flex-col justify-between font-sans">
+                  <Header />
+                </div>
+                <div className="flex flex-col justify-between font-sans">
+                  <main className="mb-auto">{children}</main>
+                </div>
+                <div className="flex flex-col justify-between font-sans">
+                  <Footer />
+                </div>
               </div>
-              <div className="flex flex-col justify-between font-sans">
-                <main className="mb-auto">{children}</main>
-              </div>
-              <div className="flex flex-col justify-between font-sans">
-                <Footer />
-              </div>
-            </div>
+
+              <TwSizeIndicator />
+              <SpeedInsights />
+              <VercelAnalytics />
+            </CookieConsentProvider>
           </SearchProvider>
-          <TwSizeIndicator />
         </ThemeProvider>
-        <SpeedInsights />
-        <VercelAnalytics />
       </body>
     </html>
   )
