@@ -99,14 +99,6 @@ html.dark body {
   margin: 0 auto; /* Centrage si nécessaire */  
 }
 
-.fancybox-wrapper img {
-  pointer-events: auto; 
-}
-
-.fancybox__image {
-  pointer-events: auto; /* Assure que l'image reste interactive */
-}
-
 @media (max-width: 768px) {
   .fancybox-wrapper img {
     max-height: 100vh; /* Empêche l'image de dépasser la hauteur visible */
