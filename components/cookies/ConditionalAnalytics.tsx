@@ -6,13 +6,7 @@ import siteMetadata from "@/data/siteMetadata"
 import Cookies from "js-cookie"
 
 export default function ConditionalAnalytics() {
-  const [analyticsConsent, setAnalyticsConsent] = useState(false)
-
-  useEffect(() => {
-    const consent = Cookies.get("analytics_consent") === "true"
-    setAnalyticsConsent(consent)
-  }, [])
-
+  const analyticsConsent = Cookies.get("analytics_consent") === "true"
   return (
     analyticsConsent && <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
   )
