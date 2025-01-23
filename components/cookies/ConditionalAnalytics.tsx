@@ -34,10 +34,6 @@ export default function ConditionalAnalytics() {
   if (analyticsConsent !== true) {
     return null
   }
-  console.log(
-    "Google Analytics activé avec l'ID :",
-    siteMetadata.analytics?.googleAnalytics?.googleAnalyticsId
-  )
 
   return <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
 }
