@@ -95,6 +95,18 @@ const MobileNav = ({ navShow, onToggleNav }: { navShow: boolean; onToggleNav: ()
               </Link>
             </div>
           ))}
+          <div className="px-12 py-4">
+            <Link
+              href={`/${locale}/references`}
+              className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+              aria-label={"references"}
+              onClick={onToggleNav}
+            >
+              <span className="text-shadow relative z-10 font-bold text-shadow-black">
+                {t("references")}
+              </span>
+            </Link>
+          </div>
           <>
             <div
               className="flex cursor-pointer items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest
