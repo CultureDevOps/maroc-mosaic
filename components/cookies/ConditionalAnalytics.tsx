@@ -7,7 +7,5 @@ import Cookies from "js-cookie"
 
 export default function ConditionalAnalytics() {
   const analyticsConsent = Cookies.get("analytics_consent") === "true"
-  return (
-    analyticsConsent && <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-  )
+  return <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
 }
