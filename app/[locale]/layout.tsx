@@ -145,7 +145,8 @@ export default async function RootLayout({
         <ThemeProvider>
           <SearchProvider>
             <CookieConsentProvider>
-              <ConditionalAnalytics />
+              <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+              {/* <ConditionalAnalytics /> */}
 
               <div id="background" className="h-screen w-full overflow-y-auto">
                 <div className="sticky top-0 z-50 flex flex-col justify-between font-sans">

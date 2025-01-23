@@ -14,10 +14,6 @@ export default function ConditionalAnalytics() {
   }, [])
 
   return (
-    <div>
-      {analyticsConsent && (
-        <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-      )}
-    </div>
+    analyticsConsent && <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
   )
 }
