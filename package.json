@@ -52,6 +52,7 @@
     "react": "^19.0.0",
     "react-cookie-consent": "^9.0.0",
     "react-dom": "^19.0.0",
+    "react-ga4": "^2.1.0",
     "react-h5-audio-player": "^3.9.3",
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^15.2.0",
