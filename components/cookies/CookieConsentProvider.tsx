@@ -1,4 +1,5 @@
 "use client"
+
 import React, { createContext, useContext, useState, useEffect } from "react"
 import Cookies from "js-cookie"
 import CookieConsentManager from "./CookieConsentManager"
@@ -10,7 +11,6 @@ const CookieConsentContext = createContext({
 })
 
 export const CookieConsentProvider = ({ children }) => {
-  // Déclarez consent comme boolean | null
   const [consent, setConsentState] = useState<boolean | null>(null)
 
   useEffect(() => {
@@ -23,6 +23,9 @@ export const CookieConsentProvider = ({ children }) => {
   const setConsent = (consent: boolean) => {
     setConsentState(consent)
     Cookies.set("cookie_consent", consent.toString(), { expires: 365 })
+
+    // Déclenche un événement personnalisé pour notifier d'autres composants
+    window.dispatchEvent(new Event("cookieConsentChange"))
   }
 
   return (

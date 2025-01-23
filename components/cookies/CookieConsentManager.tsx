@@ -13,7 +13,7 @@ const CookieConsentManager = () => {
   const [isConsentChecked, setIsConsentChecked] = useState(false)
 
   useEffect(() => {
-    setIsConsentChecked(true) // Le consentement est vérifié après l'hydratation
+    setIsConsentChecked(true) // Vérifie le consentement après l'hydratation
   }, [consent])
 
   if (!isConsentChecked) {
