@@ -8,7 +8,7 @@ const siteMetadata = {
   description: "A blog created with Next.js, i18n and Tailwind.css",
   language: "fr",
   theme: process.env.NEXT_PUBLIC_SITE_THEME, // system, dark or light
-  siteUrl: "https://maroc-mosaic.vercel.app",
+  siteUrl: "https://marocmosaic.com",
   siteRepo: "https://github.com/",
   siteLogo: "/static/images/assets/logo.png",
   socialBanner: "/static/images/assets/fontaine-02-enhanced.png",
