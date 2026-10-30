@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Analytics, AnalyticsConfig } from "pliny/analytics"
+import { Analytics, AnalyticsConfig } from "pliny/analytics/index.js"
 import siteMetadata from "@/data/siteMetadata"
 import { useCookieConsent } from "@/components/cookies/CookieConsentProvider"
 import Cookies from "js-cookie"

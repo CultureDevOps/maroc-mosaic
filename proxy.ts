@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server"
 import { locales } from "app/[locale]/i18n/settings"
 import { fallbackLng } from "app/[locale]/i18n/locales"
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname
 

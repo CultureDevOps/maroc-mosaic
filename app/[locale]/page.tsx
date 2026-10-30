@@ -2,7 +2,7 @@ import FullLayoutSectionContainer from "@/components/FullLayoutSectionContainer"
 import Benefits from "@/components/landing/Benefits"
 import Hero from "@/components/landing/Hero"
 import { allBlogs } from "contentlayer/generated"
-import { allCoreContent, sortPosts } from "pliny/utils/contentlayer"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js"
 import { LocaleTypes } from "./i18n/settings"
 
 interface PageProps {

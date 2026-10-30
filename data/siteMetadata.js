@@ -7,7 +7,7 @@ const siteMetadata = {
   headerSubTitle: "فسيفساء المغرب",
   description: "A blog created with Next.js, i18n and Tailwind.css",
   language: "fr",
-  theme: process.env.NEXT_PUBLIC_SITE_THEME, // system, dark or light
+  theme: process.env.NEXT_PUBLIC_SITE_THEME || "light", // system, dark or light
   siteUrl: "https://marocmosaic.com",
   siteRepo: "https://github.com/",
   siteLogo: "/static/images/assets/logo.png",
